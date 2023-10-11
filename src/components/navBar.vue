@@ -7,10 +7,10 @@
       <div id="navBar" :class="theme.isDarkMode ? 'nav-dark' : 'nav-Light'" class=" d-flex align-items-center p-3">
   
         <div class="navItem m-1 mx-3">
-          <router-link :to="{ name: 'home' }" ><button :class="theme.isDarkMode ? 'navTextDark ' : 'navTextLight '" class="btn" @click="changeTitle('A propos de moi')">A propos de moi</button></router-link>
+          <router-link :to="{ name: 'home' }" ><button :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight'" class="btn" @click="changeTitle('A propos de moi')">A propos de moi</button></router-link>
         </div>
         <div class="navItem m-1 mx-3">
-          <router-link :to="{ name: 'service' }" ><button :class="theme.isDarkMode ? 'navTextDark ' : 'navTextLight '" class="btn"  @click="changeTitle('Mes services')" >Mes services</button></router-link>
+          <router-link :to="{ name: 'service' }" ><button :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight'" class="btn"  @click="changeTitle('Mes services')" >Mes services</button></router-link>
         </div>
         <div class="navItem m-1 mx-3">
           <router-link :to="{ name: 'service' }" ><button :class="theme.isDarkMode ? 'navTextDark ' : 'navTextLight '" class="btn"  @click="changeTitle('Mes services')" >Mes projets</button></router-link>
@@ -61,7 +61,7 @@ import { ref } from 'vue';
 const selectedSection = ref('Accueil'); // Par défaut, afficher la section "Accueil"
 
 function changeTitle(newSectionName) {
-  const baseTitle = 'Portfolio Florent VIEVILLE -';
+  const baseTitle = 'Portfolio Florent VIEVILLE';
   const newTitle = newSectionName === 'Accueil' ? baseTitle : `${baseTitle} - ${newSectionName}`;
   document.title = newTitle; // Mettez à jour le titre de la page
   selectedSection.value = newSectionName; // Mettez à jour la section sélectionnée

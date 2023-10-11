@@ -18,6 +18,7 @@ const router = createRouter({
       component: service
     }
   ]
-})
+});
+
 
 export default router

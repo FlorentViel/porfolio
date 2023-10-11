@@ -1,5 +1,6 @@
 <template>
-  <section id="welcome" class="d-flex align-items-center align-content-center container my-auto position-relative justify-content-evenly flex-wrap">
+  <section id="welcome"
+   class="d-flex align-items-center align-content-center container my-auto position-relative justify-content-evenly flex-wrap"  key="welcome">
     <div class="col-md-3 ">
       <!-- Image à gauche -->
       <img id="profil_picture" class="img-fluid" src="src/assets/photo_profil.png" alt="Photo de profil" />

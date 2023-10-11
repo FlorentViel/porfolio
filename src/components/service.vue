@@ -1,8 +1,9 @@
 
 
-<template id="service " >
+<template>
+  <section id="service" key="service">
 
-<h1 class="text-center">Mon savoir faire</h1>
+    <h1 class="text-center">Mon savoir faire</h1>
 
 <div id="slider" class="container ">
 
@@ -168,6 +169,11 @@
   </li>
 </ul>
 </div>
+
+
+  </section>
+
+
 
 
 

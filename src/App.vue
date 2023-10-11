@@ -2,9 +2,16 @@
   <div :class="theme.isDarkMode ? 'backgroundDark ' : 'backgroundLight'" class="backgroundDefault d-flex flex-column">
 
     <NavBar :theme="theme" />
-    <Welcome v-if="selectedSection === 'home'" :theme="theme" />
 
-    <router-view :theme="theme" :changeSection="changeSection" />
+    <!--<Welcome v-if="selectedSection === 'home'" :theme="theme" />  -->
+
+
+    <router-view :theme="theme" :changeSection="changeSection" v-slot="{ Component }">
+      <transition name="fade" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
+
 
   </div>
 </template>
@@ -34,9 +41,23 @@ const theme = readonly({
 
 function changeSection(newSectionName) {
   selectedSection.value = newSectionName; // Mettez à jour la section sélectionnée
-  const baseTitle = 'Portfolio Florent VIEVILLE';
+  const baseTitle = 'Portfolio Florent VIEVILLE - A propos de moi';
   const newTitle = newSectionName === 'A propos' ? baseTitle : `${baseTitle} - ${newSectionName}`;
   document.title = newTitle; // Mettez à jour le titre de la page
 }
 
 </script>
+
+
+<style>
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s; /* Durée de la transition en secondes */
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+
+
+</style>
