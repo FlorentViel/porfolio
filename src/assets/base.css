@@ -1,0 +1,247 @@
+@import "@fontsource/jura"; /* Defaults to weight 400 */
+@import "@fontsource/jura/400.css"; /* Specify weight */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+
+
+/* color palette from <https://github.com/vuejs/theme> */
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --Similiblack: #181818;
+  --black-soft: #222222;
+  --vt-c-black-mute: #282828;
+
+  --indigo: #2c3e50;
+
+  --text-dark-2: rgba(235, 235, 235, 0.64);
+}
+
+/* semantic color variables for this project */
+:root {
+  --color-background: var(--vt-c-white);
+  --color-background-soft: var(--vt-c-white-soft);
+  --color-background-mute: var(--vt-c-white-mute);
+
+  --color-border: var(--vt-c-divider-light-2);
+  --color-border-hover: var(--vt-c-divider-light-1);
+
+  --color-heading: var(--vt-c-text-light-1);
+  --color-text: var(--vt-c-text-light-1);
+
+  --section-gap: 160px;
+
+  --stroke-text-light :0.4px #6c6da2!important; 
+
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--vt-c-black);
+
+    --color-border: var(--vt-c-divider-dark-2);
+    --color-border-hover: var(--vt-c-divider-dark-1);
+
+    --color-heading: var(--vt-c-text-dark-1);
+    --color-text: var(--vt-c-text-dark-2);
+    --stroke-text-dark : 0.5px #1900ff!important; 
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+.backgroundDefault {
+  background-size: auto;
+  font-family: 'Montserrat', sans-serif;
+  background-size: auto;
+  min-width: 100vw;
+  min-height: 100vh;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  
+}
+
+
+.backgroundLight {
+
+
+  background: linear-gradient(112deg, #0355F4 6.55%, #FFF 17.08%, #37A1EE 23.07%, #BCDAF7 37.29%, #6D95E8 53.04%, #8C8FDB 63.88%, #8083DB 71.02%, #9B9EE2 80.32%, #FEFEFE 84.24%, #1271FF 94.18%);
+  transition: .5s ease;
+
+}
+
+@media (prefers-color-scheme: dark) {
+
+  .backgroundDark {
+    background: linear-gradient(112deg, #0E236F 6.55%, #060D23 17.08%, #4610B9 23.07%, #2F4254 37.29%, #194FBE 53.04%, #502DB4 63.88%, #6368CF 71.02%, #070DAC 80.32%, #000 84.24%, #161493 94.18%);
+    transition: .5s ease;
+
+}
+}
+
+
+/* global text css */
+
+.h1-style {
+  font-family: Jura!important;
+  font-size: 40px!important;
+  font-style: normal!important;
+  line-height: normal!important;
+  transition: .5s ease;
+}
+
+.h1-light{
+  color: #000!important;
+
+  -webkit-text-stroke: 0.5px #ffffff!important; 
+  text-stroke: 0.5px #ffffff!important;
+  transition: .5s ease;
+
+}
+
+.h1-dark {
+  color: var(--white)!important;
+
+  -webkit-text-stroke: 1px var(--black)!important; 
+  text-stroke: 1px var(--black)!important; 
+  transition: .5s ease;
+
+
+}
+
+.text-style {
+  font-style: normal!important;
+  font-weight: 400!important;
+  line-height: normal!important;
+  font-size: 18px!important;
+}
+
+
+/* h2-style */
+
+.h2-light {
+  color: #1F0FDC!important;
+  -webkit-text-stroke: 0.4px #d5d0d0!important; 
+  text-stroke: 0.4px #d5d0d0!important; 
+  transition: .5s ease;
+
+}
+
+.h2-dark {
+  color: var(--white)!important;
+  -webkit-text-stroke: 0.4px #000!important; 
+  text-stroke: 0.4px #000 !important; 
+  transition: .5s ease;
+}
+
+/* text-style */
+
+.text-style-light {
+  color: #1F0FDC!important;
+  -webkit-text-stroke: 0.2px #d5d0d0!important; 
+  text-stroke: 0.2px #d5d0d0!important; 
+  transition: .5s ease;
+
+}
+
+.text-style-dark {
+
+  color: var(--white)!important;
+  -webkit-text-stroke: 0.2px var(--black) !important; 
+  text-stroke: 0.2px var(--black) !important; 
+  transition: .5s ease;
+
+}
+
+
+
+
+
+/* p style */
+
+p {
+  font-size: 16px;
+}
+
+.textDark {
+
+  color: #d8eaff;
+  text-shadow: 0 0 2px #ffffff;
+  -webkit-text-stroke: var(--stroke-text-dark);
+   text-stroke: 0.5px #1900ff!important; 
+   text-decoration: none;
+   transition: .5s ease;
+
+
+
+}
+
+.textLight {
+  color: #0e18da!important;
+  -webkit-text-stroke: var(--stroke-text-light);
+  text-stroke: 0.4px var(--stroke-text-light);
+  text-decoration: none;
+  transition: .5s ease;
+}
+
+
+
+/* nav-text */
+
+
+.navTextLight {
+  color: #0e18da!important;
+  -webkit-text-stroke: 0.4px #6c6da2!important; 
+   text-stroke: 0.4px #6c6da2!important; 
+   transition: .5s ease;
+
+}
+
+.navTextLight:hover{
+
+  color: #ffffff!important;
+  -webkit-text-stroke: 0.2px #0f2946!important; /* Largeur et couleur du contour */
+  text-stroke: 0.2px #0f2946!important; /* Largeur et couleur du contour */
+  cursor: pointer;
+
+}
+
+.navTextDark  {
+
+  color: #d8eaff;
+  -webkit-text-stroke: 0.5px #1900ff!important; 
+   text-stroke: 0.5px #1900ff!important; 
+   text-decoration: none;
+   transition: .5s ease;
+
+
+
+}
+
+.navTextDark:hover{
+
+  color: #000000!important;
+    text-shadow: 0 0 5px var(--white),
+    0 0 10px var(--white),
+    0 0 15px var(--white);
+  -webkit-text-stroke: 0.5px #1900ff!important; /* Largeur et couleur du contour */
+  text-stroke: 0.5px #1900ff!important; /* Largeur et couleur du contour */
+  cursor: pointer;
+
+}
+
+
+/* Transition de fondu en entrée/sortie */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 2s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+  opacity: 0;
+}
+
