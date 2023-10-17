@@ -13,13 +13,17 @@
     </router-view>
 
 
+    <Footer :theme="theme" />
+
+
+
   </div>
 </template>
 
 <script setup>
-import Welcome from '@/components/welcome.vue';
-import Service from '@/components/service.vue';
+
 import NavBar from '@/components/NavBar.vue';
+import Footer from '@/components/footer.vue';
 import { ref, readonly } from 'vue';
 
 // Homepage
@@ -50,6 +54,16 @@ function changeSection(newSectionName) {
 
 
 <style>
+
+#app{
+  font-family: 'Montserrat', sans-serif;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  perspective: 1000px;
+
+}
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity 0.3s; /* Durée de la transition en secondes */

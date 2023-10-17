@@ -1,48 +1,39 @@
 
 
 <template>
-  <section id="service" key="service" class="container">
+  <section id="service" key="service">
 
-    <div class="py-2">
-      <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="text-center title font-size-40 h1">Mes services</h1>
-    </div>
+    <h1 class="text-center">Mon savoir faire</h1>
 
-
-<div id="slider">
+<div id="slider" class="container ">
 
   <button class="btn" @click="prevSlide">
     <svg v-if="currentIndex === 0" xmlns="http://www.w3.org/2000/svg" width="47" height="66" viewBox="0 0 47 66" fill="none">
       <path d="M36.3622 1.99355C36.7338 1.6622 37.113 1.33101 37.5 1L36.3622 1.99355C10.3479 25.1943 22.0435 49.14 33.7649 61.0805L37.5 64.5C36.2859 63.5095 35.0252 62.3644 33.7649 61.0805L2 32L36.3622 1.99355Z" fill="#8E8E8E"/>
       <path d="M37.5 1C7.1 27 24.8333 54.1667 37.5 64.5L2 32L37.5 1Z" stroke="#FCFCFC" stroke-width="2"/>
     </svg>
-    <svg id="arrow-prev" :class="theme.isDarkMode ? 'arrow-dark' : 'arrow-light'" v-if="currentIndex > 0 " xmlns="http://www.w3.org/2000/svg" width="47" height="66" viewBox="0 0 47 66" fill="none">
+    <svg v-if="currentIndex > 0 " xmlns="http://www.w3.org/2000/svg" width="47" height="66" viewBox="0 0 47 66" fill="none">
       <path d="M36.3622 1.99355C36.7338 1.6622 37.113 1.33101 37.5 1L36.3622 1.99355C10.3479 25.1943 22.0435 49.14 33.7649 61.0805L37.5 64.5C36.2859 63.5095 35.0252 62.3644 33.7649 61.0805L2 32L36.3622 1.99355Z" fill="black"/>
       <path d="M37.5 1C7.1 27 24.8333 54.1667 37.5 64.5L2 32L37.5 1Z" stroke="#5D11FF" stroke-width="2"/>
     </svg>
   </button>
 
-        
-      <transition-group name="slide" tag="div" class="d-flex w-75 flex-row m-1 p61 justify-content-center align-items-center container">
-
-        <div class="slide col-sm col-5 mx-1 w-25 p-3  text-center" :key="0"  id="slide1" :class="{ 'd-none': currentIndex !== 0,
-          'slide-dark': theme.isDarkMode, 
-          'slide-light' : !theme.isDarkMode}">
-        <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'">Site vitrine</h3>
-        <p :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Creation de site vitrine dynamique et interative permettant de mettre en avant vos produits, savoir faire ou votre entreprise.</p>
-        <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'">Maquettage web</h3>
-        <p :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Création de maquette interactive et dynamique pour votre site internet</p>
-        <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'">Base de données</h3>
-        <p :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Conception de base de données , utilisation d’outils SQL et gestion de données.</p>
-        <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'">Fonctionnalité web</h3>
-        <p :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Ajout de fonctionnalité comme espace contact, espace connexion, espace administrateur. Création de fichier pdf.
+      <div v-if="currentIndex === 0"  class="slide col-sm col-5 mx-1 d-block text-center slide-transition" id="slide1">
+        <h2 :class="theme.isDarkMode ? 'h2-dark' : 'navTextLight '">Liste de services</h2>
+        <h3 :class="theme.isDarkMode ? 'text-style-light ' : 'navTextLight '">Site vitrine</h3>
+        <p :class="theme.isDarkMode ? 'text-style-light' : 'navTextLight '">Creation de site vitrine dynamique et interative permettant de mettre en avant vos produits, savoir faire ou votre entreprise.</p>
+        <h3 :class="theme.isDarkMode ? 'text-style-light' : 'navTextLight '">Maquettage web</h3>
+        <p :class="theme.isDarkMode ? 'text-style-light ' : 'navTextLight '">Création de maquette interactive et dynamique pour votre site internet</p>
+        <h3 :class="theme.isDarkMode ? 'text-style-light' : 'navTextLight '">Base de données</h3>
+        <p :class="theme.isDarkMode ? 'text-style-light' : 'navTextLight '">Conception de base de données , utilisation d’outils SQL et gestion de données.</p>
+        <h3 :class="theme.isDarkMode ? 'text-style-light' : 'navTextLight '">Fonctionnalité web</h3>
+        <p :class="theme.isDarkMode ? 'text-style-light' : 'navTextLight '">Ajout de fonctionnalité comme espace contact, espace connexion, espace administrateur. Création de fichier pdf.
         </p>
       </div>
     
-      <div  class="slide col-sm col-5 mx-1 w-25 text-center" id="slide2" :key="1"  :class="{ 'd-none': currentIndex !== 1 && currentIndex !== 0,
-        'slide-dark': theme.isDarkMode, 
-        'slide-light' : !theme.isDarkMode  }" >
-    <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="text-center">Langages et outils</h3>
-    <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="text-center">Front-end</h3>
+    <div v-if="currentIndex === 1 || currentIndex === 0"  class="slide col-sm col-5" id="slide2">
+    <h3 class="text-center">Langages et outils</h3>
+    <h3 class="text-center">Site vitrine</h3>
     <div class="d-flex align-items-center">
       <svg width="79" height="69">
         <image xlink:href="@/assets/HTML-5-logo.svg" width="79" height="69" />
@@ -75,11 +66,9 @@
     </div>
   </div>
   
-  <div :key="2"  class="slide col-sm col-5 mx-1 w-25 text-center" id="slide3" :class="{ 'd-none': currentIndex !== 1 && currentIndex !== 2, 
-    'slide-dark': theme.isDarkMode, 
-    'slide-light' : !theme.isDarkMode  }">
+  <div v-if="currentIndex === 1 || currentIndex === 2" class="col-sm slide col-5" id="slide3">
     <h3>Langages et outils</h3>
-    <h3>Back-end</h3>
+    <h3>Site vitrine</h3>
     <div>
       <svg width="79" height="69">
         <image xlink:href="@/assets/HTML-5-logo.svg" width="79" height="69" />
@@ -111,11 +100,9 @@
       <span>Vue.js</span>
     </div>
   </div>
-  <div :key="3"  class="slide col-sm col-5 mx-1 w-25 text-center" id="slide4" :class="{ 'd-none': currentIndex !== 2 && currentIndex !== 3, 
-      'slide-dark': theme.isDarkMode, 
-      'slide-light' : !theme.isDarkMode  }" >
+  <div v-if="currentIndex === 2 || currentIndex === 3"  class="slide col-5 " id="slide4">
     <h3>Langages et outils</h3>
-    <h3>Autre</h3>
+    <h3>Site vitrine</h3>
     <div>
       <svg width="79" height="69">
         <image xlink:href="@/assets/HTML-5-logo.svg" width="79" height="69" />
@@ -149,49 +136,39 @@
   </div>
 
 
-  </transition-group>
-
+ 
 
   <button class="btn" @click="nextSlide" >
-    <svg id="arrow-next" :class="theme.isDarkMode ? 'arrow-dark' : 'arrow-light'" v-if="currentIndex >= 0 && currentIndex < 2" xmlns="http://www.w3.org/2000/svg" width="39" height="66" viewBox="0 0 39 66" fill="none">
+    <svg v-if="currentIndex >= 0 && currentIndex < 2" xmlns="http://www.w3.org/2000/svg" width="39" height="66" viewBox="0 0 39 66" fill="none">
         <path d="M2.13777 63.5065C1.76624 63.8378 1.38702 64.169 1 64.5L2.13777 63.5065C28.1521 40.3057 16.4565 16.36 4.73512 4.41948L1 1C2.21411 1.99046 3.47476 3.13556 4.73512 4.41948L36.5 33.5L2.13777 63.5065Z" fill="black"/>
         <path d="M1 64.5C31.4 38.5 13.6667 11.3333 1 1L36.5 33.5L1 64.5Z" stroke="#5D11FF" stroke-width="2"/>
     </svg>
-    <svg  v-if="currentIndex === 2 || currentIndex === 3" xmlns="http://www.w3.org/2000/svg" width="39" height="66" viewBox="0 0 39 66" fill="none">
+    <svg v-if="currentIndex === 2 || currentIndex === 3" xmlns="http://www.w3.org/2000/svg" width="39" height="66" viewBox="0 0 39 66" fill="none">
     <path d="M2.13777 63.5065C1.76624 63.8378 1.38702 64.169 1 64.5L2.13777 63.5065C28.1521 40.3057 16.4565 16.36 4.73512 4.41948L1 1C2.21411 1.99046 3.47476 3.13556 4.73512 4.41948L36.5 33.5L2.13777 63.5065Z" fill="#8E8E8E"/>
     <path d="M1 64.5C31.4 38.5 13.6667 11.3333 1 1L36.5 33.5L1 64.5Z" stroke="#FCFCFC" stroke-width="2"/>
   </svg>
   </button>
-
-
 </div>
 
-<div class="m-auto py-2 my-3">
-  <ul class="d-flex justify-content-center list-unstyled m-1">
+<div class="m-auto">
+  <ul class="d-flex list-unstyled m-1">
   <li class="mx-2">
-    <svg class="circle" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <circle cx="10" cy="10" r="10" :class="{ 'active-circle-dark': currentIndex === 0 && theme.isDarkMode, 
-      'active-circle-light': currentIndex === 0 && !theme.isDarkMode, 
-      'circle-light' : !theme.isDarkMode }" fill="#15151A30"/>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <circle cx="10" cy="10" r="10" :class="{ 'active-circle': currentIndex === 0 }" fill="#15151A30"/>
     </svg>
   </li>
   <li class="mx-2">
-    <svg class="circle" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <circle cx="10" cy="10" r="10" :class="{ 'active-circle-dark': currentIndex === 1 && theme.isDarkMode, 
-      'active-circle-light': currentIndex === 1 && !theme.isDarkMode,
-      'circle-light' : !theme.isDarkMode }" fill="#15151A30"/>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <circle cx="10" cy="10" r="10" :class="{ 'active-circle': currentIndex === 1 }" fill="#15151A30"/>
     </svg>
   </li>
   <li class="mx-2">
-    <svg class="circle" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <circle cx="10" cy="10" r="10" :class="{'active-circle-dark': currentIndex === 2 && theme.isDarkMode, 
-      'active-circle-light': currentIndex === 2 && !theme.isDarkMode,
-      'circle-light' : !theme.isDarkMode }" fill="#15151A30"/>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <circle cx="10" cy="10" r="10" :class="{ 'active-circle': currentIndex === 2 }" fill="#15151A30"/>
     </svg>
   </li>
 </ul>
 </div>
-
 
 
   </section>
@@ -221,7 +198,6 @@ export default {
 },
 
   methods: {
-
   prevSlide() {
 
 
@@ -243,8 +219,10 @@ export default {
 
         this.currentIndex += 1;
 
+
+
+
       }
-      
 
 
 
@@ -265,7 +243,9 @@ export default {
 
 /************************************************* Service css ***************************************************/
 
-/* slider bloc */
+body {
+    overflow-x: hidden;
+}
 
 #slider {
     display: flex;
@@ -275,42 +255,13 @@ export default {
 
 }
 
-/* slide css */
-
 .slide {
+    background: #80787834;
     padding: 5px;
     min-height: max-content;
     height: 490px;
-    transition: transform 0.5s ease-in, background-color 0.5s;
-    cursor: default!important;
-
+    transition: transform 0.5s ease-in; /* Ajoutez une transition */
 }
-
-.slide p {
-  cursor: default;
-
-}
-
-.slide-dark {
-  background: #80787834;
-}
-
-
-.slide-dark:hover {
-    background: #1e1b1b83;
-   
-}
-
-.slide-light {
-  background: #0099ff34;
-}
-
-.slide-light:hover {
-  background: #0099ff83;
-}
-
-
-
 
 
 .slide div {
@@ -323,21 +274,12 @@ export default {
 /* Transition */
 
 
-
-.slide-transition-enter,
-.slide-transition-leave-to {
-  transform: translateX(-100%) translateY(-100%); /* Déplacez la diapositive depuis la gauche et le haut (en dehors de l'écran) */
+.slide-transition-enter, .slide-transition-leave-to {
+  transform: translateX(100%); /* Déplacez la diapositive depuis la droite (en dehors de l'écran) */
 }
 
-.slide-transition-enter-to,
-.slide-transition-leave-from {
-  transform: translateX(0%); /* Déplacez la diapositive depuis la gauche (de l'écran) */
-}
-
-/* Définissez une durée pour la transition */
-.slide-transition-enter-active,
-.slide-transition-leave-active {
-  transition: transform 0.5s; /* La transition durera 0.5 seconde */
+.slide-transition-enter-reverse, .slide-transition-leave-to-reverse {
+  transform: translateX(-100%); /* Déplacez la diapositive depuis la gauche (en dehors de l'écran) */
 }
 
 
@@ -351,47 +293,12 @@ export default {
   }
 }
 
-.hide-slide {
-  display: none;
-}
-
-
 
 
 /* circle active  */
-.circle-light {
-  fill : #c8eef330; ;
-}
 
-.active-circle-dark {
+.active-circle {
   fill: #15151A; 
-  
-}
-
-
-.active-circle-light {
-  fill: #c8eef3; 
-}
-
-
-/* arrow css */
-
-.arrow-light {
-  fill: rgb(255, 255, 255); 
-  stroke:rgb(39, 51, 52);
-}
-
-.arrow-dark:hover path {
-  fill: rgb(5, 15, 198); 
-  stroke:rgb(231, 232, 255);
-  transform: fill 2s;
-}
-
-
-.arrow-light:hover path {
-  fill: rgb(27, 177, 223);
-  stroke:rgb(206, 206, 207);
-  transform: fill 2s;
 }
 
 

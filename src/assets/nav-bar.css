@@ -1,19 +1,50 @@
 /************************************************* navBar ***************************************************/
 
 #navBar {
-    width: auto ;
     height: 97px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
 }
 
+
+
+.navHomeLight {
+  color: var(--black)!important;
+  text-shadow: 0 0 2px var(--Similiblack);
+  -webkit-text-stroke: var(--black);
+  text-decoration: none;
+  transition: .5s ease;
+}
+
+.navHomeDark {
+  color: var(--white)!important;
+  text-shadow: 0 0 2px rgb(234, 245, 245);
+  -webkit-text-stroke:  0.5px rgb(227, 218, 255)!important; 
+   text-decoration: none;
+   transition: .5s ease;
+  
+}
+
+.navHomeDark:hover {
+  color: var(--black)!important;
+  text-shadow: 0 0 5px var(--white),
+  0 0 10px var(--white),
+  0 0 15px var(--white);
+  -webkit-text-stroke: 0.5px #1900ff!important; /* Largeur et couleur du contour */
+  text-stroke: 0.5px #1900ff!important; /* Largeur et couleur du contour */
+  cursor: pointer;
+  transition: .5s ease;
+}
+
+
 .nav-Light {
-  background-color: #FFFFFF57;
+  background: var(--bg-light);
+  
 
 }
 
 .nav-dark {
-  background: rgba(128, 120, 120, 0.34);
+  background: rgba(128, 120, 120, 0.10);
 
 }
 
@@ -22,7 +53,6 @@
 #navBar .navItem button    {
   text-align: center!important;
   font-family: 'Montserrat', sans-serif!important;
-  font-size: 24px!important;
   font-style: normal!important;
   font-weight: 400!important;
   line-height: normal!important;
@@ -36,28 +66,6 @@
 
 
 /* light paramètre */ 
-
-/* nav-bar Day */
-
-.dark-mode {
-    background-color: #333!important; /* Fond sombre */
-    color: #fff; /* Texte clair */
-  }
-  
-  .light-mode {
-    background-color: #fff!important; /* Fond clair */
-    color: #333!important; /* Texte sombre */
-  }
-  
-  .dark-theme-button {
-    /* Styles pour le bouton en mode sombre */
-    background-color: #333!important;
-  }
-  
-  .light-theme-button {
-    /* Styles pour le bouton en mode clair */
-    background-color: #fff!important;
-  }
 
 
   /* text nav */
@@ -91,7 +99,6 @@
 /* toggle bouton */
 
 
-* {box-sizing: border-box;}
 
 
 .checkbox {

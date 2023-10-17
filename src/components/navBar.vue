@@ -1,43 +1,40 @@
 <template>
-  <nav class="d-flex justify-content-center pe-3 py-2 align-content-center">
+  <nav id="navBar" :class="theme.isDarkMode ? 'nav-dark' : 'nav-Light'" class="navbar navbar-expand-md d-flex justify-content-between pe-3 py-2 align-content-center">
+    <div class="container">
+      <router-link :to="{ name: 'home' }" :class="theme.isDarkMode ? 'navHomeDark' : 'navHomeLight'" class="navbar-brand">
+        Portfolio Florent VIEVILLE
+      </router-link>
 
-    <div class="mb-3 justify-content-between">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <router-link :to="{ name: 'service' }" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight'" class="nav-link" @click="changeTitle('Mes services')">Mes services</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link :to="{ name: 'projet' }" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight'" class="nav-link" @click="changeTitle('Mes projets')">Mes projets</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link :to="{ name: 'contact' }" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight'" class="nav-link" @click="changeTitle('Me contacter')">Me contacter</router-link>
+          </li>
+        </ul>
+      </div>
 
-      <div id="navBar" :class="theme.isDarkMode ? 'nav-dark' : 'nav-Light'" class=" d-flex align-items-center p-3">
-  
-        <div class="navItem m-1 mx-3">
-          <router-link :to="{ name: 'home' }" ><button :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight'" class="btn" @click="changeTitle('A propos de moi')">A propos de moi</button></router-link>
-        </div>
-        <div class="navItem m-1 mx-3">
-          <router-link :to="{ name: 'service' }" ><button :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight'" class="btn"  @click="changeTitle('Mes services')" >Mes services</button></router-link>
-        </div>
-        <div class="navItem m-1 mx-3">
-          <router-link :to="{ name: 'service' }" ><button :class="theme.isDarkMode ? 'navTextDark ' : 'navTextLight '" class="btn"  @click="changeTitle('Mes services')" >Mes projets</button></router-link>
-        </div>
-        <div class="navItem m-1 mx-3">
-          <router-link :to="{ name: 'service' }" ><button :class="theme.isDarkMode ? 'navTextDark ' : 'navTextLight '" class="btn"  @click="changeTitle('Mes services')" >Me contacter</button></router-link>
-        </div>
-
-        <div class="d-flex align-items-center">
-        <input type="checkbox" class="checkbox" :class="theme.isDarkMode ? 'btn-dark' : 'btn-light'" id="checkbox"  @click="toggleThemeAndEmit">
-        <label for="checkbox" class="checkbox-label" :class="theme.isDarkMode ? 'checkbox-label-dark' : 'checkbox-label-light'" id="checkbox" >
+      <div class="d-flex align-items-center">
+        <input type="checkbox" class="checkbox" :class="theme.isDarkMode ? 'btn-dark' : 'btn-light'" id="checkbox" @click="toggleThemeAndEmit">
+        <label for="checkbox" class="checkbox-label" :class="theme.isDarkMode ? 'checkbox-label-dark' : 'checkbox-label-light'">
           <i class="fas fa-moon"></i>
           <i class="fas fa-sun"></i>
           <span class="ball"></span>
         </label>
       </div>
-
-      </div>
-
-
-      
     </div>
-
-
-
   </nav>
 </template>
+
 
 
 <script>
