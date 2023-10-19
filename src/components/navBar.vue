@@ -1,7 +1,8 @@
 <template>
-  <nav id="navBar" :class="theme.isDarkMode ? 'nav-dark' : 'nav-Light'" class="navbar navbar-expand-md d-flex justify-content-between pe-3 py-2 align-content-center">
+
+  <nav id="navBar" :class="theme.isDarkMode ? 'nav-dark' : 'nav-Light'" class="navbar navBarStyle navbar-expand-md  pe-3 py-2">
     <div class="container">
-      <router-link :to="{ name: 'home' }" :class="theme.isDarkMode ? 'navHomeDark' : 'navHomeLight'" class="navbar-brand">
+      <router-link :to="{ name: 'home' }" :class="theme.isDarkMode ? 'navHomeDark' : 'navHomeLight'" class="navbar-brand" @click="changeTitle('&Agrave; propos de moi')">
         Portfolio Florent VIEVILLE
       </router-link>
 
@@ -10,7 +11,10 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <router-link :to="{ name: 'aboutMe' }" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight'" class="nav-link" @click="changeTitle('&Agrave; propos de moi')">&Agrave; propos de moi </router-link>
+          </li>
           <li class="nav-item">
             <router-link :to="{ name: 'service' }" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight'" class="nav-link" @click="changeTitle('Mes services')">Mes services</router-link>
           </li>
@@ -38,6 +42,8 @@
 
 
 <script>
+
+
 export default {
   props: ['theme'],
   methods: {

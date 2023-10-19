@@ -18,11 +18,11 @@
         <div class="d-flex justify-content-evenly py-4">
 
           <div :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight'">
-            <router-link :to="{ name: 'service' }" :class="theme.isDarkMode ? '' : ''"><button type="button" :class="theme.isDarkMode ? 'btn-dark' : 'btn-light'" class="btn" >Mes services</button></router-link>
+            <router-link :to="{ name: 'aboutMe' }" :class="theme.isDarkMode ? '' : ''"><button type="button" :class="theme.isDarkMode ? 'btn-dark' : 'btn-light'" class="btn" >À propos de moi</button></router-link>
         </div>
 
         <div :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight'">
-          <router-link :to="{ name: 'service' }" :class="theme.isDarkMode ? '' : ''"><button type="button" :class="theme.isDarkMode ? 'btn-dark' : 'btn-light'" class="btn" >Mes projets</button></router-link>
+          <router-link :to="{ name: 'service' }" :class="theme.isDarkMode ? '' : ''"><button type="button" :class="theme.isDarkMode ? 'btn-dark' : 'btn-light'" class="btn" >Mes services</button></router-link>
         </div>
 
 

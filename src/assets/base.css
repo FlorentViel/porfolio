@@ -10,44 +10,21 @@
   --black: #000000;
   --Similiblack: #181818;
   --black-soft: #222222;
+  
+  --stroke-text-light : #6c6da2;
 
-  --indigo: #2c3e50;
 
-}
+  --stroke-text-dark : 0.3px var(--black-soft) !important; 
+  --stroke-text-dark : 0.3px var(--black-soft) !important; 
 
-/* semantic color variables for this project */
-:root {
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
+  /* bg-nav-bar */
 
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
-
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
-
-  --section-gap: 160px;
-
-  --stroke-text-light :0.4px #6c6da2!important; 
-
+  --bg-light: #0099ff10;
+  --bg-dark : rgba(128, 120, 120, 0.10);
 
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--vt-c-black);
 
-    --color-border: var(--vt-c-divider-dark-2);
-    --color-border-hover: var(--vt-c-divider-dark-1);
-
-    --color-heading: var(--vt-c-text-dark-1);
-    --color-text: var(--vt-c-text-dark-2);
-    --stroke-text-dark : 0.3px var(--black-soft) !important; 
-    --bg-light: #0099ff10;
-
-  }
-}
 
 *,
 *::before,
@@ -74,14 +51,6 @@
 
 }
 
-@media (prefers-color-scheme: dark) {
-
-  .backgroundDark {
-    background: linear-gradient(112deg, #0E236F 6.55%, #060D23 17.08%, #4610B9 23.07%, #2F4254 37.29%, #194FBE 53.04%, #502DB4 63.88%, #6368CF 71.02%, #070DAC 80.32%, #000 84.24%, #161493 94.18%);
-    transition: .5s ease;
-
-}
-}
 
 
 /* global text css */
@@ -95,16 +64,16 @@
 
 .h1-light{
   color: #000!important;
-
-  -webkit-text-stroke: 0.5px #ffffff!important; 
+  -webkit-text-stroke: 0.px #ffffff!important; 
+  font-weight: bold!important;
   transition: .5s ease;
 
 }
 
 .h1-dark {
-  color: var(--white)!important;
-
-  -webkit-text-stroke: 1px var(--black)!important; 
+  color:#0088ff!important;
+  -webkit-text-stroke: 0.1px #201051!important; /* Largeur et couleur du contour */
+  font-weight: bold!important;
   transition: .5s ease;
 
 
@@ -114,6 +83,16 @@
   font-style: normal!important;
   font-weight: 400!important;
   line-height: normal!important;
+}
+
+.text-color-dark{
+  color: #ffffff;
+  -webkit-text-stroke: 0.2px #003c82!important; /* Largeur et couleur du contour */
+  text-stroke: 0.2px #0f2946!important; /* Largeur et couleur du contour */
+  font-weight: 400!important;
+  text-align: justify;
+  transition: .5s ease;
+
 }
 
 .text-wrap {
@@ -137,26 +116,6 @@
   transition: .5s ease;
 }
 
-/* text-style */
-
-.text-style-light {
-  color: #1F0FDC!important;
-  -webkit-text-stroke: 0.2px #d5d0d0!important; 
-  transition: .5s ease;
-
-}
-
-.text-style-dark {
-
-  color: var(--white)!important;
-  -webkit-text-stroke: 0.2px var(--black) !important; 
-  transition: .5s ease;
-  
-}
-
-
-
-
 
 /* p style */
 
@@ -164,42 +123,23 @@ p {
   font-size: 16px;
 }
 
-.textDark {
-
-  color: #ffffff;
-  text-shadow: 0 0 2px rgb(234, 245, 245);
-  -webkit-text-stroke:  0.5px rgb(227, 218, 255)!important; 
-   text-decoration: none;
-   transition: .5s ease;
-
-
-
-}
-
-.textLight {
-  color: #222225!important;
-  text-shadow: 0 0 2px var(--Similiblack);
-  -webkit-text-stroke: var(--black);
-  text-decoration: none;
-  transition: .5s ease;
-}
-
-
 
 /* nav-text */
 
 
 .navTextLight {
   color: #0e18da!important;
-  -webkit-text-stroke: 0.4px #6c6da2!important; 
-   text-stroke: 0.4px #6c6da2!important; 
+  -webkit-text-stroke: 0.4px var(--stroke-text-light)!important; 
    transition: .5s ease;
 
 }
 
 .navTextLight:hover{
 
-  color: #ffffff!important;
+  color: var(--white)!important;
+  text-shadow: 0 0 5px var(--stroke-text-light),
+  0 0 10px var(--stroke-text-light),
+  0 0 15px var(--stroke-text-light);
   -webkit-text-stroke: 0.2px #0f2946!important; /* Largeur et couleur du contour */
   text-stroke: 0.2px #0f2946!important; /* Largeur et couleur du contour */
   cursor: pointer;
@@ -278,3 +218,21 @@ p {
       font-size: 1.5rem;
     }
   }
+
+  .backgroundDark {
+    background: linear-gradient(112deg, #0E236F 6.55%, #060D23 17.08%, #4610B9 23.07%, #2F4254 37.29%, #194FBE 53.04%, #502DB4 63.88%, #6368CF 71.02%, #070DAC 80.32%, #000 84.24%, #161493 94.18%);
+    transition: .5s ease;
+
+}
+
+  @media (prefers-color-scheme: dark) {
+
+
+  }
+  
+  @media (prefers-color-scheme: light) {
+    .backgroundLight {
+      background: linear-gradient(112deg, #0355F4 6.55%, #FFF 17.08%, #37A1EE 23.07%, #BCDAF7 37.29%, #6D95E8 53.04%, #8C8FDB 63.88%, #8083DB 71.02%, #9B9EE2 80.32%, #FEFEFE 84.24%, #1271FF 94.18%);
+    }
+  }
+  

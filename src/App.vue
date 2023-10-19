@@ -1,5 +1,5 @@
 <template>
-  <div :class="theme.isDarkMode ? 'backgroundDark ' : 'backgroundLight'" class="backgroundDefault d-flex flex-column">
+  <div :class="theme.isDarkMode ? 'backgroundDark ' : 'backgroundLight'" class="backgroundDefault d-flex flex-column" @toggle-theme-request="toggleTheme">
 
     <NavBar :theme="theme" />
 
@@ -12,13 +12,16 @@
       </transition>
     </router-view>
 
-
     <Footer :theme="theme" />
+
+
 
 
 
   </div>
 </template>
+
+
 
 <script setup>
 
@@ -33,6 +36,7 @@ const selectedSection = ref('A propos'); // Par défaut, afficher la section "Ac
 
 
 const isDarkMode = ref(true);
+
 
 
 const theme = readonly({
@@ -52,13 +56,35 @@ function changeSection(newSectionName) {
 
 </script>
 
+<script>
+export default {
+  data() {
+    return {
+      theme: {
+        isDarkMode: window.matchMedia('(prefers-color-scheme: dark)').matches, // Détecte le thème préféré
+      },
+    };
+  },
+  mounted() {
+    // Ajoutez un écouteur pour détecter les changements de préférences de thème
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(this.handleThemeChange);
+  },
+  methods: {
+    toggleTheme() {
+      this.theme.isDarkMode = !this.theme.isDarkMode;
+    },
+    handleThemeChange(e) {
+      this.theme.isDarkMode = e.matches;
+    },
+  },
+};
+</script>
+
 
 <style>
 
 #app{
   font-family: 'Montserrat', sans-serif;
-  display: grid;
-  place-items: center;
   box-sizing: border-box;
   overflow-x: hidden;
   perspective: 1000px;

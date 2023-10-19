@@ -8,14 +8,14 @@
     </div>
 
 
-<div id="slider">
+<div id="slider" class="container carousel d-flex justify-content-center">
 
-  <button class="btn" @click="prevSlide">
+  <button class="btn prev-button" >
     <svg v-if="currentIndex === 0" xmlns="http://www.w3.org/2000/svg" width="47" height="66" viewBox="0 0 47 66" fill="none">
       <path d="M36.3622 1.99355C36.7338 1.6622 37.113 1.33101 37.5 1L36.3622 1.99355C10.3479 25.1943 22.0435 49.14 33.7649 61.0805L37.5 64.5C36.2859 63.5095 35.0252 62.3644 33.7649 61.0805L2 32L36.3622 1.99355Z" fill="#8E8E8E"/>
       <path d="M37.5 1C7.1 27 24.8333 54.1667 37.5 64.5L2 32L37.5 1Z" stroke="#FCFCFC" stroke-width="2"/>
     </svg>
-    <svg id="arrow-prev" :class="theme.isDarkMode ? 'arrow-dark' : 'arrow-light'" v-if="currentIndex > 0 " xmlns="http://www.w3.org/2000/svg" width="47" height="66" viewBox="0 0 47 66" fill="none">
+    <svg  @click="prevSlide" id="arrow-prev" :class="theme.isDarkMode ? 'arrow-dark' : 'arrow-light'" v-if="currentIndex > 0 " xmlns="http://www.w3.org/2000/svg" width="47" height="66" viewBox="0 0 47 66" fill="none">
       <path d="M36.3622 1.99355C36.7338 1.6622 37.113 1.33101 37.5 1L36.3622 1.99355C10.3479 25.1943 22.0435 49.14 33.7649 61.0805L37.5 64.5C36.2859 63.5095 35.0252 62.3644 33.7649 61.0805L2 32L36.3622 1.99355Z" fill="black"/>
       <path d="M37.5 1C7.1 27 24.8333 54.1667 37.5 64.5L2 32L37.5 1Z" stroke="#5D11FF" stroke-width="2"/>
     </svg>
@@ -24,7 +24,7 @@
         
       <transition-group name="slide" tag="div" class="d-flex w-75 flex-row m-1 p61 justify-content-center align-items-center container">
 
-        <div class="slide col-sm col-5 mx-1 w-25 p-3  text-center" :key="0"  id="slide1" :class="{ 'd-none': currentIndex !== 0,
+        <div class="slide col-sm-12 col-md-12 col-lg-6 mx-1 p-3 mx-1 p-3 text-center" :key="0"  id="slide1" :class="{ 'd-none': currentIndex !== 0,
           'slide-dark': theme.isDarkMode, 
           'slide-light' : !theme.isDarkMode}">
         <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'">Site vitrine</h3>
@@ -38,9 +38,10 @@
         </p>
       </div>
     
-      <div  class="slide col-sm col-5 mx-1 w-25 text-center" id="slide2" :key="1"  :class="{ 'd-none': currentIndex !== 1 && currentIndex !== 0,
+      <div class="slide col-sm-12 col-md-12 col-lg-6 mx-1 p-3 text-center" id="slide2" :key="1"  :class="{ 'd-none ': currentIndex !== 1 && currentIndex !== 0,
+        'd-sm-none d-md-none d-lg-block':  currentIndex == 0 ,
         'slide-dark': theme.isDarkMode, 
-        'slide-light' : !theme.isDarkMode  }" >
+        'slide-light' : !theme.isDarkMode }" >
     <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="text-center">Langages et outils</h3>
     <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="text-center">Front-end</h3>
     <div class="d-flex align-items-center">
@@ -75,7 +76,8 @@
     </div>
   </div>
   
-  <div :key="2"  class="slide col-sm col-5 mx-1 w-25 text-center" id="slide3" :class="{ 'd-none': currentIndex !== 1 && currentIndex !== 2, 
+  <div :key="2"  class="slide col-sm-12 col-md-12 col-lg-6 mx-1 p-3 text-center x" id="slide3" :class="{ 'd-none': currentIndex !== 1 && currentIndex !== 2, 
+    'd-sm-none d-md-none d-lg-block': currentIndex == 1 ,
     'slide-dark': theme.isDarkMode, 
     'slide-light' : !theme.isDarkMode  }">
     <h3>Langages et outils</h3>
@@ -111,7 +113,8 @@
       <span>Vue.js</span>
     </div>
   </div>
-  <div :key="3"  class="slide col-sm col-5 mx-1 w-25 text-center" id="slide4" :class="{ 'd-none': currentIndex !== 2 && currentIndex !== 3, 
+  <div :key="3"  class="slide col-sm-12 col-md-6 col-lg-6 mx-1 p-3 text-center" id="slide4" :class="{ 'd-none': currentIndex !== 2 && currentIndex !== 3, 
+      'd-sm-none d-md-none d-lg-block': currentIndex == 2 ,
       'slide-dark': theme.isDarkMode, 
       'slide-light' : !theme.isDarkMode  }" >
     <h3>Langages et outils</h3>
@@ -152,14 +155,14 @@
   </transition-group>
 
 
-  <button class="btn" @click="nextSlide" >
-    <svg id="arrow-next" :class="theme.isDarkMode ? 'arrow-dark' : 'arrow-light'" v-if="currentIndex >= 0 && currentIndex < 2" xmlns="http://www.w3.org/2000/svg" width="39" height="66" viewBox="0 0 39 66" fill="none">
+  <button class="btn next-button" >
+    <svg  @click="nextSlide" id="arrow-next" :class="theme.isDarkMode ? 'arrow-dark' : 'arrow-light'" v-if="currentIndex >= 0 && currentIndex < 2" xmlns="http://www.w3.org/2000/svg" width="39" height="66" viewBox="0 0 39 66" fill="none">
         <path d="M2.13777 63.5065C1.76624 63.8378 1.38702 64.169 1 64.5L2.13777 63.5065C28.1521 40.3057 16.4565 16.36 4.73512 4.41948L1 1C2.21411 1.99046 3.47476 3.13556 4.73512 4.41948L36.5 33.5L2.13777 63.5065Z" fill="black"/>
-        <path d="M1 64.5C31.4 38.5 13.6667 11.3333 1 1L36.5 33.5L1 64.5Z" stroke="#5D11FF" stroke-width="2"/>
+        <path d="M1 64.5C31.4 38.5 13.6667 11.3333 1 1L36.5 33.5L1 64.5Z" stroke="#5D11FF" stroke-width="2" />
     </svg>
     <svg  v-if="currentIndex === 2 || currentIndex === 3" xmlns="http://www.w3.org/2000/svg" width="39" height="66" viewBox="0 0 39 66" fill="none">
     <path d="M2.13777 63.5065C1.76624 63.8378 1.38702 64.169 1 64.5L2.13777 63.5065C28.1521 40.3057 16.4565 16.36 4.73512 4.41948L1 1C2.21411 1.99046 3.47476 3.13556 4.73512 4.41948L36.5 33.5L2.13777 63.5065Z" fill="#8E8E8E"/>
-    <path d="M1 64.5C31.4 38.5 13.6667 11.3333 1 1L36.5 33.5L1 64.5Z" stroke="#FCFCFC" stroke-width="2"/>
+    <path d="M1 64.5C31.4 38.5 13.6667 11.3333 1 1L36.5 33.5L1 64.5Z" stroke="#FCFCFC" stroke-width="2" />
   </svg>
   </button>
 
@@ -189,6 +192,14 @@
       'circle-light' : !theme.isDarkMode }" fill="#15151A30"/>
     </svg>
   </li>
+  <li class="mx-2" :class="{ 'd-none': currentIndex < 3 , 
+      'd-md-none d-lg-block': currentIndex > 2}" >
+    <svg class="circle" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <circle cx="10" cy="10" r="10" :class="{ 'active-circle-dark': currentIndex === 3 && theme.isDarkMode, 
+      'active-circle-light': currentIndex === 3 && !theme.isDarkMode, 
+      'circle-light' : !theme.isDarkMode }" fill="#15151A30"/>
+    </svg>
+  </li>  
 </ul>
 </div>
 
@@ -226,7 +237,7 @@ export default {
 
 
 
-      if(this.currentIndex >=1){
+      if(this.currentIndex >  0){
         this.currentIndex -= 1;
 
         console.log(this.currentIndex);
@@ -239,9 +250,11 @@ export default {
 
 
 
-      if(this.currentIndex <2) {
+      if(this.currentIndex <3) {
 
         this.currentIndex += 1;
+        console.log(this.currentIndex);
+
 
       }
       
@@ -268,10 +281,7 @@ export default {
 /* slider bloc */
 
 #slider {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
+
 
 }
 
@@ -280,7 +290,6 @@ export default {
 .slide {
     padding: 5px;
     min-height: max-content;
-    height: 490px;
     transition: transform 0.5s ease-in, background-color 0.5s;
     cursor: default!important;
 

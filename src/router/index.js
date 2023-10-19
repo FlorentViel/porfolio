@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import '@fortawesome/fontawesome-free/css/all.css';
 import welcome from '../components/welcome.vue'
+import aboutMe from '../components/aboutMe.vue'
 import service from '../components/service.vue'
 import projet from '../components/projet.vue'
 import contact from '../components/contact.vue'
@@ -16,6 +17,13 @@ const router = createRouter({
       name: 'home',
       component: welcome, 
     },
+
+    {
+      path: '/aboutMe',
+      name: 'aboutMe',
+      component: aboutMe
+    },
+    
     {
       path: '/service',
       name: 'service',

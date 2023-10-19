@@ -1,6 +1,6 @@
 <template class=" ">
 
-    <footer id="footerBar" :class="theme.isDarkMode ? 'nav-dark' : 'nav-Light'" class="footer mt-auto py-3 text-center">
+    <footer id="footerBar" :class="theme.isDarkMode ? 'nav-dark' : 'nav-Light'" class="footer navBarStyle mt-auto py-3 text-center">
     <div class="container" :class="theme.isDarkMode ? 'textDark' : 'textLight'">
       <p class="mb-0">
         &copy; Portfolio produit sans template avec Vue.js, CSS et Bootstrap

@@ -1,6 +1,6 @@
 /************************************************* navBar ***************************************************/
 
-#navBar {
+.navBarStyle {
     height: 97px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
@@ -11,7 +11,7 @@
 .navHomeLight {
   color: var(--black)!important;
   text-shadow: 0 0 2px var(--Similiblack);
-  -webkit-text-stroke: var(--black);
+  -webkit-text-stroke: 0.5px var(--black);
   text-decoration: none;
   transition: .5s ease;
 }
@@ -44,11 +44,9 @@
 }
 
 .nav-dark {
-  background: rgba(128, 120, 120, 0.10);
+  background: var(--bg-dark );
 
 }
-
-
 
 #navBar .navItem button    {
   text-align: center!important;
@@ -60,46 +58,21 @@
  
 }
 
+/* router active  */
 
+.navTextDark.router-link-exact-active  {
+  color:#0088ff!important;
+  -webkit-text-stroke: 0.1px #0088ff!important; /* Largeur et couleur du contour */
+  font-weight: bold!important;
+}
 
+.navTextLight.router-link-exact-active  {
+  color:var(--white)!important;
+  -webkit-text-stroke: 0.2px var(--white)!important; /* Largeur et couleur du contour */
+  font-weight: bold;
+}
 
-
-
-/* light paramètre */ 
-
-
-  /* text nav */
-
-  /* styles.css */
-  
-  .light-text {
-     color: #1F0FDC!important;
-     -webkit-text-stroke: 0.2px #ffffff!important; 
-      text-stroke: 0.2px #ffffff!important; 
-  }
-  
-  .dark-text {
-  
-    color: #ffffff;
-     -webkit-text-stroke: 0.5px #000000!important; 
-      text-stroke: 0.5px #000000!important; 
-  
-  }
-  
-  .dark-theme-button {
-    /* Styles pour le bouton en mode sombre */
-    background-color: #333!important;
-  }
-  
-  .light-theme-button {
-    /* Styles pour le bouton en mode clair */
-    background-color: #fff!important;
-  }
-
-/* toggle bouton */
-
-
-
+/* toggle bouton */ 
 
 .checkbox {
   opacity: 0;
