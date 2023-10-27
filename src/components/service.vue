@@ -1,14 +1,20 @@
 
 
 <template>
-  <section id="service" key="service" class="container">
+  <section id="service" key="service" class="container mt-5">
+
+
+    <!-- Title-->
 
     <div class="py-2">
       <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="text-center title font-size-40 h1">Mes services</h1>
     </div>
 
+    <!-- Carousel bloc-->
 
-<div id="slider" class="container carousel d-flex justify-content-center">
+<div id="slider" class="container carousel d-flex justify-content-center mt-5">
+
+  <!-- Arrow prev -->
 
   <button class="btn prev-button" >
     <svg v-if="currentIndex === 0" xmlns="http://www.w3.org/2000/svg" width="47" height="66" viewBox="0 0 47 66" fill="none">
@@ -21,10 +27,13 @@
     </svg>
   </button>
 
+
+    <!-- Slide with transition group-->
+
         
       <transition-group name="slide" tag="div" class="d-flex w-75 flex-row m-1 p61 justify-content-center align-items-center container">
 
-        <div class="slide col-sm-12 col-md-12 col-lg-6 mx-1 p-3 mx-1 p-3 text-center" :key="0"  id="slide1" :class="{ 'd-none': currentIndex !== 0,
+        <div class="slide col-md-12 col-lg-6 mx-1 p-3 mx-1 p-3 text-center d-flex flex-column justify-content-center my-auto" :key="0"  id="slide1" :class="{ 'd-none': currentIndex !== 0,
           'slide-dark': theme.isDarkMode, 
           'slide-light' : !theme.isDarkMode}">
         <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'">Site vitrine</h3>
@@ -38,121 +47,138 @@
         </p>
       </div>
     
-      <div class="slide col-sm-12 col-md-12 col-lg-6 mx-1 p-3 text-center" id="slide2" :key="1"  :class="{ 'd-none ': currentIndex !== 1 && currentIndex !== 0,
-        'd-sm-none d-md-none d-lg-block':  currentIndex == 0 ,
+      <div class="slide col-md-12 col-lg-6 mx-1 p-3 text-center" id="slide2" :key="1"  :class="{ 'd-none ': currentIndex !== 1 && currentIndex !== 0,
+        'd-none d-lg-block':  currentIndex == 0 ,
         'slide-dark': theme.isDarkMode, 
         'slide-light' : !theme.isDarkMode }" >
-    <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="text-center">Langages et outils</h3>
-    <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="text-center">Front-end</h3>
-    <div class="d-flex align-items-center">
-      <svg width="79" height="69">
-        <image xlink:href="@/assets/HTML-5-logo.svg" width="79" height="69" />
-      </svg>
-      <p class="m-auto">HTML</p>
-    </div>
-    <div class="d-flex align-items-center">
-      <svg width="79" height="69">
-        <image xlink:href="@/assets/css-logo.svg" width="79" height="69" />
-      </svg>
-      <p class="m-auto">CSS</p>
-    </div>
-    <div class="d-flex align-items-center">
-      <svg width="69" height="69">
-        <image xlink:href="@/assets/Bootstrap_logo.svg" width="69" height="69" />
-      </svg>
-      <p class="m-auto">Bootstrap</p>
-    </div>
-    <div class="d-flex align-items-center">
-      <svg width="69" height="69">
-        <image xlink:href="@/assets/javascript-logo.svg" width="69" height="69" />
-      </svg>
-      <p class="m-auto">Javascript / Jquery</p>
-    </div>
-    <div class="d-flex align-items-center">
-      <svg width="69" height="69">
-        <image xlink:href="@/assets/logo.svg" width="69" height="69" />
-      </svg>
-      <p class="m-auto">Vue.js</p>
-    </div>
+        <div class="my-auto">
+          <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="text-center">Langages et outils</h3>
+          <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="text-center">Frontend</h3>
+        </div>
+
+        <div class="my-auto">
+          <div class="d-flex align-items-center">
+            <svg width="70" height="70">
+              <image xlink:href="@/assets/images/logos/logo-langage/HTML-5-logo.svg" width="70" height="70" />
+            </svg>
+              <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '" >HTML</p>
+          </div>
+          <div class="d-flex align-items-center">
+            <svg width="70" height="70">
+              <image xlink:href="@/assets/images/logos/logo-langage/css-logo.svg" width="70" height="70" />
+            </svg>
+        <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">CSS</p>
+      </div>
+      <div class="d-flex align-items-center">
+        <svg width="70" height="70">
+          <image xlink:href="@/assets/images/logos/logo-langage/wordpress-logo.svg" width="70" height="70" />
+        </svg>
+        <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">WordPress</p>
+      </div>
+      <div class="d-flex align-items-center">
+        <svg width="70" height="70">
+          <image xlink:href="@/assets/images/logos/logo-langage/javascript-logo.svg" width="70" height="70" />
+        </svg>
+        <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Javascript / Jquery</p>
+      </div>
+      <div class="d-flex align-items-center">
+        <svg width="70" height="70">
+          <image xlink:href="@/assets/images/logos/logo-langage/logo.svg" width="70" height="70" />
+        </svg>
+        <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Vue.js</p>
+      </div>
+        </div>
+
+
   </div>
   
-  <div :key="2"  class="slide col-sm-12 col-md-12 col-lg-6 mx-1 p-3 text-center x" id="slide3" :class="{ 'd-none': currentIndex !== 1 && currentIndex !== 2, 
-    'd-sm-none d-md-none d-lg-block': currentIndex == 1 ,
+  <div :key="2"  class="slide col-md-12 col-lg-6 mx-1 p-3 text-center" id="slide3" :class="{ 'd-none': currentIndex !== 1 && currentIndex !== 2, 
+    'd-none d-lg-block': currentIndex == 1 ,
     'slide-dark': theme.isDarkMode, 
     'slide-light' : !theme.isDarkMode  }">
-    <h3>Langages et outils</h3>
-    <h3>Back-end</h3>
-    <div>
-      <svg width="79" height="69">
-        <image xlink:href="@/assets/HTML-5-logo.svg" width="79" height="69" />
-      </svg>
-      <span>HTML</span>
+    <div class="my-auto">
+      <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="text-center">Langages et outils</h3>
+      <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="text-center">Backend et base de donnée</h3>
     </div>
-    <div>
-      <svg width="79" height="69">
-        <image xlink:href="@/assets/css-logo.svg" width="79" height="69" />
+
+    <div class="my-auto">
+      <div class="d-flex align-items-center">
+      <svg width="70" height="70">
+        <image xlink:href="@/assets/images/logos/logo-langage/php.svg" width="70" height="70" />
       </svg>
-      <span>CSS</span>
+      <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '" >PHP</p>
     </div>
-    <div>
-      <svg width="69" height="69">
-        <image xlink:href="@/assets/Bootstrap_logo.svg" width="69" height="69" />
+    <div class="d-flex align-items-center">
+      <svg width="70" height="70">
+        <image xlink:href="@/assets/images/logos/logo-langage/symfony_black_03.svg" width="70" height="70" />
       </svg>
-      <span>Bootstrap</span>
+      <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Symfony</p>
     </div>
-    <div>
-      <svg width="69" height="69">
-        <image xlink:href="@/assets/javascript-logo.svg" width="69" height="69" />
+    <div class="d-flex align-items-center">
+      <svg width="70" height="70">
+        <image xlink:href="@/assets/images/logos/logo-langage/mysqlworkbench_93532.svg" width="70" height="70" />
       </svg>
-      <span>Javascript / Jquery</span>
+      <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">MySql</p>
     </div>
-    <div>
-      <svg width="69" height="69">
-        <image xlink:href="@/assets/logo.svg" width="69" height="69" />
+    <div class="d-flex align-items-center">
+      <svg width="70" height="70">
+        <image xlink:href="@/assets/images/logos/logo-langage/sql-database-generic.svg" width="70" height="70" />
       </svg>
-      <span>Vue.js</span>
+      <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">SQL serveur</p>
     </div>
+      
+    </div>
+
+
   </div>
-  <div :key="3"  class="slide col-sm-12 col-md-6 col-lg-6 mx-1 p-3 text-center" id="slide4" :class="{ 'd-none': currentIndex !== 2 && currentIndex !== 3, 
-      'd-sm-none d-md-none d-lg-block': currentIndex == 2 ,
-      'slide-dark': theme.isDarkMode, 
-      'slide-light' : !theme.isDarkMode  }" >
-    <h3>Langages et outils</h3>
-    <h3>Autre</h3>
-    <div>
-      <svg width="79" height="69">
-        <image xlink:href="@/assets/HTML-5-logo.svg" width="79" height="69" />
-      </svg>
-      <span>HTML</span>
+  <div :key="3"  class="slide col-md-6 col-lg-6 mx-1 p-3 text-center" id="slide4" :class="{ 'd-none': currentIndex !== 2 && currentIndex !== 3, 
+    'd-none d-lg-block': currentIndex == 2 ,
+    'slide-dark': theme.isDarkMode, 
+    'slide-light' : !theme.isDarkMode  }" >
+    <div class="my-auto">
+        <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="text-center">Langages et outils</h3>
+        <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="text-center">Autres</h3>
     </div>
-    <div>
-      <svg width="79" height="69">
-        <image xlink:href="@/assets/css-logo.svg" width="79" height="69" />
+    <div class="my-auto">
+      <div class="d-flex align-items-center">
+      <svg width="70" height="70">
+        <image xlink:href="@/assets/images/logos/logo-langage/figma-logo.svg" width="70" height="70" />
       </svg>
-      <span>CSS</span>
-    </div>
-    <div>
-      <svg width="69" height="69">
-        <image xlink:href="@/assets/Bootstrap_logo.svg" width="69" height="69" />
+      <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '" >Figma</p>
+      </div>
+      <div class="d-flex align-items-center">
+      <svg width="70" height="70">
+        <image xlink:href="@/assets/images/logos/logo-langage/looping-logo.svg" width="70" height="70" />
       </svg>
-      <span>Bootstrap</span>
-    </div>
-    <div>
-      <svg width="69" height="69">
-        <image xlink:href="@/assets/javascript-logo.svg" width="69" height="69" />
+      <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Looping</p>
+      </div>
+      <div class="d-flex align-items-center">
+      <svg width="70" height="70">
+        <image xlink:href="@/assets/images/logos/logo-langage/github-logox70.svg" width="70" height="70" />
       </svg>
-      <span>Javascript / Jquery</span>
-    </div>
-    <div>
-      <svg width="69" height="69">
-        <image xlink:href="@/assets/logo.svg" width="69" height="69" />
+      <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Github</p>
+      </div>
+      <div class="d-flex align-items-center">
+      <svg width="70" height="70">
+        <image xlink:href="@/assets/images/logos/logo-langage/office-365-logo.svg" width="70" height="70" />
       </svg>
-      <span>Vue.js</span>
+      <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Bureautique : Traitement de texte , tableur</p>
+      </div>
+      <div class="d-flex align-items-center">
+      <svg width="70" height="70">
+        <image xlink:href="@/assets/images/logos/logo-langage/bootstrap-logo.svg" width="70" height="70" />
+      </svg>
+      <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Bootstrap</p>
+      </div>
     </div>
+  
   </div>
 
 
   </transition-group>
+
+
+  <!-- Next button -->
 
 
   <button class="btn next-button" >
@@ -166,10 +192,12 @@
   </svg>
   </button>
 
-
 </div>
 
-<div class="m-auto py-2 my-3">
+
+<!-- Indicator slide -->
+
+<div class="m-auto py-4 my-3">
   <ul class="d-flex justify-content-center list-unstyled m-1">
   <li class="mx-2">
     <svg class="circle" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -292,6 +320,7 @@ export default {
     min-height: max-content;
     transition: transform 0.5s ease-in, background-color 0.5s;
     cursor: default!important;
+    height: 100%;
 
 }
 

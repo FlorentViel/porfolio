@@ -5,6 +5,7 @@ import aboutMe from '../components/aboutMe.vue'
 import service from '../components/service.vue'
 import projet from '../components/projet.vue'
 import contact from '../components/contact.vue'
+import privacyPolicy from '../components/privacyPolicy.vue'
 import Navbar from '../components/Navbar.vue'
 import footer from '../components/footer.vue'
 
@@ -38,6 +39,11 @@ const router = createRouter({
       path: '/contact',
       name: 'contact',
       component: contact
+    },
+    {
+      path: '/privacyPolicy',
+      name: 'privacyPolicy',
+      component: privacyPolicy
     }
   ]
 });

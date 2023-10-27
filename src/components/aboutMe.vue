@@ -1,13 +1,20 @@
 <template>
-    <section id="about" class="container py-5">
+    <section id="about" class="container py-2 my-5">
      <div class="d-flex row align-content-center position-relative justify-content-evenly flex-wrap my-auto position-relative">
   
-      <div id="card" class="col-12 col-md-8" @mousemove="handleCardEffect" @mouseleave="resetCardEffect">
+      <div id="card" class="col-12 col-md-8 gy-4 mb-5" @mousemove="handleCardEffect" @mouseleave="resetCardEffect">
         <!-- main-bloc -->
-        <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="card-title m-4 py-3 title h1 text-center">A propos de moi</h1>
-        <div id="spitch"  :class="theme.isDarkMode ? 'welcome-dark' : 'welcome-light'" class="text-center card-body p-5">
-          <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-light'" class="text-warpcard-text py-3" >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ut porttitor lacus, a cursus risus. Sed eget molestie est, non vulputate dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque sit amet eros nibh. Mauris molestie, nunc ac vulputate dignissim, mauris mi vulputate risus, lobortis viverra dui nibh non enim. Praesent in pharetra orci, ornare feugiat eros. Nulla id rutrum velit. Mauris efficitur mi a sapien porta, ut feugiat magna varius. Suspendisse nunc enim, condimentum in auctor quis, ultricies eu magna. Sed nec egestas sem.</p>
+        <div>
+          <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="card-title m-4 pb-5 title h1 text-center">A propos de moi</h1>
+        </div>
+        <div id="spitch"  :class="theme.isDarkMode ? 'welcome-dark' : 'welcome-light'" class="col-12 text-center card-body p-5 text-style">
+          <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class=" text-warpcard-text py-3 px-3 lh-lg lh-sm textIndent text-justify" >
+            Bonjour ! Je m'appelle Florent, développeur web et webmobile freelance qui commence son activité. 
+            J'étais été formé auprès de différent centre de formation comme webforce 3 et AFCI et 
+            j'ai développé les outils nécessaires pour évoluer à mon compte et de continuer à développer mes compétences. 
+            Je suis d'un naturel calme, à l'écoute et curieux et je m'oriente vers le développement de site pour les entreprises , 
+            entrepreneurs ou indépendants qui aurait besoins de mettre en avant ses activités , produits et/ou services.
+          </p>
         </div>
       </div>
   
@@ -22,12 +29,10 @@
   
   <script>
   
-  import photo_profil from '@/assets/logo.svg';
-  
-  
-  
+    
+
   export default {
-    props: ['theme', 'selectedSection'],
+    props: ['theme'],
     methods: {
       toggleThemeAndEmit() {
         this.theme.toggleTheme(); // Appel de la fonction pour basculer le thème
@@ -101,6 +106,10 @@
   
   
   }
+  .textIndent {
+    text-indent: 20px;
+  }
+
   
   #spitch {
       border-radius: 60px;

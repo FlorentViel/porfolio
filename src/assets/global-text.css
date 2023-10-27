@@ -1,0 +1,266 @@
+/* global text css */
+
+.text-justify {
+  text-align: justify!important;
+}
+
+/* color white */
+
+
+
+:is(.h2-dark, .navHomeDark ){
+  color: rgb(28, 142, 230);
+  -webkit-text-stroke:  0.5px rgb(255, 247, 10); 
+}
+
+:is(.text-color-light, .navTextDark:hover, .navTextLight ){
+  color: var(--black-soft);
+}
+
+:is(.text-color-dark, .navTextLight:hover, .h2-light, .navHomeLight){
+  color: var(--white)!important;
+}
+
+:is( .navItem button , p , label, h1, #navBar ){
+  font-family: 'Montserrat', sans-serif!important;
+}
+
+:is(h2, h3){
+  font-family: Jura!important;
+}
+
+
+
+/* h1 */
+  
+  .h1-light{
+    color: rgb(241, 227, 184)!important; /* Une couleur orange vif */
+    -webkit-text-stroke: 0.1px #4B0082 !important; /* Un contour orange légèrement plus foncé */
+    font-weight: bold!important;
+    transition: .5s ease;
+  
+  }
+  
+  .h1-dark {
+    color:#FFFF00 !important;
+    -webkit-text-stroke: 0.1px #FFA500 !important; /* Largeur et couleur du contour */
+    font-weight: bold!important;
+    transition: .5s ease;
+  
+  
+  }
+
+  /* h2 style */
+
+   /* h2-style */
+  
+   .h2-light {
+    -webkit-text-stroke: 0.4px #1db1c8 !important; 
+    transition: .5s ease;
+  
+  }
+  
+  .h2-dark {
+    -webkit-text-stroke: 0.5px #c50fb3!important; 
+    transition: .5s ease;
+  }
+  
+  .text-style {
+    font-style: normal!important;
+    font-weight: 400!important;
+    line-height: normal!important;
+  }
+  
+  .text-color-dark{
+    -webkit-text-stroke: 0.2px #003c82!important; /* Largeur et couleur du contour */
+    font-weight: 400!important;
+    transition: .5s ease;
+  
+  }
+
+    
+  .text-color-light{
+    -webkit-text-stroke: 0.1px rgb(11, 10, 22)!important; /* Largeur et couleur du contour */
+    font-weight: 400!important;
+    transition: .5s ease;
+  
+  }
+  
+  .text-wrap {
+    word-wrap: break-word; /* Permet au texte de passer à la ligne lorsqu'il dépasse la largeur de son conteneur */
+    white-space: normal; /* Permet le retour automatique à la ligne du texte */
+  }
+  
+  
+ 
+  /* p style */
+  
+  p, label {
+    font-size: 16px;
+  }
+  
+  /* indentation first line */
+  
+  .paragraph::first-line {
+    text-indent: 20px; /* Ajustez la taille de l'alinéa selon vos besoins */
+  }
+  
+  /* nav-text */
+  
+  
+  .navTextLight {
+    -webkit-text-stroke: 0.2px #b1b170 !important; 
+     transition: .5s ease;
+  
+  }
+  
+  .navTextLight:hover{
+  
+    text-shadow: 0 0 5px var(--white),
+    0 0 10px var(--stroke-text-light),
+    0 0 15px var(--Similiblack);
+    -webkit-text-stroke: 0.2px #0f2946!important; /* Largeur et couleur du contour */
+    text-stroke: 0.2px #0f2946!important; /* Largeur et couleur du contour */
+    cursor: pointer;
+  
+  }
+  
+  .navTextDark  {
+  
+    color: var(--white);
+    -webkit-text-stroke: 0.2px rgb(140, 140, 105)!important; 
+     text-decoration: none;
+     transition: .5s ease;
+  
+  
+  
+  }
+  
+  .navTextDark:hover{
+  
+      text-shadow: 0 0 5px var(--white),
+      0 0 10px var(--white),
+      0 0 15px var(--white);
+    -webkit-text-stroke: 0.5px #1900ff!important; /* Largeur et couleur du contour */
+    text-stroke: 0.5px #1900ff!important; /* Largeur et couleur du contour */
+    cursor: pointer;
+  
+  }
+
+
+  /* nav-bar style text  */
+
+  .navHomeLight {
+  color: var(--black)!important;
+  text-shadow: 0 0 2px var(--Similiblack);
+  -webkit-text-stroke: 0.5px var(--black);
+  text-decoration: none;
+  transition: .5s ease;
+}
+
+.navHomeDark {
+  text-shadow: 0 0 2px rgb(234, 245, 245);
+   text-decoration: none;
+   transition: .5s ease;
+  
+}
+
+.navHomeDark:hover {
+  color:#FFFF00 !important;
+  -webkit-text-stroke: 0.1px #FFA500 !important; /* Largeur et couleur du contour */
+  text-shadow: 0 0 5px var(--white),
+  0 0 10px var(--white),
+  0 0 15px var(--white);
+
+  cursor: pointer;
+  transition: .5s ease;
+}
+
+.navHomeLight:hover {
+
+  color: rgb(241, 227, 184)!important; /* Une couleur orange vif */
+  -webkit-text-stroke: 0.5px #4B0082 !important; /* Un contour orange légèrement plus foncé */
+  text-shadow: 0 0 5px var(--black-soft),
+  0 0 10px var(--black-soft),
+  0 0 15px var(--black-soft);
+
+  cursor: pointer;
+  transition: .5s ease;
+}
+
+
+/* nav-bar route active */
+
+.navTextDark.router-link-exact-active  {
+  color:#FFFF00 !important;
+  -webkit-text-stroke: 0.1px #FFA500 !important; /* Largeur et couleur du contour */
+  font-weight: bold!important;
+}
+
+.navTextLight.router-link-exact-active  {
+  -webkit-text-stroke: 0.2px var(--white)!important; /* Largeur et couleur du contour */
+  font-weight: bold;
+}
+
+
+  /* media query text reponsive */
+
+  /* mobile format */
+  @media (max-width: 576px) {
+    .h1-light, .h1-dark {
+      font-size: 2rem;
+    }
+    .h2-light, .h2-dark {
+      font-size: 1.5rem;
+    }
+    .text-style, p, li {
+      font-size: 1.2rem;
+    }
+  }
+
+  /* tablet format*/
+  @media (min-width: 577px) and (max-width: 991px) {
+    .h1-light, .h1-dark {
+      font-size: 2.5rem;
+    }
+    .h2-light, .h2-dark {
+      font-size: 2rem;
+    }
+    .text-style, p, li, span {
+      font-size: 1.25rem;
+    }
+
+    .nav-link{
+      font-size: 1.2rem;
+    }
+
+    .navHomeDark , .navHomeLight {
+      font-size: 1.25rem;
+    }
+  }
+
+  /* format desktop */
+  @media (min-width: 992px) {
+    .h1-light, .h1-dark {
+      font-size: 3rem;
+    }
+    .h2-light, .h2-dark {
+      font-size: 2.5rem;
+    }
+    .text-style, p, span{
+      font-size: 1.2rem;
+    }
+
+    .text-contact {
+      font-size: 1.1rem;
+    }
+
+    .nav-link{
+      font-size: 1.5rem;
+    }
+    .navHomeDark , .navHomeLight {
+      font-size: 2rem;
+    }
+  }
+
+  

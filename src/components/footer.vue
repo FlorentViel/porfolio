@@ -1,8 +1,8 @@
 <template class=" ">
 
-    <footer id="footerBar" :class="theme.isDarkMode ? 'nav-dark' : 'nav-Light'" class="footer navBarStyle mt-auto py-3 text-center">
-    <div class="container" :class="theme.isDarkMode ? 'textDark' : 'textLight'">
-      <p class="mb-0">
+    <footer id="footerBar" :class="theme.isDarkMode ? 'nav-dark' : 'nav-Light'" class="footer d-flex align-items-center navBarStyle mt-auto py-3 text-center">
+    <div class="container text-end align-self-center">
+      <p class="style-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">
         &copy; Portfolio produit sans template avec Vue.js, CSS et Bootstrap
       </p>
     </div>
@@ -28,16 +28,6 @@
   
   <script setup>
   
-  import { ref } from 'vue';
-  
-  const selectedSection = ref('Accueil'); // Par défaut, afficher la section "Accueil"
-  
-  function changeTitle(newSectionName) {
-    const baseTitle = 'Portfolio Florent VIEVILLE';
-    const newTitle = newSectionName === 'Accueil' ? baseTitle : `${baseTitle} - ${newSectionName}`;
-    document.title = newTitle; // Mettez à jour le titre de la page
-    selectedSection.value = newSectionName; // Mettez à jour la section sélectionnée
-  }
   </script>
   
   <style scoped>

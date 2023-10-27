@@ -2,9 +2,6 @@
 @import "@fontsource/jura/400.css"; /* Specify weight */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
-
-
-/* color palette from <https://github.com/vuejs/theme> */
 :root {
   --white: #ffffff;
   --black: #000000;
@@ -12,7 +9,6 @@
   --black-soft: #222222;
   
   --stroke-text-light : #6c6da2;
-
 
   --stroke-text-dark : 0.3px var(--black-soft) !important; 
   --stroke-text-dark : 0.3px var(--black-soft) !important; 
@@ -34,6 +30,19 @@
   font-weight: normal;
 }
 
+
+/* app */
+
+#app{
+  box-sizing: border-box;
+  overflow-x: hidden;
+  perspective: 1000px;
+
+}
+
+
+/* background css */
+
 .backgroundDefault {
   background-size: auto;
   background-size: auto;
@@ -52,123 +61,20 @@
 }
 
 
-
-/* global text css */
-
-.h1-style {
-  font-family: Jura!important;
-  font-style: normal!important;
-  line-height: normal!important;
-  transition: .5s ease;
-}
-
-.h1-light{
-  color: #000!important;
-  -webkit-text-stroke: 0.px #ffffff!important; 
-  font-weight: bold!important;
-  transition: .5s ease;
+  .backgroundDark {
+    background: linear-gradient(112deg, #0E236F 6.55%, #060D23 17.08%, #4610B9 23.07%, #2F4254 37.29%, #194FBE 53.04%, #502DB4 63.88%, #6368CF 71.02%, #070DAC 80.32%, #000 84.24%, #161493 94.18%);
+    transition: .5s ease;
 
 }
 
-.h1-dark {
-  color:#0088ff!important;
-  -webkit-text-stroke: 0.1px #201051!important; /* Largeur et couleur du contour */
-  font-weight: bold!important;
-  transition: .5s ease;
 
-
-}
-
-.text-style {
-  font-style: normal!important;
-  font-weight: 400!important;
-  line-height: normal!important;
-}
-
-.text-color-dark{
-  color: #ffffff;
-  -webkit-text-stroke: 0.2px #003c82!important; /* Largeur et couleur du contour */
-  text-stroke: 0.2px #0f2946!important; /* Largeur et couleur du contour */
-  font-weight: 400!important;
-  text-align: justify;
-  transition: .5s ease;
-
-}
-
-.text-wrap {
-  word-wrap: break-word; /* Permet au texte de passer à la ligne lorsqu'il dépasse la largeur de son conteneur */
-  white-space: normal; /* Permet le retour automatique à la ligne du texte */
+.section {
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
 }
 
 
-/* h2-style */
-
-.h2-light {
-  color: #1F0FDC!important;
-  -webkit-text-stroke: 0.2px #6384dd!important; 
-  transition: .5s ease;
-
-}
-
-.h2-dark {
-  color: var(--white)!important;
-  -webkit-text-stroke: 0.4px #000!important; 
-  transition: .5s ease;
-}
-
-
-/* p style */
-
-p {
-  font-size: 16px;
-}
-
-
-/* nav-text */
-
-
-.navTextLight {
-  color: #0e18da!important;
-  -webkit-text-stroke: 0.4px var(--stroke-text-light)!important; 
-   transition: .5s ease;
-
-}
-
-.navTextLight:hover{
-
-  color: var(--white)!important;
-  text-shadow: 0 0 5px var(--stroke-text-light),
-  0 0 10px var(--stroke-text-light),
-  0 0 15px var(--stroke-text-light);
-  -webkit-text-stroke: 0.2px #0f2946!important; /* Largeur et couleur du contour */
-  text-stroke: 0.2px #0f2946!important; /* Largeur et couleur du contour */
-  cursor: pointer;
-
-}
-
-.navTextDark  {
-
-  color: #d8eaff;
-  -webkit-text-stroke: 0.5px #1900ff!important; 
-   text-stroke: 0.5px #1900ff!important; 
-   text-decoration: none;
-   transition: .5s ease;
-
-
-
-}
-
-.navTextDark:hover{
-
-  color: var(--black)!important;
-    text-shadow: 0 0 5px var(--white),
-    0 0 10px var(--white),
-    0 0 15px var(--white);
-  -webkit-text-stroke: 0.5px #1900ff!important; /* Largeur et couleur du contour */
-  text-stroke: 0.5px #1900ff!important; /* Largeur et couleur du contour */
-  cursor: pointer;
-
-}
 
 
 .fade-enter-active, .fade-leave-active {
@@ -178,52 +84,6 @@ p {
   opacity: 0;
 }
 
-
-/* Styles de texte responsifs */
-  /* Petite taille d'écran */
-  @media (max-width: 576px) {
-    .h1-light, .h1-dark {
-      font-size: 2rem;
-    }
-    .h2-light, .h2-dark {
-      font-size: 1.5rem;
-    }
-    .text-style {
-      font-size: 1rem;
-    }
-  }
-
-  /* Moyenne taille d'écran */
-  @media (min-width: 577px) and (max-width: 991px) {
-    .h1-light, .h1-dark {
-      font-size: 2.5rem;
-    }
-    .h2-light, .h2-dark {
-      font-size: 2rem;
-    }
-    .text-style {
-      font-size: 1.25rem;
-    }
-  }
-
-  /* Grande taille d'écran */
-  @media (min-width: 992px) {
-    .h1-light, .h1-dark {
-      font-size: 3rem;
-    }
-    .h2-light, .h2-dark {
-      font-size: 2.5rem;
-    }
-    .text-style {
-      font-size: 1.5rem;
-    }
-  }
-
-  .backgroundDark {
-    background: linear-gradient(112deg, #0E236F 6.55%, #060D23 17.08%, #4610B9 23.07%, #2F4254 37.29%, #194FBE 53.04%, #502DB4 63.88%, #6368CF 71.02%, #070DAC 80.32%, #000 84.24%, #161493 94.18%);
-    transition: .5s ease;
-
-}
 
   @media (prefers-color-scheme: dark) {
 

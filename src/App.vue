@@ -83,21 +83,5 @@ export default {
 
 <style>
 
-#app{
-  font-family: 'Montserrat', sans-serif;
-  box-sizing: border-box;
-  overflow-x: hidden;
-  perspective: 1000px;
-
-}
-
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.3s; /* Durée de la transition en secondes */
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-}
-
-
 
 </style>

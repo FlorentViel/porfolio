@@ -1,38 +1,29 @@
 <template>
-  <section id="welcome" class="container py-5">
+  <section id="welcome" class="section container py-5">
    <div class="d-flex row align-content-center position-relative justify-content-evenly flex-wrap my-auto position-relative">
     <div class="col-6 col-md-3 align-self-center">
       <!-- Profil-picture -->
-      <img id="profil_picture" :class="theme.isDarkMode ? 'photo-dark' : 'photo-light'" class="img-fluid m-3" src="src/assets/photo_profil.png" alt="Photo de profil" />
+      <img id="profil_picture" :class="theme.isDarkMode ? 'photo-dark' : 'photo-light'" class="img-fluid m-3" src="src/assets/images/pictures/photo_profil.png" alt="Photo de profil" />
     </div>
 
-    <div id="card" class="col-12 col-md-6" @mousemove="handleCardEffect" @mouseleave="resetCardEffect">
       <!-- main-bloc -->
-      <div id="spitch"  :class="theme.isDarkMode ? 'welcome-dark' : 'welcome-light'" class="text-center card-body p-4">
-        <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="card-title py-3 title h1">Florent Vieville</h1>
-        <h1 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="card-title py-3 ">Développeur web et web mobile</h1>
-        <p :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="text-warpcard-text text-style py-3 " >
-          Passionné par le web avec une expértise en <strong class="text-style ">front-end</strong> et <strong class="text-style">back-end</strong>. 
-        </p>
 
-        <div class="d-flex justify-content-evenly py-4">
-
-          <div :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight'">
-            <router-link :to="{ name: 'aboutMe' }" :class="theme.isDarkMode ? '' : ''"><button type="button" :class="theme.isDarkMode ? 'btn-dark' : 'btn-light'" class="btn" >À propos de moi</button></router-link>
+    <div id="card" class="col-12 col-md-6 text-center card-body p-4" @mousemove="handleCardEffect" @mouseleave="resetCardEffect">
+      <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="card-title py-3 title h1">Florent Vieville</h1>
+      <h1 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="card-title py-3 ">Développeur web et web mobile</h1>
+      <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class="text-warpcard-text text-style py-3 " >
+        Passionné par le web avec une expértise en <strong class="text-style ">front-end</strong> et <strong class="text-style">back-end</strong>. 
+      </p>
+      <div class="d-flex justify-content-evenly py-4">
+        <div>
+          <router-link :to="{ name: 'aboutMe' }" :class="theme.isDarkMode ? '' : ''"><button type="button" :class="theme.isDarkMode ? 'btn-dark navTextDark' : 'btn-light navTextLight'" class="btn" >À propos de moi</button></router-link>
         </div>
-
-        <div :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight'">
-          <router-link :to="{ name: 'service' }" :class="theme.isDarkMode ? '' : ''"><button type="button" :class="theme.isDarkMode ? 'btn-dark' : 'btn-light'" class="btn" >Mes services</button></router-link>
+        <div>
+          <router-link :to="{ name: 'service' }" :class="theme.isDarkMode ? '' : ''"><button type="button" :class="theme.isDarkMode ? 'btn-dark navTextDark' : 'btn-light navTextLight'" class="btn" >Mes services</button></router-link>
         </div>
-
-
-        </div>
-
-
       </div>
     </div>
-
-   </div>
+  </div>
   
   </section>
 </template>
@@ -115,35 +106,15 @@ export default {
 
 /* welcom bloc css */
 
-#welcome {
-    margin-top: auto;
-    margin-bottom: auto;
-    position: relative;
 
-
-}
-
-#spitch {
-    border-radius: 60px;
-    position: relative;
-    height: max-content;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-
-}
 
 /* profil picture */
 
 #profil_picture {
     border-radius: 233.847px;
     position: relative;
-    transition: max-width 0.5s, width 0.5s !important; /* Vous pouvez ajuster la durée (0.3s) selon vos préférences */
 
 
-}
-
-#profil_picture:hover {
-  max-width: 120%  !important;
-  width: 20vw  !important; 
 }
 
 .photo-light {
@@ -189,28 +160,8 @@ export default {
     background-color: #fff!important;
   }
 
-
-
-
-
-.light-mode {
-  background-color: #fff!important; /* Fond clair */
-  color: #333!important; /* Texte sombre */
-}
-
-.dark-theme-button {
-  /* Styles pour le bouton en mode sombre */
-  background-color: #333!important;
-}
-
-.light-theme-button {
-  /* Styles pour le bouton en mode clair */
-  background-color: #fff!important;
-}
-
 .btn-dark {
   background-color: #4d6ae9;
-  color: #1b172c!important;
   border: 1px solid #000000;
   transition: .5s ease;
   border-radius: 8px;
@@ -219,7 +170,6 @@ export default {
 
 .btn-light {
   background-color: #37a2ee85;
-  color: #0e18da!important;
   border: 1px solid #91ebf9;
   transition: .5s ease;
   border-radius: 8px;
@@ -228,7 +178,6 @@ export default {
 
 .btn-dark:hover {
   background-color: #291fe2;
-  color: #3609ff!important;
   border: 1px solid #ffffff;
   text-shadow: 0 0 5px #ffffff,
                0 0 10px #ffffff,
