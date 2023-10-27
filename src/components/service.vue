@@ -31,7 +31,7 @@
     <!-- Slide with transition group-->
 
         
-      <transition-group name="slide" tag="div" class="d-flex w-75 flex-row m-1 p61 justify-content-center align-items-center container">
+      <transition-group name="slide" tag="div" class="d-flex w-75 flex-row m-1 p-1 justify-content-center align-items-center container">
 
         <div class="slide col-md-12 col-lg-6 mx-1 p-3 mx-1 p-3 text-center d-flex flex-column justify-content-center my-auto" :key="0"  id="slide1" :class="{ 'd-none': currentIndex !== 0,
           'slide-dark': theme.isDarkMode, 
@@ -93,7 +93,8 @@
   </div>
   
   <div :key="2"  class="slide col-md-12 col-lg-6 mx-1 p-3 text-center" id="slide3" :class="{ 'd-none': currentIndex !== 1 && currentIndex !== 2, 
-    'd-none d-lg-block': currentIndex == 1 ,
+    'd-lg-block': currentIndex == 1 || currentIndex == 2 , 
+    'd-md-none' : currentIndex == 1, 
     'slide-dark': theme.isDarkMode, 
     'slide-light' : !theme.isDarkMode  }">
     <div class="my-auto">
@@ -131,7 +132,7 @@
 
 
   </div>
-  <div :key="3"  class="slide col-md-6 col-lg-6 mx-1 p-3 text-center" id="slide4" :class="{ 'd-none': currentIndex !== 2 && currentIndex !== 3, 
+  <div :key="3"  class="slide col-md-12 col-lg-6 mx-1 p-3 text-center" id="slide4" :class="{ 'd-none': currentIndex !== 2 && currentIndex !== 3, 
     'd-none d-lg-block': currentIndex == 2 ,
     'slide-dark': theme.isDarkMode, 
     'slide-light' : !theme.isDarkMode  }" >
@@ -182,11 +183,12 @@
 
 
   <button class="btn next-button" >
-    <svg  @click="nextSlide" id="arrow-next" :class="theme.isDarkMode ? 'arrow-dark' : 'arrow-light'" v-if="currentIndex >= 0 && currentIndex < 2" xmlns="http://www.w3.org/2000/svg" width="39" height="66" viewBox="0 0 39 66" fill="none">
+    <svg @click="nextSlide" id="arrow-next" :class="
+       { 'd-md-block d-lg-none': currentIndex >= 2}" v-if=" currentIndex < 3" xmlns="http://www.w3.org/2000/svg" width="39" height="66" viewBox="0 0 39 66" fill="none">
         <path d="M2.13777 63.5065C1.76624 63.8378 1.38702 64.169 1 64.5L2.13777 63.5065C28.1521 40.3057 16.4565 16.36 4.73512 4.41948L1 1C2.21411 1.99046 3.47476 3.13556 4.73512 4.41948L36.5 33.5L2.13777 63.5065Z" fill="black"/>
         <path d="M1 64.5C31.4 38.5 13.6667 11.3333 1 1L36.5 33.5L1 64.5Z" stroke="#5D11FF" stroke-width="2" />
     </svg>
-    <svg  v-if="currentIndex === 2 || currentIndex === 3" xmlns="http://www.w3.org/2000/svg" width="39" height="66" viewBox="0 0 39 66" fill="none">
+    <svg :class="{' d-md-none d-lg-block': currentIndex < 3 }" v-if=" currentIndex >= 2" xmlns="http://www.w3.org/2000/svg" width="39" height="66" viewBox="0 0 39 66" fill="none">
     <path d="M2.13777 63.5065C1.76624 63.8378 1.38702 64.169 1 64.5L2.13777 63.5065C28.1521 40.3057 16.4565 16.36 4.73512 4.41948L1 1C2.21411 1.99046 3.47476 3.13556 4.73512 4.41948L36.5 33.5L2.13777 63.5065Z" fill="#8E8E8E"/>
     <path d="M1 64.5C31.4 38.5 13.6667 11.3333 1 1L36.5 33.5L1 64.5Z" stroke="#FCFCFC" stroke-width="2" />
   </svg>
@@ -220,8 +222,7 @@
       'circle-light' : !theme.isDarkMode }" fill="#15151A30"/>
     </svg>
   </li>
-  <li class="mx-2" :class="{ 'd-none': currentIndex < 3 , 
-      'd-md-none d-lg-block': currentIndex > 2}" >
+  <li class="mx-2 d-lg-none d-md-block" >
     <svg class="circle" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
       <circle cx="10" cy="10" r="10" :class="{ 'active-circle-dark': currentIndex === 3 && theme.isDarkMode, 
       'active-circle-light': currentIndex === 3 && !theme.isDarkMode, 
