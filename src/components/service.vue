@@ -92,9 +92,8 @@
 
   </div>
   
-  <div :key="2"  class="slide col-md-12 col-lg-6 mx-1 p-3 text-center" id="slide3" :class="{ 'd-none': currentIndex !== 1 && currentIndex !== 2, 
-    'd-lg-block': currentIndex == 1 || currentIndex == 2 , 
-    'd-md-none' : currentIndex == 1, 
+  <div :key="2"  class="slide col-md-12 col-lg-6 mx-1 p-3 text-center" id="slide3" :class="{ 'd-none ': currentIndex !== 1 && currentIndex !== 2,
+      'd-none d-lg-block':  currentIndex == 1 ,
     'slide-dark': theme.isDarkMode, 
     'slide-light' : !theme.isDarkMode  }">
     <div class="my-auto">
@@ -184,11 +183,11 @@
 
   <button class="btn next-button" >
     <svg @click="nextSlide" id="arrow-next" :class="
-       { 'd-md-block d-lg-none': currentIndex >= 2}" v-if=" currentIndex < 3" xmlns="http://www.w3.org/2000/svg" width="39" height="66" viewBox="0 0 39 66" fill="none">
+       { 'd-block d-lg-none': currentIndex >= 2}" v-if=" currentIndex < 3" xmlns="http://www.w3.org/2000/svg" width="39" height="66" viewBox="0 0 39 66" fill="none">
         <path d="M2.13777 63.5065C1.76624 63.8378 1.38702 64.169 1 64.5L2.13777 63.5065C28.1521 40.3057 16.4565 16.36 4.73512 4.41948L1 1C2.21411 1.99046 3.47476 3.13556 4.73512 4.41948L36.5 33.5L2.13777 63.5065Z" fill="black"/>
         <path d="M1 64.5C31.4 38.5 13.6667 11.3333 1 1L36.5 33.5L1 64.5Z" stroke="#5D11FF" stroke-width="2" />
     </svg>
-    <svg :class="{' d-md-none d-lg-block': currentIndex < 3 }" v-if=" currentIndex >= 2" xmlns="http://www.w3.org/2000/svg" width="39" height="66" viewBox="0 0 39 66" fill="none">
+    <svg :class="{' d-none d-lg-block': currentIndex < 3 }" v-if=" currentIndex >= 2" xmlns="http://www.w3.org/2000/svg" width="39" height="66" viewBox="0 0 39 66" fill="none">
     <path d="M2.13777 63.5065C1.76624 63.8378 1.38702 64.169 1 64.5L2.13777 63.5065C28.1521 40.3057 16.4565 16.36 4.73512 4.41948L1 1C2.21411 1.99046 3.47476 3.13556 4.73512 4.41948L36.5 33.5L2.13777 63.5065Z" fill="#8E8E8E"/>
     <path d="M1 64.5C31.4 38.5 13.6667 11.3333 1 1L36.5 33.5L1 64.5Z" stroke="#FCFCFC" stroke-width="2" />
   </svg>
@@ -253,14 +252,35 @@ export default {
 
   data() {
   return {
-    currentIndex: 0,
+    currentIndex: 0, // initial value
     slides: [
       
     ]
   };
 },
 
+mounted() {
+    // Listen to window resize events to detect screen size changes
+    window.addEventListener('resize', this.handleResize);
+  },
+
   methods: {
+
+    handleResize() {
+      // Get the window width in pixels
+      const windowWidth = window.innerWidth;
+      // Check if the width is below a specific value (e.g., 992px for "md" Bootstrap)
+      if (windowWidth < 992 && this.currentIndex === 3) {
+        // Descease -1 currentIndex
+        this.currentIndex -= 1;
+      }
+    },
+
+    beforeDestroy() {
+    // Make sure to remove the event listener when the component is destroyed
+    window.removeEventListener('resize', this.handleResize);
+    },
+
 
   prevSlide() {
 
@@ -287,9 +307,6 @@ export default {
 
       }
       
-
-
-
     },
 
     toggleThemeAndEmit() {
@@ -297,7 +314,7 @@ export default {
       this.$emit('toggleTheme'); // Émettez l'événement pour demander le changement de thème
     },
 
-
+    
 },
 
 };
