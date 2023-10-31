@@ -10,7 +10,7 @@
         <div id="spitch"  :class="theme.isDarkMode ? 'welcome-dark' : 'welcome-light'" class="col-12 text-center card-body p-5 text-style">
           <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class=" text-warpcard-text py-3 px-3 lh-lg lh-sm textIndent text-justify" >
             Bonjour ! Je m'appelle Florent, développeur web et webmobile freelance qui commence son activité. 
-            J'étais été formé auprès de différent centre de formation comme webforce 3 et AFCI et 
+            J'étais été formé auprès de différent centre de formation comme Webforce 3 et AFCI et 
             j'ai développé les outils nécessaires pour évoluer à mon compte et de continuer à développer mes compétences. 
             Je suis d'un naturel calme, à l'écoute et curieux et je m'oriente vers le développement de site pour les entreprises , 
             entrepreneurs ou indépendants qui aurait besoins de mettre en avant ses activités , produits et/ou services.

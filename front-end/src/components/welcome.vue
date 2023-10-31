@@ -3,8 +3,11 @@
    <div class="d-flex row align-content-center position-relative justify-content-evenly flex-wrap my-auto position-relative">
     <div class="col-6 col-md-3 align-self-center">
       <!-- Profil-picture -->
-      <img id="profil_picture" :class="theme.isDarkMode ? 'photo-dark' : 'photo-light'" class="img-fluid m-3" src="src/assets/images/pictures/photo_profil.png" alt="Photo de profil" />
+      <img id="profil_picture" :class="theme.isDarkMode ? 'photo-dark' : 'photo-light'" class="img-fluid m-3"  :src="'front-end/src/assets/images/pictures/photo_profil.png'" alt="Photo de profil" />
     </div>
+
+
+
 
       <!-- main-bloc -->
 
@@ -160,49 +163,7 @@ export default {
     background-color: #fff!important;
   }
 
-.btn-dark {
-  background-color: #4d6ae9;
-  border: 1px solid #000000;
-  transition: .5s ease;
-  border-radius: 8px;
-  padding: 10px 20px;
-} 
 
-.btn-light {
-  background-color: #37a2ee85;
-  border: 1px solid #91ebf9;
-  transition: .5s ease;
-  border-radius: 8px;
-  padding: 10px 20px;
-} 
-
-.btn-dark:hover {
-  background-color: #291fe2;
-  border: 1px solid #ffffff;
-  text-shadow: 0 0 5px #ffffff,
-               0 0 10px #ffffff,
-               0 0 15px #ffffff,
-               0 0 20px #ffffff;
-  box-shadow: 0 0 5px #172b59,
-              0 0 10px #172b59,
-              0 0 15px #172b59,
-              0 0 20px #172b59;
-  
-} 
-
-.btn-light:hover {
-  background-color: #37A1EE ;
-  border: 1px solid #1a1a1a;
-  text-shadow: 0 0 5px #c5d9fa,
-               0 0 10px #c5d9fa,
-               0 0 15px #c5d9fa,
-               0 0 20px #c5d9fa;
-  box-shadow: 0 0 5px #e7edff ,
-              0 0 10px #e7edff ,
-              0 0 15px #e7edff ,
-              0 0 20px #e7edff ;
-  
-} 
 </style>
 
 

@@ -31,7 +31,8 @@
     <!-- Slide with transition group-->
 
         
-      <transition-group name="slide" tag="div" class="d-flex w-75 flex-row m-1 p-1 justify-content-center align-items-center container">
+      <transition-group @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave" name="slide" tag="div" 
+      class="d-flex w-75 flex-row m-1 p-1 justify-content-center align-items-center container">
 
         <div class="slide col-md-12 col-lg-6 mx-1 p-3 mx-1 p-3 text-center d-flex flex-column justify-content-center my-auto" :key="0"  id="slide1" :class="{ 'd-none': currentIndex !== 0,
           'slide-dark': theme.isDarkMode, 
@@ -183,7 +184,7 @@
 
   <button class="btn next-button" >
     <svg @click="nextSlide" id="arrow-next" :class="
-       { 'd-block d-lg-none': currentIndex >= 2}" v-if=" currentIndex < 3" xmlns="http://www.w3.org/2000/svg" width="39" height="66" viewBox="0 0 39 66" fill="none">
+       { 'd-block d-lg-none': currentIndex >= 2, 'arrow-light' : theme.isDarkMode == false, 'arrow-dark' : theme.isDarkMode == true }" v-if=" currentIndex < 3" xmlns="http://www.w3.org/2000/svg" width="39" height="66" viewBox="0 0 39 66" fill="none">
         <path d="M2.13777 63.5065C1.76624 63.8378 1.38702 64.169 1 64.5L2.13777 63.5065C28.1521 40.3057 16.4565 16.36 4.73512 4.41948L1 1C2.21411 1.99046 3.47476 3.13556 4.73512 4.41948L36.5 33.5L2.13777 63.5065Z" fill="black"/>
         <path d="M1 64.5C31.4 38.5 13.6667 11.3333 1 1L36.5 33.5L1 64.5Z" stroke="#5D11FF" stroke-width="2" />
     </svg>
@@ -265,6 +266,23 @@ mounted() {
   },
 
   methods: {
+
+    onBeforeEnter(el) {
+      // Personnalisez les styles avant l'entrée
+      el.style.transform = 'translateX(-100%)'; // Animation de translation depuis la gauche
+    },
+    onEnter(el, done) {
+      // Personnalisez l'animation d'entrée
+      el.style.transition = 'transform 0.5s'; // Animation de translation pendant 0.5 seconde
+      el.style.transform = 'translateX(0)'; // Déplacez la diapositive vers la position finale
+      el.addEventListener('transitionend', done);
+    },
+    onLeave(el, done) {
+      // Personnalisez l'animation de sortie
+      el.style.transition = 'transform 0.5s'; // Animation de translation pendant 0.5 seconde
+      el.style.transform = 'translateX(100%)'; // Déplacez la diapositive vers la droite pour la faire sortir
+      el.addEventListener('transitionend', done);
+    },
 
     handleResize() {
       // Get the window width in pixels
@@ -372,6 +390,7 @@ mounted() {
 .slide div {
     padding-top: 5px;
     padding-bottom: 5px;
+    position: relative;
 }
 
 /* animation slide */
@@ -380,32 +399,7 @@ mounted() {
 
 
 
-.slide-transition-enter,
-.slide-transition-leave-to {
-  transform: translateX(-100%) translateY(-100%); /* Déplacez la diapositive depuis la gauche et le haut (en dehors de l'écran) */
-}
 
-.slide-transition-enter-to,
-.slide-transition-leave-from {
-  transform: translateX(0%); /* Déplacez la diapositive depuis la gauche (de l'écran) */
-}
-
-/* Définissez une durée pour la transition */
-.slide-transition-enter-active,
-.slide-transition-leave-active {
-  transition: transform 0.5s; /* La transition durera 0.5 seconde */
-}
-
-
-/* Définissez vos keyframes d'animation */
-@keyframes my-keyframes-animation {
-  from {
-    transform: translateX(-0%);
-  }
-  to {
-    transform: translateX(100%);
-  }
-}
 
 .hide-slide {
   display: none;
