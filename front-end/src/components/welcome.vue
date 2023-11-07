@@ -19,10 +19,10 @@
       </p>
       <div class="d-flex justify-content-evenly py-4">
         <div>
-          <router-link :to="{ name: 'aboutMe' }" :class="theme.isDarkMode ? '' : ''"><button type="button" :class="theme.isDarkMode ? 'btn-dark navTextDark' : 'btn-light navTextLight'" class="btn" >À propos de moi</button></router-link>
+          <router-link :to="{ name: 'aboutMe' }" :class="theme.isDarkMode ? '' : ''"><button type="button" :class="theme.isDarkMode ? 'btn-dark-mode navTextDark' : 'btn-light-mode navTextLight'" class="btn" >À propos de moi</button></router-link>
         </div>
         <div>
-          <router-link :to="{ name: 'service' }" :class="theme.isDarkMode ? '' : ''"><button type="button" :class="theme.isDarkMode ? 'btn-dark navTextDark' : 'btn-light navTextLight'" class="btn" >Mes services</button></router-link>
+          <router-link :to="{ name: 'service' }" :class="theme.isDarkMode ? '' : ''"><button type="button" :class="theme.isDarkMode ? 'btn-dark-mode navTextDark' : 'btn-light-mode navTextLight'" class="btn" >Mes services</button></router-link>
         </div>
       </div>
     </div>
@@ -150,19 +150,6 @@ export default {
 #card {
   transition: 0.5s;
 }
-
-
-/* welcome.css */
-.dark-theme-button {
-    /* Styles pour le bouton en mode sombre */
-    background-color: #333!important;
-  }
-  
-  .light-theme-button {
-    /* Styles pour le bouton en mode clair */
-    background-color: #fff!important;
-  }
-
 
 </style>
 

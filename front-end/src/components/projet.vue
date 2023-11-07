@@ -1,46 +1,46 @@
 <template>
-    <section>
-      <h1>Projet</h1>
+    <section id="projet" key="projet" class="container mt-5">
+      <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="text-center title font-size-40 h1">Projet</h1>
 
       <div class="card-group gap-4 pb-5 m-5 flex-nowrap mx-3 ">
         <div class="card" :class="theme.isDarkMode ? 'cardDark' : 'cardLight'" style="min-width: 28rem;">
         <img src="../assets/images/pictures/image-Page-Accueil.webp" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Page d'accueil personnalisé</h5>
-          <p class="card-text">Projet personnel de création d'une page d'accueil personnalisé avec heure intégré.</p>
-          <a href="#" class="btn"  :class="theme.isDarkMode ? 'btn-dark navTextDark' : 'btn-light navTextLight'">Go somewhere</a>
+          <p class="card-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">Projet personnel de création d'une page d'accueil personnalisé avec heure intégré.</p>
+          <a href="#" class="btn"  :class="theme.isDarkMode ? 'btn-dark-mode navTextDark' : 'btn-light-mode navTextLight'">Go somewhere</a>
+        </div>
+      </div>
+      <div class="card" :class="theme.isDarkMode ? 'cardDark' : 'cardLight'" style="min-width: 28rem;">
+        <img src="../assets/images/pictures/image-Page-Accueil.webp" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title text-center">Card title</h5>
+          <p class="card-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn"  :class="theme.isDarkMode ? 'btn-dark-mode navTextDark' : 'btn-light-mode navTextLight'">Go somewhere</a>
         </div>
       </div>
       <div class="card" :class="theme.isDarkMode ? 'cardDark' : 'cardLight'" style="min-width: 28rem;">
         <img src="../assets/images/pictures/image-Page-Accueil.webp" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn"  :class="theme.isDarkMode ? 'btn-dark navTextDark' : 'btn-light navTextLight'">Go somewhere</a>
+          <p class="card-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn" :class="theme.isDarkMode ? 'btn-dark-mode navTextDark' : 'btn-light-mode navTextLight'">Go somewhere</a>
         </div>
       </div>
       <div class="card" :class="theme.isDarkMode ? 'cardDark' : 'cardLight'" style="min-width: 28rem;">
         <img src="../assets/images/pictures/image-Page-Accueil.webp" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn" :class="theme.isDarkMode ? 'btn-dark navTextDark' : 'btn-light navTextLight'">Go somewhere</a>
+          <p class="card-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn"  :class="theme.isDarkMode ? 'btn-dark-mode navTextDark' : 'btn-light-mode navTextLight'"  >Go somewhere</a>
         </div>
       </div>
       <div class="card" :class="theme.isDarkMode ? 'cardDark' : 'cardLight'" style="min-width: 28rem;">
         <img src="../assets/images/pictures/image-Page-Accueil.webp" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn"  :class="theme.isDarkMode ? 'btn-dark navTextDark' : 'btn-light navTextLight'"  >Go somewhere</a>
-        </div>
-      </div>
-      <div class="card" :class="theme.isDarkMode ? 'cardDark' : 'cardLight'" style="min-width: 28rem;">
-        <img src="../assets/images/pictures/image-Page-Accueil.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn"  :class="theme.isDarkMode ? 'btn-dark navTextDark' : 'btn-light navTextLight'">Go somewhere</a>
+          <p class="card-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn"  :class="theme.isDarkMode ? 'btn-dark-mode navTextDark' : 'btn-light-mode navTextLight'">Go somewhere</a>
         </div>
       </div>
     
@@ -85,6 +85,11 @@
 
   .card {
     overflow: hidden;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+    text-align: center;
   }
 
 /* Personnalisation de la barre de défilement principale (en général) */

@@ -144,6 +144,15 @@
 
 
 export default {
+
+  data() {
+    return {
+      // Initialisez messages comme un tableau vide
+      messages: [],
+    };
+  },
+
+
   props: ['theme'],
   methods: {
     toggleThemeAndEmit() {
@@ -159,10 +168,27 @@ export default {
       // Récupérez les données du formulaire en créant une nouvelle instance de FormData
       const formData = new FormData(event.target);
 
+      console.log(formData.get('email'));
+
+        // Ajoutez le message envoyé au tableau
+        this.messages.push({
+        sender: formData.get('email'), // Expéditeur
+        subject: formData.get('object'), // Objet
+        message: formData.get('message'), // Message
+      });
+
+      // Affichez les messages dans la console
+      console.log('Messages envoyés :', this.messages);
+
+      axios.post('http://localhost:3000', formData, {
+        headers: { 'Content-Type': 'application/json' }
+      })
+
       // Validez les champs du formulaire en utilisant la fonction validateForm
       if (this.validateForm(formData)) {
         // Si la validation réussit, envoyez les données au serveur
-        axios.post('/your-endpoint-on-the-server', formData)
+
+        axios.post('http://localhost:3000', formData)
           .then(response => {
             // Gérez la réponse du serveur ici
             console.log('Formulaire envoyé');

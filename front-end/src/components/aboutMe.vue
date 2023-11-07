@@ -1,6 +1,6 @@
 <template>
-    <section id="about" class="container py-2 my-5">
-     <div class="d-flex row align-content-center position-relative justify-content-evenly flex-wrap my-auto position-relative">
+    <section id="about" class="container d-grid py-2 my-5">
+     <div class="row align-self-center justify-content-center">
   
       <div id="card" class="col-12 col-md-8 gy-4 mb-5" @mousemove="handleCardEffect" @mouseleave="resetCardEffect">
         <!-- main-bloc -->
@@ -8,7 +8,7 @@
           <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="card-title m-4 pb-5 title h1 text-center">A propos de moi</h1>
         </div>
         <div id="spitch"  :class="theme.isDarkMode ? 'welcome-dark' : 'welcome-light'" class="col-12 text-center card-body p-5 text-style">
-          <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class=" text-warpcard-text py-3 px-3 lh-lg lh-sm textIndent text-justify" >
+          <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class=" text-warpcard-text p-3 lh-lg lh-sm textIndent text-justify" >
             Bonjour ! Je m'appelle Florent, développeur web et webmobile freelance qui commence son activité. 
             J'étais été formé auprès de différent centre de formation comme Webforce 3 et AFCI et 
             j'ai développé les outils nécessaires pour évoluer à mon compte et de continuer à développer mes compétences. 
@@ -112,42 +112,12 @@
 
   
   #spitch {
-      border-radius: 60px;
+      border-radius: 1.5rem;
       position: relative;
       height: max-content;
       filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   
-  }
-  
-  /* profil picture */
-  
-  #profil_picture {
-      border-radius: 233.847px;
-      position: relative;
-      transition: max-width 0.5s, width 0.5s !important; /* Vous pouvez ajuster la durée (0.3s) selon vos préférences */
-  
-  
-  }
-  
-  #profil_picture:hover {
-    max-width: 120%  !important;
-    width: 20vw  !important; 
-  }
-  
-  .photo-light {
-      filter: drop-shadow(5px 10px 5px rgb(255, 255, 255));
-      transition: .5s ease;
-  
-  }
-  
-  .photo-dark {
-    filter: drop-shadow(5px 10px 5px rgba(0, 0, 0, 0.25));
-      transition: .5s ease;
-  
-  }
-  
-  
-  
+  }  
   
   /* dark-mode-light-mod bloc */
   

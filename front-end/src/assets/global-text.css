@@ -6,15 +6,40 @@
 
 /* color white */
 
+:is(.h1-light, .navHomeLight){
+  color: rgb(241, 227, 184)!important; /* Une couleur orange vif */
+  font-weight: bold!important;
+}
 
 
 :is(.h2-dark, .navHomeDark ){
-  color: rgb(28, 142, 230);
-  -webkit-text-stroke:  0.5px rgb(255, 247, 10); 
+  color: rgb(255, 255, 255);
+  -webkit-text-stroke:  0.5px rgb(125, 137, 163)mportant; 
+  font-weight: bold!important;
 }
 
-:is(.text-color-light, .navTextDark:hover, .navTextLight ){
+:is(.text-color-light){
   color: var(--black-soft);
+}
+
+:is(.navTextDark) {
+  color: #e2e271;
+}
+
+:is(.navTextDark:hover){
+  color: #e7e73b;
+  text-shadow: 0 0 5px var(--white),
+  0 0 10px var(--white),
+  0 0 15px var(--white);
+  -webkit-text-stroke: 0.2px #1900ff!important; /* Largeur et couleur du contour */
+  cursor: pointer;
+
+}
+
+:is(.navTextLight){
+  color:#1d3797;
+  -webkit-text-stroke: 0.1px #83830f !important; 
+
 }
 
 :is(.text-color-dark, .navTextLight:hover, .h2-light, .navHomeLight){
@@ -34,9 +59,8 @@
 /* h1 */
   
   .h1-light{
-    color: rgb(241, 227, 184)!important; /* Une couleur orange vif */
-    -webkit-text-stroke: 0.1px #4B0082 !important; /* Un contour orange légèrement plus foncé */
     font-weight: bold!important;
+    -webkit-text-stroke: 1px #4B0082 !important; /* Un contour orange légèrement plus foncé */
     transition: .5s ease;
   
   }
@@ -61,7 +85,6 @@
   }
   
   .h2-dark {
-    -webkit-text-stroke: 0.5px #c50fb3!important; 
     transition: .5s ease;
   }
   
@@ -109,7 +132,6 @@
   
   
   .navTextLight {
-    -webkit-text-stroke: 0.2px #b1b170 !important; 
      transition: .5s ease;
   
   }
@@ -127,33 +149,18 @@
   
   .navTextDark  {
   
-    color: var(--white);
-    -webkit-text-stroke: 0.2px rgb(140, 140, 105)!important; 
+    -webkit-text-stroke: 0.1px rgb(128, 198, 215)!important; 
      text-decoration: none;
      transition: .5s ease;
   
-  
-  
   }
   
-  .navTextDark:hover{
-  
-      text-shadow: 0 0 5px var(--white),
-      0 0 10px var(--white),
-      0 0 15px var(--white);
-    -webkit-text-stroke: 0.5px #1900ff!important; /* Largeur et couleur du contour */
-    text-stroke: 0.5px #1900ff!important; /* Largeur et couleur du contour */
-    cursor: pointer;
-  
-  }
-
 
   /* nav-bar style text  */
 
   .navHomeLight {
-  color: var(--black)!important;
   text-shadow: 0 0 2px var(--Similiblack);
-  -webkit-text-stroke: 0.5px var(--black);
+  -webkit-text-stroke: 0.1px #4B0082 !important; /* Un contour orange légèrement plus foncé */
   text-decoration: none;
   transition: .5s ease;
 }
@@ -179,10 +186,10 @@
 .navHomeLight:hover {
 
   color: rgb(241, 227, 184)!important; /* Une couleur orange vif */
-  -webkit-text-stroke: 0.5px #4B0082 !important; /* Un contour orange légèrement plus foncé */
-  text-shadow: 0 0 5px var(--black-soft),
-  0 0 10px var(--black-soft),
-  0 0 15px var(--black-soft);
+  -webkit-text-stroke: 0.7px #4B0082 !important; /* Un contour orange légèrement plus foncé */
+  text-shadow: 0 0 5px #ffffff,
+  0 0 10px #ffffff,
+  0 0 15px #ffffff;
 
   cursor: pointer;
   transition: .5s ease;
@@ -198,8 +205,9 @@
 }
 
 .navTextLight.router-link-exact-active  {
-  -webkit-text-stroke: 0.2px var(--white)!important; /* Largeur et couleur du contour */
-  font-weight: bold;
+  color: white!important;
+  -webkit-text-stroke: 0.1px #f1f4ff !important; /* Largeur et couleur du contour */
+  font-weight: bold!important;
 }
 
 
