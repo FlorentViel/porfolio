@@ -77,12 +77,12 @@
         <form  @submit="validateAndSubmit" id="contact" class="py-5 mx-auto col-10 row gy-3">
   <div class="form-row d-flex justify-content-lg-around flex-wrap">
     <div class="col-lg-5 col-12">
-      <label for="last-name">Nom*</label>
-      <input type="text" class="form-control" id="last-name" name="last-name" placeholder="Nom" required>
+      <label for="lastName">Nom*</label>
+      <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Nom" required>
     </div>
     <div class="col-lg-5 col-12">
-      <label for="first-name">Prénom</label>
-      <input type="text" class="form-control" name="first-name" placeholder="Prénom">
+      <label for="firstName">Prénom</label>
+      <input type="text" class="form-control" name="firstName" placeholder="Prénom">
     </div>
   </div>
   <div class="form-row d-flex justify-content-lg-around flex-wrap">
@@ -202,7 +202,7 @@ export default {
     validateForm(formData) {
       // Implémentez la logique de validation ici
       // Vérifiez les champs requis
-      const requiredFields = ['last-name', 'email', 'phone', 'object', 'message', 'agree']; // Ajoutez tous les champs requis ici
+      const requiredFields = ['lastName', 'email', 'phone', 'object', 'message', 'agree']; // Ajoutez tous les champs requis ici
 
       for (const field of requiredFields) {
         const value = formData.get(field);
@@ -214,8 +214,6 @@ export default {
       }
 
       // Toutes les validations passées, le formulaire est valide
-
-      console.log('ok');
 
       return true;
     }

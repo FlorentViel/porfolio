@@ -3,12 +3,7 @@ const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const cors = require('cors'); // Importez le package cors
 
-
-
-
 const app = express();
-
-
 
 // Middleware pour analyser les données du formulaire
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -46,15 +41,28 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
   const formData = req.body;
   console.log('Données du formulaire reçues :', formData);
-
+  console.log('Données du formulaire reçues :', `${formData['firstName']} ${formData['email']}` );
   try {
     // Traitement des données du formulaire
     const mailOptions = {
-      from: formData['last-name'],
+      from: 'florviev@gmail.com',
       to: 'florent.vieville03@gmail.com',
-      subject: `Nouveau message de ${formData['last-name']} ${formData['first-name']}`,
-      text: `Message: ${formData['message']}`
+      subject: `Nouveau message de : ${formData['object']}`,
+      text: `Message de : Nom ${formData['lastName']} : Prénom : ${formData['firstName']}  Email : ${formData['email']}: ${formData['message']}`
     };
+
+    
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log('Erreur d\'envoi de courriel : ' + error);
+        res.status(500).send('Erreur d\'envoi de courriel');
+      } else {
+        console.log('Courriel envoyé : ' + info.response);
+        res.status(200).send('Courriel envoyé avec succès');
+      }
+    });
+
+
 
     res.status(200).send('Formulaire envoyé avec succès');
   } catch (error) {
@@ -62,16 +70,12 @@ app.post('/', (req, res) => {
     res.status(500).send('Erreur côté serveur');
   }
 
+  
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log('Erreur d\'envoi de courriel : ' + error);
-      res.status(500).send('Erreur d\'envoi de courriel');
-    } else {
-      console.log('Courriel envoyé : ' + info.response);
-      res.status(200).send('Courriel envoyé avec succès');
-    }
-  });
+
+
+
+
 });
 
 // Démarrage du serveur sur le port 3000 (ou choisissez le port de votre choix)
