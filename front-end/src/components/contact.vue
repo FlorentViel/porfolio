@@ -75,10 +75,11 @@
 
         <!-- Form bloc : Right bloc -->
         <form  @submit="validateAndSubmit" id="contact" class="py-5 mx-auto col-10 row gy-3">
-  <div class="form-row d-flex justify-content-lg-around flex-wrap">
+  <div class="form-row d-flex justify-content-lg-around flex-wrap position-relative">
     <div class="col-lg-5 col-12">
       <label for="lastName">Nom*</label>
-      <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Nom" required>
+      <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Nom">
+      <p v-if="errors.lastName" class="error-message">{{ errors.lastName }}</p>
     </div>
     <div class="col-lg-5 col-12">
       <label for="firstName">Prénom</label>
@@ -93,6 +94,7 @@
           <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
         </div>
         <input type="text" class="form-control" name="email" placeholder="Saisissez une adresse e-mail" required >
+        <p v-if="errors.email" class="error-message">{{ errors.email }}</p>
       </div>
     </div>
     <div class="col-lg-5 col-12 ">
@@ -104,11 +106,12 @@
     <div class="col-lg-11 col-12 mx-auto">
       <label for="object-input">Objet*</label>
       <input type="text" class="form-control" id="object-input"  name="object" placeholder="Objet" required>
+      <p v-if="errors.object" class="error-message">{{ errors.lastName }}</p>
     </div>
   </div>
   <div class="form-row">
     <div class="col-lg-11 col-12 mx-auto">
-      <label for="MessageArea">Message</label>
+      <label for="MessageArea">Message *</label>
       <textarea class="form-control" id="MessageArea" name="message" rows="6" required></textarea>
       <p class="text-contact">Champs obligatoires *</p>
     </div>
@@ -149,6 +152,8 @@ export default {
     return {
       // Initialisez messages comme un tableau vide
       messages: [],
+          // Initialisez errors comme un objet vide
+      errors: {},
     };
   },
 
@@ -163,43 +168,46 @@ export default {
 
 
     validateAndSubmit(event) {
-      event.preventDefault(); // Empêche la soumission par défaut du formulaire
+  event.preventDefault(); // Empêche la soumission par défaut du formulaire
 
-      // Récupérez les données du formulaire en créant une nouvelle instance de FormData
-      const formData = new FormData(event.target);
+  // Récupérez les données du formulaire en créant une nouvelle instance de FormData
+  const formData = new FormData(event.target);
 
-      console.log(formData.get('email'));
+  // Ajoutez le message envoyé au tableau
+  this.messages.push({
+    sender: formData.get('email'), // Expéditeur
+    subject: formData.get('object'), // Objet
+    message: formData.get('message'), // Message
+  });
 
-        // Ajoutez le message envoyé au tableau
-        this.messages.push({
-        sender: formData.get('email'), // Expéditeur
-        subject: formData.get('object'), // Objet
-        message: formData.get('message'), // Message
-      });
+  // Affichez les messages dans la console
+  console.log('Messages envoyés :', this.messages);
 
-      // Affichez les messages dans la console
-      console.log('Messages envoyés :', this.messages);
+  // Validez les champs du formulaire en utilisant la fonction validateForm
+  if (this.validateForm(formData)) {
+    // Si la validation réussit, envoyez les données au serveur
 
-      axios.post('http://localhost:3000', formData, {
-        headers: { 'Content-Type': 'application/json' }
+    axios.post('http://localhost:3000', formData, {
+      headers: { 'Content-Type': 'application/json' }
+    })
+      .then(response => {
+        // Gérez la réponse du serveur ici
+        console.log('Formulaire envoyé');
       })
+      .catch(error => {
+        console.log('Erreur');
+      });
+  }
+},
 
-      // Validez les champs du formulaire en utilisant la fonction validateForm
-      if (this.validateForm(formData)) {
-        // Si la validation réussit, envoyez les données au serveur
-
-        axios.post('http://localhost:3000', formData)
-          .then(response => {
-            // Gérez la réponse du serveur ici
-            console.log('Formulaire envoyé');
-          })
-          .catch(error => {
-            console.log('Erreur');
-          });
-      }
-    },
 
     validateForm(formData) {
+
+      // Réinitialisez les erreurs
+
+      this.errors = {};
+
+
       // Implémentez la logique de validation ici
       // Vérifiez les champs requis
       const requiredFields = ['lastName', 'email', 'phone', 'object', 'message', 'agree']; // Ajoutez tous les champs requis ici
@@ -208,9 +216,28 @@ export default {
         const value = formData.get(field);
         if (!value || value.trim() === '') {
           // Champ obligatoire manquant, affichez un message d'erreur ou effectuez d'autres actions
+
           console.log(`Le champ "${field}" est requis.`);
-          return false; // Validation échouée
+          console.log(`Field: ${field}, Value: ${value}`);
+
+
+          this.errors[field] = `Le champ "${field}" est requis.`;
         }
+      }
+
+      // Vérifiez si l'e-mail est une adresse e-mail valide
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const email = formData.get('email');
+      if (!emailRegex.test(email)) {
+        console.log(`L'adresse e-mail "${email}" n'est pas valide.`);
+        this.errors.email = `L'adresse e-mail "${email}" n'est pas valide.`;
+      }
+
+
+      // Vérifiez s'il y a des erreurs
+      if (Object.keys(this.errors).length > 0) {
+        // Il y a des erreurs, la validation échoue
+        return false;
       }
 
       // Toutes les validations passées, le formulaire est valide
@@ -258,6 +285,20 @@ export default {
   #contact {
     width: 60%;
   }  
+
+  /*error input message style */
+
+  .error-message {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    right: 0px;
+    bottom: 20px;
+    background-color: red;
+    padding: 0.5rem;
+    border-radius: 15px!important;
+
+  }
 
   </style>
   

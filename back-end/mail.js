@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
   const formData = req.body;
   console.log('Données du formulaire reçues :', formData);
-  console.log('Données du formulaire reçues :', `${formData['firstName']} ${formData['email']}` );
+  console.log('Données du formulaire reçues :', `${formData['lastName']} ${formData['email']}` );
   try {
     // Traitement des données du formulaire
     const mailOptions = {
@@ -51,7 +51,6 @@ app.post('/', (req, res) => {
       text: `Message de : Nom ${formData['lastName']} : Prénom : ${formData['firstName']}  Email : ${formData['email']}: ${formData['message']}`
     };
 
-    
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
         console.log('Erreur d\'envoi de courriel : ' + error);
@@ -62,20 +61,11 @@ app.post('/', (req, res) => {
       }
     });
 
-
-
     res.status(200).send('Formulaire envoyé avec succès');
   } catch (error) {
     console.log('Erreur côté serveur :', error);
     res.status(500).send('Erreur côté serveur');
   }
-
-  
-
-
-
-
-
 });
 
 // Démarrage du serveur sur le port 3000 (ou choisissez le port de votre choix)
