@@ -1,10 +1,10 @@
 <template>
-    <section class="container" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">
+    <section class="container my-5" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">
 
 
       <!-- Title contact -->
 
-      <div class="my-5">
+      <div class="">
           <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="text-center title font-size-40 h1">Contact</h1>
       </div>
 
@@ -168,7 +168,7 @@ export default {
 
 
     validateAndSubmit(event) {
-  event.preventDefault(); // Empêche la soumission par défaut du formulaire
+  //event.preventDefault(); // Empêche la soumission par défaut du formulaire
 
   // Récupérez les données du formulaire en créant une nouvelle instance de FormData
   const formData = new FormData(event.target);
@@ -182,6 +182,7 @@ export default {
 
   // Affichez les messages dans la console
   console.log('Messages envoyés :', this.messages);
+  alert('Message envoyés ! ');
 
   // Validez les champs du formulaire en utilisant la fonction validateForm
   if (this.validateForm(formData)) {

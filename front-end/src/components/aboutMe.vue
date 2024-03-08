@@ -1,5 +1,5 @@
 <template>
-    <section id="about" class="container d-grid py-2 my-5">
+    <section id="about" class="container d-grid py-2">
      <div class="row align-self-center justify-content-center">
   
       <div id="card" class="col-12 col-md-8 gy-4 mb-5" @mousemove="handleCardEffect" @mouseleave="resetCardEffect">
@@ -8,7 +8,7 @@
           <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="card-title m-4 pb-5 title h1 text-center">A propos de moi</h1>
         </div>
         <div id="spitch"  :class="theme.isDarkMode ? 'welcome-dark' : 'welcome-light'" class="col-12 text-center card-body p-5 text-style">
-          <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class=" text-warpcard-text p-3 lh-lg lh-sm textIndent text-justify" >
+          <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class="p-3 lh-lg lh-sm textIndent text-justify" >
             Bonjour ! Je m'appelle Florent, développeur web et webmobile freelance qui commence son activité. 
             J'étais été formé auprès de différent centre de formation comme Webforce 3 et AFCI et 
             j'ai développé les outils nécessaires pour évoluer à mon compte et de continuer à développer mes compétences. 

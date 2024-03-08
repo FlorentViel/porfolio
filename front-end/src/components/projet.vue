@@ -2,7 +2,7 @@
     <section id="projet" key="projet" class="container mt-5">
       <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="text-center title font-size-40 h1">Projet</h1>
 
-      <div class="card-group gap-4 pb-5 m-5 flex-nowrap mx-3 ">
+      <div class="card-group gap-4 pb-5 m-5 flex-nowrap ">
         <div class="card" :class="theme.isDarkMode ? 'cardDark' : 'cardLight'" style="min-width: 28rem;">
         <img src="../assets/images/pictures/image-Page-Accueil.webp" class="card-img-top" alt="...">
         <div class="card-body">

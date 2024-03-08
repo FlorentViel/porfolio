@@ -1,10 +1,18 @@
 <template class=" ">
 
-    <footer id="footerBar" :class="theme.isDarkMode ? 'nav-dark' : 'nav-Light'" class="footer d-flex align-items-center navBarStyle mt-auto py-3 text-center">
-    <div class="container text-end align-self-center">
-      <p class="style-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">
-        &copy; Portfolio produit sans template avec Vue.js, CSS et Bootstrap
-      </p>
+    <footer id="footerBar" :class="theme.isDarkMode ? 'nav-dark' : 'nav-Light'" class="footer d-flex justify-content-lg-between px-5 align-items-center navBarStyle mt-auto py-3 text-center">
+    <div class="align-self-center" style="text-align: center;">
+      <small class="style-text" >
+        <router-link :class="theme.isDarkMode ? 'footerTextDark' : 'footerTextLight'" to="/privacyPolicy">Politique de confidentialité</router-link>
+      </small> 
+    </div> 
+    <div class="text-end align-self-center">
+      <small class="style-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">
+        &copy; Florent Vieville 
+      </small>
+      <small class="style-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">2023</small>
+      <br>
+      <small class="style-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">Tous droits réservés</small>
     </div>
 
   </footer>

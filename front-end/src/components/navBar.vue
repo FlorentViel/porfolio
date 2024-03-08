@@ -1,47 +1,33 @@
 <template>
-
   <nav id="navBar" :class="theme.isDarkMode ? 'nav-dark navbar-dark' : 'nav-Light navbar-light'" class="navbar  navBarStyle navbar-expand-md  pe-3 py-2">
     <div class="container">
-
-      <router-link :to="{ name: 'home' }" :class="theme.isDarkMode ? 'navHomeDark' : 'navHomeLight'" class="navbar-brand pb-sm-3 mt-sm-3" @click="changeTitle('Présentation')">
+      <router-link :to="{ name: 'home' }" :class="['navbar-brand pb-sm-3 mt-sm-3', theme.isDarkMode ? 'navHomeDark' : 'navHomeLight', isNext ? 'next-link' : 'isNextAboutMe']" @click="changeTitle('Présentation' , 'next')">
         Portfolio Florent VIEVILLE
       </router-link>
-      
-
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto column-gap-3">
           <li class="nav-item text-center">
-            <router-link :to="{ name: 'aboutMe' }" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight'" class="nav-link" @click="changeTitle('&Agrave; propos de moi')">&Agrave; propos 
+            <router-link :to="{ name: 'aboutMe' }" :class="['nav-link', theme.isDarkMode ? 'navTextDark' : 'navTextLight', isNext ? 'next-link' : '']" @click="changeTitle('&Agrave; propos de moi', 'next')">&Agrave; propos 
               <span :class="theme.isDarkMode ? 'menu-separator-dark' : 'menu-separator-light'"  class="menu-separator d-md-none d-sm-block mt-3"></span>
             </router-link>
           </li>
           <li class="nav-item text-center">
-            <router-link :to="{ name: 'service' }" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight'" class="nav-link" @click="changeTitle('Mes services')">Mes services
+            <router-link :to="{ name: 'service' }" :class="['nav-link', theme.isDarkMode ? 'navTextDark' : 'navTextLight', isNext ? 'next-link' : '']" @click="changeTitle('Mes services', 'next')">Mes services
               <span :class="theme.isDarkMode ? 'menu-separator-dark' : 'menu-separator-light'"  class="menu-separator d-md-none d-sm-block mt-3"></span>
             </router-link>
           </li>
           <li class="nav-item text-center">
-            <router-link :to="{ name: 'projet' }" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight'" class="nav-link" @click="changeTitle('Mes projets')">Mes projets
+            <router-link :to="{ name: 'projet' }" :class="['nav-link', theme.isDarkMode ? 'navTextDark' : 'navTextLight', isNext ? 'next-link' : '']" @click="changeTitle('Mes projets')">Mes projets
               <span :class="theme.isDarkMode ? 'menu-separator-dark' : 'menu-separator-light'"  class="menu-separator d-md-none d-sm-block mt-3"></span>
             </router-link>
           </li>
           <li class="nav-item text-center">
-            <router-link :to="{ name: 'contact' }" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight'" class="nav-link" @click="changeTitle('Me contacter')">Me contacter</router-link>
+            <router-link :to="{ name: 'contact' }" :class="['nav-link', theme.isDarkMode ? 'navTextDark' : 'navTextLight', isNext ? 'next-link' : '']" @click="changeTitle('Me contacter')">Me contacter</router-link>
           </li>
         </ul>
-      </div>
-
-      <div class="d-flex justify-content-center align-items-center py-sm-4">
-        <input type="checkbox" class="checkbox" :class="theme.isDarkMode ? 'btn-dark' : 'btn-light'" id="checkbox" @click="toggleThemeAndEmit">
-        <label for="checkbox" class="checkbox-label" :class="theme.isDarkMode ? 'checkbox-label-dark' : 'checkbox-label-light'">
-          <i class="fas fa-moon"></i>
-          <i class="fas fa-sun"></i>
-          <span class="ball"></span>
-        </label>
       </div>
     </div>
   </nav>
@@ -50,17 +36,33 @@
 
 
 <script>
-
+import { mapState, mapMutations } from 'vuex';
 
 export default {
+  data() {
+    return {
+      transitionName: 'slide-left',
+    };
+  },
+  
   props: ['theme'],
+  computed: {
+    ...mapState(['isNext']), // Map isNext state to a computed property
+  },
   methods: {
+    ...mapMutations(['setIsNext']), // Map setIsNext mutation to a method
     toggleThemeAndEmit() {
       this.theme.toggleTheme(); // Appel de la fonction pour basculer le thème
       this.$emit('toggleTheme'); // Émettez l'événement pour demander le changement de thème
+      this.setIsNext(!this.theme.isDarkMode); // Utilisez la mutation pour changer la valeur de isNext
     },
-
-
+    changeTitle(title, direction) {
+      this.$store.commit('setTitle', title);
+      this.transitionName = direction === 'next' ? 'slide-left' : 'slide-right';
+    },
+  },
+  checkState() {
+    console.log(this.$store.state.isNext);
   },
 };
 </script>
@@ -149,6 +151,24 @@ function changeTitle(newSectionName) {
 }
 
 
+.slide-left-enter-active, .slide-right-leave-active {
+  transition: all 0.3s ease;
+}
+.slide-left-leave-active, .slide-right-enter-active {
+  transition: all 0.3s ease;
+}
+.slide-left-enter, .slide-left-leave-to /* .slide-left-leave-active below version 2.1.8 */ {
+  transform: translateX(100%);
+}
+.slide-left-leave, .slide-left-enter-to /* .slide-left-enter-active below version 2.1.8 */ {
+  transform: translateX(-100%);
+}
+.slide-right-enter, .slide-right-leave-to /* .slide-right-leave-active below version 2.1.8 */ {
+  transform: translateX(-100%);
+}
+.slide-right-leave, .slide-right-enter-to /* .slide-right-enter-active below version 2.1.8 */ {
+  transform: translateX(100%);
+}
 
 
 </style>

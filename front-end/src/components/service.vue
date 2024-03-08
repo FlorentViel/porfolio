@@ -342,13 +342,6 @@ mounted() {
 
 /************************************************* Service css ***************************************************/
 
-/* slider bloc */
-
-#slider {
-
-
-}
-
 /* slide css */
 
 .slide {
@@ -365,6 +358,16 @@ mounted() {
 
 }
 
+
+
+.slide div {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+/* slide dark mode */
+
 .slide-dark {
   background: #80787834;
 }
@@ -375,6 +378,8 @@ mounted() {
    
 }
 
+/* slide light mode */
+
 .slide-light {
   background: #0099ff34;
 }
@@ -383,23 +388,9 @@ mounted() {
   background: #0099ff83;
 }
 
-
-
-
-
-.slide div {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    position: relative;
-}
-
 /* animation slide */
 
 /* Transition */
-
-
-
-
 
 .hide-slide {
   display: none;

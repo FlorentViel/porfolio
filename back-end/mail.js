@@ -47,8 +47,8 @@ app.post('/', (req, res) => {
     const mailOptions = {
       from: 'florviev@gmail.com',
       to: 'florent.vieville03@gmail.com',
-      subject: `Nouveau message de : ${formData['object']}`,
-      text: `Message de : Nom ${formData['lastName']} : Prénom : ${formData['firstName']}  Email : ${formData['email']}: ${formData['message']}`
+      subject: `Message formulaire contact porfolio : ${formData['object']}`,
+      text: `Message de : Nom ${formData['lastName']} : Prénom : ${formData['firstName']}  Email : ${formData['email']}\n\n${formData['message']}`
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
