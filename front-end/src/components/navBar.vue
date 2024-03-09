@@ -29,6 +29,14 @@
           </li>
         </ul>
       </div>
+      <div class="d-flex justify-content-center align-items-center py-sm-4">
+        <input type="checkbox" class="checkbox" :class="theme.isDarkMode ? 'btn-dark' : 'btn-light'" id="checkbox" @click="toggleThemeAndEmit">
+        <label for="checkbox" class="checkbox-label" :class="theme.isDarkMode ? 'checkbox-label-dark' : 'checkbox-label-light'">
+          <i class="fas fa-moon"></i>
+          <i class="fas fa-sun"></i>
+          <span class="ball"></span>
+        </label>
+      </div>
     </div>
   </nav>
 </template>
@@ -42,15 +50,14 @@ export default {
   data() {
     return {
       transitionName: 'slide-left',
+      transitionName: 'slide-right',
     };
   },
   
   props: ['theme'],
   computed: {
-    ...mapState(['isNext']), // Map isNext state to a computed property
   },
   methods: {
-    ...mapMutations(['setIsNext']), // Map setIsNext mutation to a method
     toggleThemeAndEmit() {
       this.theme.toggleTheme(); // Appel de la fonction pour basculer le thème
       this.$emit('toggleTheme'); // Émettez l'événement pour demander le changement de thème
@@ -151,24 +158,6 @@ function changeTitle(newSectionName) {
 }
 
 
-.slide-left-enter-active, .slide-right-leave-active {
-  transition: all 0.3s ease;
-}
-.slide-left-leave-active, .slide-right-enter-active {
-  transition: all 0.3s ease;
-}
-.slide-left-enter, .slide-left-leave-to /* .slide-left-leave-active below version 2.1.8 */ {
-  transform: translateX(100%);
-}
-.slide-left-leave, .slide-left-enter-to /* .slide-left-enter-active below version 2.1.8 */ {
-  transform: translateX(-100%);
-}
-.slide-right-enter, .slide-right-leave-to /* .slide-right-leave-active below version 2.1.8 */ {
-  transform: translateX(-100%);
-}
-.slide-right-leave, .slide-right-enter-to /* .slide-right-enter-active below version 2.1.8 */ {
-  transform: translateX(100%);
-}
 
 
 </style>

@@ -14,7 +14,8 @@
 
 :is(.h1-dark, .navHomeDark.router-link-exact-active){
   color:#FFFF00 !important;
-  -webkit-text-stroke: 0.1px #FFA500 !important; 
+  -webkit-text-stroke: 0.3px #FFA500 !important;
+  text-shadow: -1px 0 #FFA500, 0 1px #FFA500, 1px 0 #FFA500, 0 -1px #FFA500;
   font-weight: bold!important;
 
 }
