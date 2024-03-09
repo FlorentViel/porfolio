@@ -53,7 +53,7 @@
 
 <script setup>
 
-import NavBar from './components/NavBar.vue';
+import NavBar from './components/navBar.vue';
 import Footer from './components/footer.vue';
 import { ref, readonly } from 'vue';
 
