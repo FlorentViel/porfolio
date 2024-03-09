@@ -37,7 +37,7 @@
 
 <script>
 
-//import photo_profil from '@/assets/logo.svg';
+import photo_profil from '@/assets/logo.svg';
 
 
 
