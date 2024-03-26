@@ -7,8 +7,8 @@
         <div>
           <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="card-title m-4 pb-5 title h1 text-center">A propos de moi</h1>
         </div>
-        <div id="spitch"  :class="theme.isDarkMode ? 'welcome-dark' : 'welcome-light'" class="col-12 text-center card-body p-5 text-style">
-          <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class="p-3 lh-lg lh-sm textIndent text-justify" >
+        <div id="spitch"  :class="theme.isDarkMode ? 'aboutme-dark' : 'aboutme-light'" class="col-12 text-center card-body p-5 text-style">
+          <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class="lh-lg lh-sm textIndent text-justify" >
             Bonjour ! Je m'appelle Florent, développeur web et webmobile freelance qui commence son activité. 
             J'étais été formé auprès de différent centre de formation comme Webforce 3 et AFCI et 
             j'ai développé les outils nécessaires pour évoluer à mon compte et de continuer à développer mes compétences. 
@@ -118,25 +118,30 @@
       filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   
   }  
+
+  /*aboutme blocbackground */
+
+.aboutme-light{
+  background-color: rgba(255, 255, 255, 33%);
+  box-shadow: 5px 5px 15px 5px #cbecff!important;
+}
+
+.aboutme-dark {
+  background: rgba(128, 120, 120, 0.34)!important;
+  box-shadow: 5px 5px 15px 5px var(--black);
+}
+
   
   /* dark-mode-light-mod bloc */
   
-  .welcome-light{
-      background-color: rgba(255, 255, 255, 33%);
-      box-shadow: 8px 8px 8px var(--white);
-  }
-  
-  .welcome-dark {
-      background: rgba(128, 120, 120, 0.34)!important;
-      box-shadow: 8px 8px 8px var(--black);
-  }
+
   
   #card {
     transition: 0.5s;
   }
   
   
-  /* welcome.css */
+  /* aboutme .css */
   .dark-theme-button {
       /* Styles pour le bouton en mode sombre */
       background-color: #333!important;

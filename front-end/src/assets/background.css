@@ -1,6 +1,7 @@
 /* style background et style bloc - btn  */
 
 
+
 /* footer + nav-bar background et css */
 
 .navBarStyle {
@@ -10,14 +11,13 @@
 }
 
 .nav-Light {
-  background: var(--bg-light);
+  background: rgba(69, 144, 255, 0.833)
   
 
 }
 
 .nav-dark {
-  background: var(--bg-dark );
-
+  background: rgb(34, 34, 91) 92%
 }
 
 #navBar .navItem button    {
@@ -101,3 +101,4 @@
               0 0 20px #e7edff ;
   
 } 
+

@@ -144,13 +144,13 @@
   /* p style */
   
   p, label {
-    font-size: 16px;
+    font-size: 1rem; /* 1rem est généralement équivalent à 16px, mais s'adapte à la taille de la police de base du navigateur */
   }
   
   /* indentation first line */
   
   .paragraph::first-line {
-    text-indent: 20px; /* Ajustez la taille de l'alinéa selon vos besoins */
+    text-indent: 5%; /* Utilisez un pourcentage pour rendre l'indentation responsive */
   }
   
   /* nav-text */
@@ -236,20 +236,20 @@
   /* mobile format */
   @media (max-width: 576px) {
     .h1-light, .h1-dark {
-      font-size: 2rem;
+      font-size: calc(2.2rem + 0.5vw);
     }
     .h2-light, .h2-dark {
       font-size: 1.5rem;
     }
     .text-style, p, li {
-      font-size: 1.2rem;
+      font-size: calc(1rem + 0.1vw);
     }
   }
 
   /* tablet format*/
   @media (min-width: 577px) and (max-width: 991px) {
     .h1-light, .h1-dark {
-      font-size: 2.5rem;
+      font-size: calc(2.2rem + 0.5vw);
     }
     .h2-light, .h2-dark {
       font-size: 2rem;
@@ -259,7 +259,7 @@
     }
 
     .nav-link{
-      font-size: 1.2rem;
+      font-size: calc(1rem + 0.1vw);
     }
 
     .navHomeDark , .navHomeLight {
@@ -276,15 +276,15 @@
       font-size: 2.5rem;
     }
     .text-style, p, span{
-      font-size: 1.2rem;
+      font-size: calc(0.8rem + 0.5vw);
     }
 
     .text-contact {
-      font-size: 1.1rem;
+      font-size: calc(0.7rem + 0.5vw);
     }
 
     .nav-link{
-      font-size: 1.5rem;
+      font-size: calc(1rem + 0.5vw);
     }
     .navHomeDark , .navHomeLight {
       font-size: 2rem;

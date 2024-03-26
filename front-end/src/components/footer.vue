@@ -1,6 +1,6 @@
 <template class=" ">
 
-    <footer id="footerBar" :class="theme.isDarkMode ? 'nav-dark' : 'nav-Light'" class="footer d-flex justify-content-lg-between px-5 align-items-center navBarStyle mt-auto py-3 text-center">
+    <footer id="footerBar" :class="theme.isDarkMode ? 'nav-dark' : 'nav-Light'" class="footer d-flex flex-wrap justify-content-between text-center m-auto px-5 align-items-center navBarStyle mt-auto py-3 text-center">
     <div class="align-self-center" style="text-align: center;">
       <small class="style-text" >
         <router-link :class="theme.isDarkMode ? 'footerTextDark' : 'footerTextLight'" to="/privacyPolicy">Politique de confidentialité</router-link>
@@ -47,6 +47,7 @@
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     bottom: 0;
     background-size: 100vw;
+    position: relative;
 
 }
 

@@ -18,19 +18,13 @@
           <div class=" d-flex justify-content-around align-items-center flex-column gap-3">
             <div class="d-flex flex-column justify-content-center align-content-center gap-2">
               <div class="my-2 text-center">
-                <p class="h6">Adresse e-mail</p>
-              </div>
-              <div class="my-2 text-center">
-                <p class="h6"> florent.vieville03@gmail.com</p>
+                <p class="h6">E-mail : florent.vieville03@gmail.com</p>
               </div>
             </div>
             
             <div class="d-flex justify-content-around align-items-center gap-2">
               <div class="my-2">
-                <p class="h6">Téléphone</p>
-              </div>
-              <div class="mx-2">
-                <p class="h6"> 06 48 74 42 30</p>
+                <p class="h6">Tel.  06 48 74 42 30</p>
               </div>
             </div>
           </div>

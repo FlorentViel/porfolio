@@ -3,9 +3,9 @@
 
     <NavBar :theme="theme" :isNext="isNext" />
         
-    <div class="d-flex justify-content-between mx-3">
+    <div class="d-flex justify-content-center mx-5">
 
-      <button class="btn prev-button" >
+      <button class="btn prev-button d-none d-sm-block">
         <svg v-if="$route.name === 'home' || '' " xmlns="http://www.w3.org/2000/svg" width="47" height="66" viewBox="0 0 47 66" fill="none">
           <path d="M36.3622 1.99355C36.7338 1.6622 37.113 1.33101 37.5 1L36.3622 1.99355C10.3479 25.1943 22.0435 49.14 33.7649 61.0805L37.5 64.5C36.2859 63.5095 35.0252 62.3644 33.7649 61.0805L2 32L36.3622 1.99355Z" fill="#8E8E8E"/>
           <path d="M37.5 1C7.1 27 24.8333 54.1667 37.5 64.5L2 32L37.5 1Z" stroke="#FCFCFC" stroke-width="2"/>
@@ -25,7 +25,7 @@
         </transition>
       </router-view>
 
-      <button class="btn next-button" >
+      <button class="btn next-button d-none d-sm-block" >
     <svg v-if="$route.name === 'contact'" xmlns="http://www.w3.org/2000/svg" width="39" height="66" viewBox="0 0 39 66" fill="none">
     <path d="M2.13777 63.5065C1.76624 63.8378 1.38702 64.169 1 64.5L2.13777 63.5065C28.1521 40.3057 16.4565 16.36 4.73512 4.41948L1 1C2.21411 1.99046 3.47476 3.13556 4.73512 4.41948L36.5 33.5L2.13777 63.5065Z" fill="#8E8E8E"/>
     <path d="M1 64.5C31.4 38.5 13.6667 11.3333 1 1L36.5 33.5L1 64.5Z" stroke="#FCFCFC" stroke-width="2" />
@@ -63,7 +63,7 @@ const pageTitle = ref('Portfolio Florent VIEVILLE');
 const selectedSection = ref('A propos'); // Par défaut, afficher la section "Accueil"
 
 
-const isDarkMode = ref(true);
+const isDarkMode = ref(false);
 
 
 

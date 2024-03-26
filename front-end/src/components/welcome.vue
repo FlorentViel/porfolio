@@ -3,15 +3,14 @@
    <div class="d-flex row align-content-center position-relative justify-content-evenly flex-wrap my-auto position-relative">
     <div class="col-6 col-md-3 align-self-center">
       <!-- Profil-picture -->
-      <img id="profil_picture" :class="theme.isDarkMode ? 'photo-dark' : 'photo-light'" class="img-fluid m-3"  :src="'front-end/src/assets/images/pictures/photo_profil.png'" alt="Photo de profil" />
-    </div>
+      <img id="profil_picture" :class="theme.isDarkMode ? 'photo-dark' : 'photo-light'" class="img-fluid m-3" src="/front-end/src/assets/images/pictures/photo_profil.png" alt="Photo de profil" />    </div>
 
 
 
 
       <!-- main-bloc -->
 
-    <div id="card" class="col-12 col-md-6 text-center card-body p-4" @mousemove="handleCardEffect" @mouseleave="resetCardEffect">
+    <div id="card" class="my-3 col-12 col-md-6 text-center card-body p-4" @mousemove="handleCardEffect" @mouseleave="resetCardEffect">
       <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="card-title py-3 title h1">Florent Vieville</h1>
       <h1 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="card-title py-3 ">Développeur web et web mobile</h1>
       <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class="text-warpcard-text text-style py-3 " >
@@ -36,9 +35,6 @@
 
 
 <script>
-
-import photo_profil from '@/assets/logo.svg';
-
 
 
 export default {
@@ -130,21 +126,6 @@ export default {
   filter: drop-shadow(5px 10px 5px rgba(0, 0, 0, 0.25));
     transition: .5s ease;
 
-}
-
-
-
-
-/* dark-mode-light-mod bloc */
-
-.welcome-light{
-    background-color: rgba(255, 255, 255, 33%);
-    box-shadow: 8px 8px 8px var(--white);
-}
-
-.welcome-dark {
-    background: rgba(128, 120, 120, 0.34)!important;
-    box-shadow: 8px 8px 8px var(--black);
 }
 
 #card {
