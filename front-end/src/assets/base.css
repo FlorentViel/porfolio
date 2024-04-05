@@ -65,13 +65,13 @@
 
 
   .backgroundDark {
-    background: rgb(33, 7, 67);
+    background: rgb(31, 31, 31);
     /*background: linear-gradient(112deg, #0E236F 6.55%, #060D23 17.08%, #4610B9 23.07%, #2F4254 37.29%, #194FBE 53.04%, #502DB4 63.88%, #6368CF 71.02%, #070DAC 80.32%, #000 84.24%, #161493 94.18%);
     background: radial-gradient(ellipse, rgba(3,18,102,0.8290966044620973) 65%, rgb(54, 54, 118) 79% ,rgba(27, 27, 32, 1) 80%);
     background-image: linear-gradient(to top, rgba(3,18,102,0.8290966044620973) 91% ,rgba(27, 27, 32, 1) 92%);
     transition: .5s ease;*/
 
-}
+} 
 
 
 /*section*/
@@ -99,14 +99,5 @@
 .slide-reverse-enter-to, .slide-reverse-leave {
   transform: translateX(0);
 }
-  @media (prefers-color-scheme: dark) {
 
-
-  }
-  
-  @media (prefers-color-scheme: light) {
-    .backgroundLight {
-      background: linear-gradient(112deg, #0355F4 6.55%, #FFF 17.08%, #37A1EE 23.07%, #BCDAF7 37.29%, #6D95E8 53.04%, #8C8FDB 63.88%, #8083DB 71.02%, #9B9EE2 80.32%, #FEFEFE 84.24%, #1271FF 94.18%);
-    }
-  }
   

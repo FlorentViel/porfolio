@@ -7,7 +7,7 @@
 /* color white */
 
 :is(.h1-light, .navHomeLight.router-link-exact-active){
-  color: var(--white)!important;
+  color: #6395ff !important;
   font-weight: bold!important;
   -webkit-text-stroke: 0px !important; 
 }
@@ -28,7 +28,7 @@
 }
 
 :is(.h2-light, .navHomeLight){
-  -webkit-text-stroke: 0.4px #1db1c8; 
+  -webkit-text-stroke: 1px rgb(69, 144, 255); 
 }
 
 :is(.text-color-light){
@@ -63,7 +63,7 @@
 }
 
 :is(.navTextLight, .footerTextLight){
-  color:#1d3797;
+  color:#f7f9fe;
   -webkit-text-stroke: 0.1px #83830f !important; 
 
 }
@@ -86,7 +86,7 @@
   
   .h1-light{
     font-weight: bold!important;
-    text-shadow: 0 0 5px black;
+    text-shadow: 0 0 5px rgb(191, 254, 255);
     transition: .5s ease;
   
   }
@@ -103,15 +103,8 @@
 
    /* h2-style */
   
-   .h2-light {
-    -webkit-text-stroke: 0.4px #1db1c8 !important; 
-    transition: .5s ease;
-  
-  }
-  
-  .h2-dark {
-    transition: .5s ease;
-  }
+
+
   
   .text-style {
     font-style: normal!important;
