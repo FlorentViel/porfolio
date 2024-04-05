@@ -1,156 +1,96 @@
 <template>
     <section id="projet" key="projet" class="container mt-5">
       <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="text-center title font-size-40 h1">Projet</h1>
-
-      <div class="card-group gap-4 pb-5 m-5 flex-nowrap ">
-        <div class="card" :class="theme.isDarkMode ? 'cardDark' : 'cardLight'" style="min-width: 28rem;">
-        <img src="../assets/images/pictures/image-Page-Accueil.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Page d'accueil personnalisé</h5>
-          <p class="card-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">Projet personnel de création d'une page d'accueil personnalisé avec heure intégré.</p>
-          <a href="#" class="btn"  :class="theme.isDarkMode ? 'btn-dark-mode navTextDark' : 'btn-light-mode navTextLight'">Go somewhere</a>
-        </div>
-      </div>
-      <div class="card" :class="theme.isDarkMode ? 'cardDark' : 'cardLight'" style="min-width: 28rem;">
-        <img src="../assets/images/pictures/image-Page-Accueil.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title text-center">Card title</h5>
-          <p class="card-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn"  :class="theme.isDarkMode ? 'btn-dark-mode navTextDark' : 'btn-light-mode navTextLight'">Go somewhere</a>
-        </div>
-      </div>
-      <div class="card" :class="theme.isDarkMode ? 'cardDark' : 'cardLight'" style="min-width: 28rem;">
-        <img src="../assets/images/pictures/image-Page-Accueil.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn" :class="theme.isDarkMode ? 'btn-dark-mode navTextDark' : 'btn-light-mode navTextLight'">Go somewhere</a>
-        </div>
-      </div>
-      <div class="card" :class="theme.isDarkMode ? 'cardDark' : 'cardLight'" style="min-width: 28rem;">
-        <img src="../assets/images/pictures/image-Page-Accueil.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn"  :class="theme.isDarkMode ? 'btn-dark-mode navTextDark' : 'btn-light-mode navTextLight'"  >Go somewhere</a>
-        </div>
-      </div>
-      <div class="card" :class="theme.isDarkMode ? 'cardDark' : 'cardLight'" style="min-width: 28rem;">
-        <img src="../assets/images/pictures/image-Page-Accueil.webp" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn"  :class="theme.isDarkMode ? 'btn-dark-mode navTextDark' : 'btn-light-mode navTextLight'">Go somewhere</a>
-        </div>
-      </div>
-    
   
-
+      <div class="carousel">
+        <div class="card my-5" v-for="(card, index) in cards" :key="index" :class="theme.isDarkMode ? 'cardDark' : 'cardLight'" :style="{transform: `translateX(${currentIndex * -200}%)`}">
+          <img :src="card.image" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{ card.title }}</h5>
+            <p class="card-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">{{ card.text }}</p>
+            <a href="#" class="btn"  :class="theme.isDarkMode ? 'btn-dark-mode navTextDark' : 'btn-light-mode navTextLight'">Go somewhere</a>
+          </div>
+        </div>
       </div>
-
-
-
+  
+      <div class="carousel-controls">
+        <button @click="prevSlide">Précédent</button>
+        <button @click="nextSlide">Suivant</button>
+      </div>
     </section>
   </template>
-
   
   <script>
   export default {
     props: ['theme'],
+    data() {
+      return {
+        currentIndex: 0,
+        cards: [
+          {
+            image: '../assets/images/pictures/image-Page-Accueil.webp',
+            title: 'Page d\'accueil personnalisé?',
+            text: 'Projet personnel de création d\'une page d\'accueil personnalisé avec heure intégré.'
+          },
+          {
+          image: '../assets/images/pictures/image-Page-Accueil.webp',
+          title: 'Wesh alors',
+          text: 'Projet personnel de création d\'une page d\'accueil personnalisé avec heure intégré.'
+        },
+        // Ajoutez d'autres cartes ici...
+        {
+          image: '../assets/images/pictures/another-image.webp',
+          title: 'Titre de la nouvelle carte',
+          text: 'Texte de la nouvelle carte.'
+        },
+        {
+          image: '../assets/images/pictures/yet-another-image.webp',
+          title: 'Titre d\'une autre nouvelle carte',
+          text: 'Texte d\'une autre nouvelle carte.'
+        },       
+        ]
+      }
+    },
     methods: {
       toggleThemeAndEmit() {
-        this.theme.toggleTheme(); // Appel de la fonction pour basculer le thème
-        this.$emit('toggleTheme'); // Émettez l'événement pour demander le changement de thème
+        this.theme.toggleTheme();
+        this.$emit('toggleTheme');
       },
+      nextSlide() {
+        if (this.currentIndex < this.cards.length - 2) {
+          this.currentIndex++;
+        } else {
+          this.currentIndex = 0;
+        }
+      },
+      prevSlide() {
+        if (this.currentIndex > 0) {
+          this.currentIndex--;
+        } else {
+          this.currentIndex = this.cards.length - 2;
+        }
+      }
     },
   };
   </script>
   
   <style scoped>
-
-  .card-group{
-    overflow-x: scroll;
+  .carousel {
     display: flex;
-    flex-flow: nowrap!important;
-  /* Firefox */
-  scrollbar-color: #c0dceb rgb(96, 140, 253); /* Barre de défilement principale en bleu et poignée en rouge */
-
-  /* Personnalisation de la piste (track) */
-  scrollbar-track-color: grey;
-
-  /* Personnalisation de la taille de la poignée (thumb) */
-  scrollbar-width: thin;
-
-  }
-
-  .card {
     overflow: hidden;
+    width: 100%;
   }
-
-  .card-body {
-    padding: 1.5rem;
-    text-align: center;
-  }
-
-/* Personnalisation de la barre de défilement principale (en général) */
-::-webkit-scrollbar {
-  width: 12px; /* Largeur de la barre de défilement */
-}
-
-/* Personnalisation de la poignée (thumb) */
-::-webkit-scrollbar-thumb {
-  background-color: #c0dceb; /* Couleur de la poignée */
-  border-radius: 6px; /* Coins arrondis de la poignée */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #e1e9ee; /* Couleur de la poignée */
-}
-
-/* Personnalisation de la piste (track) */
-::-webkit-scrollbar-track {
-  background-color: rgb(96, 140, 253); /* Couleur de la piste */
-}
-
-
-
-
-
-
-
-  .card{
-    font-family: 'Montserrat', 'sans-serif'!important;
-    position: relative; /* Position relative pour positionner correctement l'image agrandie */
-}
-
-  .card-img-top{
-    transition: transform 0.3s; /* Animation de la transformation sur 0.3s */
-}
-
-  .card-img-top:hover{
-    transform: scale(1.2); /* Agrandir l'image de 20% */
-    cursor: zoom-in; /* Changement de curseur au survol */
-}
-
-
-
   
-
-  .cardDark {
-    background-color: #80787834!important;
-    color: white!important;
+  .card {
+    flex: 0 0 50%;
+    max-width: 100%;
+    transition: transform 0.5s ease-in-out;
   }
-
-  .cardLight {
-    background-color: #80787834!important;
-    color: white!important;
+  
+  .carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
   }
-
-  .card-img-top{
-    transition: .5s;
-  }
-
-
-
   </style>
   
