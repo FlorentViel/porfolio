@@ -14,8 +14,8 @@
       </div>
   
       <div class="carousel-controls">
-        <button @click="prevSlide">Précédent</button>
-        <button @click="nextSlide">Suivant</button>
+        <button :disabled="isPrevDisabled" @click="prevSlide">Précédent</button>
+        <button :disabled="isNextDisabled" @click="nextSlide">Suivant</button>
       </div>
     </section>
   </template>
@@ -28,28 +28,36 @@
         currentIndex: 0,
         cards: [
           {
-            image: '../assets/images/pictures/image-Page-Accueil.webp',
+            image: 'front-end/src/assets/images/pictures/image-Page-Accueil.webp',
             title: 'Page d\'accueil personnalisé?',
             text: 'Projet personnel de création d\'une page d\'accueil personnalisé avec heure intégré.'
           },
           {
-          image: '../assets/images/pictures/image-Page-Accueil.webp',
+          image: 'front-end/src/assets/images/pictures/image-Page-Accueil.webp',
           title: 'Wesh alors',
           text: 'Projet personnel de création d\'une page d\'accueil personnalisé avec heure intégré.'
         },
         // Ajoutez d'autres cartes ici...
         {
-          image: '../assets/images/pictures/another-image.webp',
+          image: 'front-end/src/assets/images/pictures/image-Page-Accueil.webp',
           title: 'Titre de la nouvelle carte',
           text: 'Texte de la nouvelle carte.'
         },
         {
-          image: '../assets/images/pictures/yet-another-image.webp',
+          image: 'front-end/src/assets/images/pictures/image-Page-Accueil.webp',
           title: 'Titre d\'une autre nouvelle carte',
           text: 'Texte d\'une autre nouvelle carte.'
         },       
         ]
       }
+    },
+    computed: {
+    isNextDisabled() {
+      return this.currentIndex === 1;
+    },
+    isPrevDisabled() {
+      return this.currentIndex === 0;
+    }
     },
     methods: {
       toggleThemeAndEmit() {
@@ -57,20 +65,20 @@
         this.$emit('toggleTheme');
       },
       nextSlide() {
-        if (this.currentIndex < this.cards.length - 2) {
-          this.currentIndex++;
-        } else {
-          this.currentIndex = 0;
-        }
-      },
-      prevSlide() {
-        if (this.currentIndex > 0) {
-          this.currentIndex--;
-        } else {
-          this.currentIndex = this.cards.length - 2;
-        }
+      if (this.currentIndex < 1) {
+        this.currentIndex++;
+      } else {
+        this.currentIndex = 0;
       }
     },
+    prevSlide() {
+      if (this.currentIndex > 0) {
+        this.currentIndex--;
+      } else {
+        this.currentIndex = 1;
+      }
+    }
+  },
   };
   </script>
   

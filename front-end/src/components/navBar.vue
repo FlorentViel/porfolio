@@ -1,7 +1,7 @@
 <template>
   <nav id="navBar" :class="theme.isDarkMode ? 'nav-dark navbar-dark' : 'nav-Light navbar-light'" class="navbar  navBarStyle navbar-expand-md  pe-3 py-2">
     <div class="container">
-      <router-link :to="{ name: 'home' }" :class="['navbar-brand pb-sm-3 mt-sm-3', theme.isDarkMode ? 'navHomeDark' : 'navHomeLight', isNext ? 'next-link' : 'isNextAboutMe']" @click="changeTitle('Présentation' , 'next')">
+      <router-link :to="{ name: 'home' }" :class="['navbar-brand pb-sm-3 mt-sm-3', theme.isDarkMode ? 'navHomeDark' : 'navHomeLight']" @click="changeTitle('Présentation' , 'next')">
         Portfolio Florent VIEVILLE
       </router-link>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,22 +10,22 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto column-gap-3">
           <li class="nav-item text-center">
-            <router-link :to="{ name: 'aboutMe' }" :class="['nav-link', theme.isDarkMode ? 'navTextDark' : 'navTextLight', isNext ? 'next-link' : '']" @click="changeTitle('&Agrave; propos de moi', 'next')">&Agrave; propos 
+            <router-link :to="{ name: 'aboutMe' }" :class="['nav-link', theme.isDarkMode ? 'navTextDark' : 'navTextLight']" @click="changeTitle('&Agrave; propos de moi', 'aboutMe')">&Agrave; propos de moi
               <span :class="theme.isDarkMode ? 'menu-separator-dark' : 'menu-separator-light'"  class="menu-separator d-md-none d-sm-block mt-3"></span>
             </router-link>
           </li>
           <li class="nav-item text-center">
-            <router-link :to="{ name: 'service' }" :class="['nav-link', theme.isDarkMode ? 'navTextDark' : 'navTextLight', isNext ? 'next-link' : '']" @click="changeTitle('Mes services', 'next')">Mes services
+            <router-link :to="{ name: 'service' }" :class="['nav-link', theme.isDarkMode ? 'navTextDark' : 'navTextLight']" @click="changeTitle('Mes services', 'next')">Mes services
               <span :class="theme.isDarkMode ? 'menu-separator-dark' : 'menu-separator-light'"  class="menu-separator d-md-none d-sm-block mt-3"></span>
             </router-link>
           </li>
           <li class="nav-item text-center">
-            <router-link :to="{ name: 'projet' }" :class="['nav-link', theme.isDarkMode ? 'navTextDark' : 'navTextLight', isNext ? 'next-link' : '']" @click="changeTitle('Mes projets')">Mes projets
+            <router-link :to="{ name: 'projet' }" :class="['nav-link', theme.isDarkMode ? 'navTextDark' : 'navTextLight']" @click="changeTitle('Mes projets')">Mes projets
               <span :class="theme.isDarkMode ? 'menu-separator-dark' : 'menu-separator-light'"  class="menu-separator d-md-none d-sm-block mt-3"></span>
             </router-link>
           </li>
           <li class="nav-item text-center">
-            <router-link :to="{ name: 'contact' }" :class="['nav-link', theme.isDarkMode ? 'navTextDark' : 'navTextLight', isNext ? 'next-link' : '']" @click="changeTitle('Me contacter')">Me contacter</router-link>
+            <router-link :to="{ name: 'contact' }" :class="['nav-link', theme.isDarkMode ? 'navTextDark' : 'navTextLight']" @click="changeTitle('Me contacter')">Me contacter</router-link>
           </li>
         </ul>
       </div>
@@ -63,10 +63,12 @@ export default {
       this.$emit('toggleTheme'); // Émettez l'événement pour demander le changement de thème
       this.setIsNext(!this.theme.isDarkMode); // Utilisez la mutation pour changer la valeur de isNext
     },
-    changeTitle(title, direction) {
-      this.$store.commit('setTitle', title);
-      this.transitionName = direction === 'next' ? 'slide-left' : 'slide-right';
-    },
+    changeTitle(title, toRoute) {
+  const fromRoute = this.$route.name;
+  this.transitionName = this.getTransitionName(fromRoute, toRoute);
+
+  this.$store.commit('setTitle', title);
+},
   },
   checkState() {
     console.log(this.$store.state.isNext);

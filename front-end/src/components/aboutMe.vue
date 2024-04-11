@@ -122,13 +122,15 @@
   /*aboutme blocbackground */
 
 .aboutme-light{
-  background-color: rgba(255, 255, 255, 33%);
-  box-shadow: 5px 5px 15px 5px #cbecff!important;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgba(69, 144, 255, 0.833)
+;
+
 }
 
 .aboutme-dark {
-  background: rgba(128, 120, 120, 0.34)!important;
-  box-shadow: 5px 5px 15px 5px var(--black);
+  background: rgb(40, 38, 38)!important;
+  border: 1px solid rgba(29, 29, 30, 0.833)
 }
 
   

@@ -10,7 +10,7 @@
 
       <!-- main-bloc -->
 
-    <div id="card" class="my-3 col-12 col-md-6 text-center card-body p-4" @mousemove="handleCardEffect" @mouseleave="resetCardEffect">
+    <div id="card" class="my-3 col-12 col-md-6 text-center card-body p-4" :class="theme.isDarkMode ? 'aboutme-dark' : 'aboutme-light'" @mousemove="handleCardEffect" @mouseleave="resetCardEffect">
       <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="card-title py-3 title h1">Florent Vieville</h1>
       <h1 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="card-title py-3 ">Développeur web et web mobile</h1>
       <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class="text-warpcard-text text-style py-3 " >
@@ -116,20 +116,22 @@ export default {
 
 }
 
-.photo-light {
-    filter: drop-shadow(5px 10px 5px rgb(255, 255, 255));
-    transition: .5s ease;
+  /*aboutme blocbackground */
+
+  .aboutme-light{
+  background-color: rgba(255, 255, 255, 0.605);
 
 }
 
-.photo-dark {
-  filter: drop-shadow(5px 10px 5px rgba(0, 0, 0, 0.25));
-    transition: .5s ease;
-
+.aboutme-dark {
+  background: rgba(40, 38, 38, 0.619)!important;
 }
 
 #card {
   transition: 0.5s;
+  border-radius: 1.5rem;
+      position: relative;
+      height: max-content;
 }
 
 </style>
