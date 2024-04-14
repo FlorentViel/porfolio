@@ -3,7 +3,10 @@
       <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="text-center title font-size-40 h1">Projet</h1>
   
       <div class="carousel">
-        <div class="card my-5" v-for="(card, index) in cards" :key="index" :class="theme.isDarkMode ? 'cardDark' : 'cardLight'" :style="{transform: `translateX(${currentIndex * -200}%)`}">
+        <div class="card my-5" v-for="(card, index) in cards" 
+        :key="index" :class="[theme.isDarkMode ? 'cardDark' : 'cardLight', { active: index === currentIndex
+          || index === currentIndex + 1 }]" 
+        :style="{transform: `translateX(${currentIndex * -100}%)`}">
           <img :src="card.image" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">{{ card.title }}</h5>
@@ -87,13 +90,31 @@
     display: flex;
     overflow: hidden;
     width: 100%;
+    gap: 10px;
+
   }
+
+
+  /* Ajoutez le style pour les cartes ici */
   
   .card {
     flex: 0 0 50%;
     max-width: 100%;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease-in-out, visibility 0.5s, opacity 0.5s;
+    visibility: hidden;
   }
+
+  .card.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+  .cardDark {
+    background-color: #333;
+    color: #fff;
+  }
+
+
   
   .carousel-controls {
     display: flex;

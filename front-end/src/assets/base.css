@@ -7,6 +7,9 @@
   --black: #000000;
   --Similiblack: #181818;
   --black-soft: #222222;
+  --yellow: #ffea00;
+  --bluelight: rgb(74,204,236);
+
   
   --stroke-text-light : #6c6da2;
 
@@ -17,6 +20,9 @@
 
   --bg-light: #0099ff10;
   --bg-dark : rgba(128, 120, 120, 0.10);
+
+  /* shadow */
+
 
 }
 

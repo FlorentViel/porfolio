@@ -11,13 +11,18 @@
 }
 
 .nav-Light {
-  background: rgba(69, 144, 255, 0.833)
+  /*background: rgba(69, 144, 255, 0.833);*/
+  background: #a0d8ef ;
   
+  transition: background-color 0.5s ease-in-out;
 
 }
 
 .nav-dark {
-  background: rgb(34, 34, 91) 92%
+  background: rgb(34, 34, 91) 92%;
+  background: rgba(0,36,41,255);
+  border: 1px solid #ffea00;
+  transition: background-color 0.5s ease-in-out;
 }
 
 #navBar .navItem button    {
@@ -28,6 +33,9 @@
   line-height: normal!important;
   text-decoration: none; 
 }
+
+
+
 
 /* btn css */
 

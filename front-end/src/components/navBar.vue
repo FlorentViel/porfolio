@@ -1,7 +1,7 @@
 <template>
   <nav id="navBar" :class="theme.isDarkMode ? 'nav-dark navbar-dark' : 'nav-Light navbar-light'" class="navbar  navBarStyle navbar-expand-md  pe-3 py-2">
     <div class="container">
-      <router-link :to="{ name: 'home' }" :class="['navbar-brand pb-sm-3 mt-sm-3', theme.isDarkMode ? 'navHomeDark' : 'navHomeLight']" @click="changeTitle('Présentation' , 'next')">
+      <router-link :to="{ name: 'home' }" :class="['navbar-brand pb-sm-3 mt-sm-3', theme.isDarkMode ? 'navHomeDark' : 'navHomeLight']" @click="changeTitle('Présentation')">
         Portfolio Florent VIEVILLE
       </router-link>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,12 +10,12 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mx-auto column-gap-3">
           <li class="nav-item text-center">
-            <router-link :to="{ name: 'aboutMe' }" :class="['nav-link', theme.isDarkMode ? 'navTextDark' : 'navTextLight']" @click="changeTitle('&Agrave; propos de moi', 'aboutMe')">&Agrave; propos de moi
+            <router-link :to="{ name: 'aboutMe' }" :class="['nav-link', theme.isDarkMode ? 'navTextDark' : 'navTextLight']" @click="changeTitle('&Agrave; propos de moi')">&Agrave; propos de moi
               <span :class="theme.isDarkMode ? 'menu-separator-dark' : 'menu-separator-light'"  class="menu-separator d-md-none d-sm-block mt-3"></span>
             </router-link>
           </li>
           <li class="nav-item text-center">
-            <router-link :to="{ name: 'service' }" :class="['nav-link', theme.isDarkMode ? 'navTextDark' : 'navTextLight']" @click="changeTitle('Mes services', 'next')">Mes services
+            <router-link :to="{ name: 'service' }" :class="['nav-link', theme.isDarkMode ? 'navTextDark' : 'navTextLight']" @click="changeTitle('Mes services')">Mes services
               <span :class="theme.isDarkMode ? 'menu-separator-dark' : 'menu-separator-light'"  class="menu-separator d-md-none d-sm-block mt-3"></span>
             </router-link>
           </li>
@@ -29,7 +29,8 @@
           </li>
         </ul>
       </div>
-      <div class="d-flex justify-content-center align-items-center py-sm-4">
+      <div class="d-flex text-center justify-content-center flex-column align-items-center py-sm-4">
+        <span class="" :class="theme.isDarkMode ? 'text-white' : 'text-dark'">Mode sombre</span>
         <input type="checkbox" class="checkbox" :class="theme.isDarkMode ? 'btn-dark' : 'btn-light'" id="checkbox" @click="toggleThemeAndEmit">
         <label for="checkbox" class="checkbox-label" :class="theme.isDarkMode ? 'checkbox-label-dark' : 'checkbox-label-light'">
           <i class="fas fa-moon"></i>
@@ -44,7 +45,6 @@
 
 
 <script>
-import { mapState, mapMutations } from 'vuex';
 
 export default {
   data() {
@@ -61,7 +61,6 @@ export default {
     toggleThemeAndEmit() {
       this.theme.toggleTheme(); // Appel de la fonction pour basculer le thème
       this.$emit('toggleTheme'); // Émettez l'événement pour demander le changement de thème
-      this.setIsNext(!this.theme.isDarkMode); // Utilisez la mutation pour changer la valeur de isNext
     },
     changeTitle(title, toRoute) {
   const fromRoute = this.$route.name;
@@ -69,9 +68,6 @@ export default {
 
   this.$store.commit('setTitle', title);
 },
-  },
-  checkState() {
-    console.log(this.$store.state.isNext);
   },
 };
 </script>
@@ -112,18 +108,23 @@ function changeTitle(newSectionName) {
 }
 
 .checkbox-label-light {
-  background-color: #005eff77;
+  background-color: #dcfffc;
+  transition: background-color 0.5s ease-in-out;
+
 
 }
 
 .checkbox-label-dark {
-  background-color: #0e236f77 ;
-
+  background-color: #1f1f23 ;
+  transition: background-color 0.5s ease-in-out;
 }
+
+
 
 .fa-moon {color: #f1c40f;}
 
 .fa-sun {color: #f39c12;}
+
 
 .checkbox-label .ball {
   background-color: var(--white);
@@ -151,11 +152,15 @@ function changeTitle(newSectionName) {
 
 .menu-separator-light {
   background-color: rgba(0, 0, 0, 0.5); /* Couleur de la ligne de séparation */
+  transition: background-color 0.5s ease-in-out;
+
 
 }
 
 .menu-separator-dark {
   background-color: rgba(255, 255, 255, 0.5); /* Couleur de la ligne de séparation */
+  transition: background-color 0.5s ease-in-out;
+
 
 }
 

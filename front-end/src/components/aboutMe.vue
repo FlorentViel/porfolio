@@ -7,7 +7,7 @@
         <div>
           <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="card-title m-4 pb-5 title h1 text-center">A propos de moi</h1>
         </div>
-        <div id="spitch"  :class="theme.isDarkMode ? 'aboutme-dark' : 'aboutme-light'" class="col-12 text-center card-body p-5 text-style">
+        <div :class="theme.isDarkMode ? 'bloc-presentation-dark' : 'bloc-presentation-light'" class="blocPresentation col-12 text-center card-body p-5 text-style">
           <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class="lh-lg lh-sm textIndent text-justify" >
             Bonjour ! Je m'appelle Florent, développeur web et webmobile freelance qui commence son activité. 
             J'étais été formé auprès de différent centre de formation comme Webforce 3 et AFCI et 
@@ -110,33 +110,8 @@
     text-indent: 20px;
   }
 
-  
-  #spitch {
-      border-radius: 1.5rem;
-      position: relative;
-      height: max-content;
-      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  
-  }  
-
-  /*aboutme blocbackground */
-
-.aboutme-light{
-  background-color: rgb(255, 255, 255);
-  border: 1px solid rgba(69, 144, 255, 0.833)
-;
-
-}
-
-.aboutme-dark {
-  background: rgb(40, 38, 38)!important;
-  border: 1px solid rgba(29, 29, 30, 0.833)
-}
 
   
-  /* dark-mode-light-mod bloc */
-  
-
   
   #card {
     transition: 0.5s;
