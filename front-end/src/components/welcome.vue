@@ -1,29 +1,35 @@
 <template>
   <section id="welcome" class="section container py-5">
-   <div class="d-flex row align-content-center position-relative justify-content-evenly flex-wrap my-auto position-relative">
-    <div class="col-6 col-md-3 align-self-center">
+   <div class="d-flex row align-content-center position-relative justify-content-between flex-wrap my-auto position-relative">
+    <div class="col-6 col-md-3 mr-md-5 align-self-center">
       <!-- Profil-picture -->
-      <img id="profil_picture" :class="theme.isDarkMode ? 'photo-dark' : 'photo-light'" class="img-fluid m-3" src="/front-end/src/assets/images/pictures/photo_profil.png" alt="Photo de profil" />    </div>
+      <img id="profil_picture" :class="theme.isDarkMode ? 'photo-dark' : 'photo-light'" class="img-fluid" src="/front-end/src/assets/images/pictures/photo_profil.png" alt="Photo de profil" />
+    </div>
 
 
 
 
       <!-- main-bloc -->
 
-    <div id="card" class="my-3 col-12 col-md-6 text-center card-body p-4" :class="theme.isDarkMode ? 'aboutme-dark' : 'aboutme-light'" @mousemove="handleCardEffect" @mouseleave="resetCardEffect">
-      <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="card-title py-3 title h1">Florent Vieville</h1>
-      <h1 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="card-title py-3 ">Développeur web et web mobile</h1>
-      <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class="text-warpcard-text text-style py-3 " >
+    <div id="card" class="my-3 col-12 col-md-5 text-center card-body p-4" :class="theme.isDarkMode ? 'aboutme-dark' : 'aboutme-light'" @mousemove="handleCardEffect" @mouseleave="resetCardEffect">
+      <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="card-title py-3 animate-text title h1" :style="{ '--delay': '0.5s' }">Florent Vieville</h1>
+      <h1 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="card-title py-3 animate-text " :style="{ '--delay': '0.7s' }">Développeur web et web mobile</h1>
+      
+      <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class=" animate-text text-warpcard-text text-style py-3 " :style="{ '--delay': '0.9s' }" >
         Passionné par le web avec une expértise en <strong class="text-style ">front-end</strong> et <strong class="text-style">back-end</strong>. 
       </p>
       <div class="d-flex justify-content-evenly py-4">
-        <div>
-          <router-link :to="{ name: 'aboutMe' }" :class="theme.isDarkMode ? '' : ''"><button type="button" :class="theme.isDarkMode ? 'btn-dark-mode navTextDark' : 'btn-light-mode navTextLight'" class="btn" >À propos de moi</button></router-link>
-        </div>
-        <div>
-          <router-link :to="{ name: 'service' }" :class="theme.isDarkMode ? '' : ''"><button type="button" :class="theme.isDarkMode ? 'btn-dark-mode navTextDark' : 'btn-light-mode navTextLight'" class="btn" >Mes services</button></router-link>
-        </div>
-      </div>
+  <div class="animate-text" :style="{ '--delay': '0.13s' }">
+    <router-link :to="{ name: 'aboutMe' }" :class="theme.isDarkMode ? '' : ''">
+      <button type="button" :class="theme.isDarkMode ? 'btn-dark-mode' : 'btn-light-mode navTextLight'" class="btn" >À propos de moi</button>
+    </router-link>
+  </div>
+  <div class="animate-text" :style="{ '--delay': '0.13s' }">
+    <router-link :to="{ name: 'service' }" :class="theme.isDarkMode ? '' : ''">
+      <button type="button" :class="theme.isDarkMode ? 'btn-dark-mode' : 'btn-light-mode navTextLight'" class="btn" >Mes services</button>
+    </router-link>
+  </div>
+</div>
     </div>
   </div>
   
@@ -103,6 +109,38 @@ export default {
 </script>
 <style scoped>
 
+/* Animation css */
+
+.animate-text {
+  opacity: 0; /* Set initial opacity to 0 */
+  animation: slideInFromRight 1s ease-out forwards; /* Add 'forwards' to keep the end state of the animation */
+  animation-delay: var(--delay);
+}
+
+/* Animate router btn */
+
+.animate-text .btn {
+  opacity: 0; /* Set initial opacity to 0 */
+  animation: slideInFromRight 1s ease-out forwards; /* Add 'forwards' to keep the end state of the animation */
+  animation-delay: var(--delay);
+  animation-delay: 1.31s;
+}
+
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+
+
 /* welcom bloc css */
 
 
@@ -114,17 +152,6 @@ export default {
     position: relative;
 
 
-}
-
-  /*aboutme blocbackground */
-
-  .aboutme-light{
-  background-color: rgba(255, 255, 255, 0.605);
-
-}
-
-.aboutme-dark {
-  background: rgba(40, 38, 38, 0.619)!important;
 }
 
 #card {

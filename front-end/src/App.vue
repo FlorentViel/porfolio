@@ -1,30 +1,21 @@
 <template>
   <div :class="[theme.isDarkMode ? 'backgroundImageDark' : 'backgroundImageLight', $route.name === 'privacyPolicy' ? (theme.isDarkMode ? 'privacyPolicyBackgroundDark' : 'privacyPolicyBackgroundLight') : 'backgroundDefault']" class="d-flex flex-column" @toggle-theme-request="toggleTheme">
-    <NavBar :theme="theme"/>
         
-    <div class="d-flex content justify-content-center mx-5">
+    <div id="#main-page" class="d-flex content justify-content-center mx-md-5 mx-0">
       <div :class="theme.isDarkMode ? 'computer-dark' : 'computer-light'" class="computer">
         <div :class="theme.isDarkMode ? 'screen-dark' : 'screen-light'" class="screen">
-          <div :class="theme.isDarkMode ? 'tabs' : 'tabs-light' "  class="tabs">
-            <div 
-            v-for="(tab, index) in tabs" 
-      :key="index" 
-      :class="{ 'tab-active': $route.name === tab.route }"
-    >
-              {{ tab.title }}
-              <span class="close-tab">x</span>
-            </div>
-          </div>
+          <NavBar :theme="theme" :selectedSection="selectedSection" @toggle-theme-request="toggleTheme" />
+
           <router-view :theme="theme" :changeSection="changeSection" v-slot="{ Component }">
             <transition :name="fade" mode="out-in" appear>
                 <component :is="Component" />
             </transition>
           </router-view>
+          <Footer :theme="theme" />
         </div>
       </div>
     </div>
 
-    <Footer :theme="theme" />
   </div>
 </template>
 
@@ -72,7 +63,7 @@ export default {
     return {
       activeTab: 0,
       tabs: [
-        { title: 'Florent VIEVILLE', route: 'home'},
+        { title: 'Florent VIEVILLE', route: 'home', },
         { title: 'Section 2', route: 'aboutMe'},
         { title: 'Mes service', route: 'service'},
         { title: 'Mes projets', route: 'projet'},
@@ -114,43 +105,6 @@ export default {
 
 <style scoped>
 
-.tabs {
-  display: flex;
-  border-bottom: 1px solid var(--yellow);
-}
-
-.tabs-light {
-  border-bottom: 1px solid var(--bluelight);
-
-}
-
-.tabs div {
-  padding: 10px;
-  cursor: default; 
-  color: #fff;
-  border-bottom: none;
-  background-color: #001214;
-  border-radius: 5px 5px 0 0;
-}
-
-.tabs-light div {
-  background-color: rgba(242,247,247);
-  color: #000;
-}
-
-.tabs .tab-active {
-  background-color: #3f4a11;
-  border: 1px solid var(--yellow);
-  border-bottom: none!important;
-
-}
-
-.tabs-light .tab-active {
-  background-color: rgb(173,226,238);
-  border: 1px solid var(--bluelight);
-  border-bottom: none!important;
-
-}
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity 0.5s;
@@ -163,7 +117,9 @@ export default {
 
 <style>
 
-/* test css */
+/* main */
+
+/* computer css */
 
 .computer {
   width: 80%;
@@ -180,7 +136,7 @@ export default {
 }
 
 .computer-dark {
-  background: #ffea00;
+  background: var(--blue);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transition: background-color 0.5s ease-in-out;
 }
@@ -195,7 +151,16 @@ export default {
   height: 0;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
-  border-bottom: 30px solid #555;
+}
+
+.computer-dark::before {
+  border-bottom: 30px solid #131829;
+
+}
+
+.computer-light::before {
+  border-bottom: 30px solid #fff;
+
 }
 
 .screen {
@@ -213,7 +178,7 @@ export default {
 }
 
 .screen-dark {
-  background: rgba(0,18,20,255);
+  background: rgba(0,36,41);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transition: background-color 0.5s ease-in-out;
 }
@@ -260,33 +225,29 @@ footer {
 
 
 
-/* privacy Background*/
 
-.privacyPolicyBackgroundLight {
-  background-image: none !important;
-  background-color: azure;
-  transition: background-color 0.5s ease-in-out;
+@media screen and (max-width: 600px) {
+  #main-page {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100vw!important;
 
+  }
+  .computer {
+  width: 100%;
+  margin: 0 auto;
 }
 
-.privacyPolicyBackgroundDark {
-  background-image: none !important;
-  background-color: rgb(32, 32, 32);
-  transition: background-color 0.5s ease-in-out;
-
+.computer-light::before {
+  border-bottom: none
 }
 
 .backgroundImageLight {
-  background-image: url('/front-end/src/assets/images/pictures/dev_web_pc_light.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-color: #fff;
 }
 .backgroundImageDark {
-  background-image: url('/front-end/src/assets/images/pictures/dev_web_pc.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-color: #121212;
+}
 }
 
 

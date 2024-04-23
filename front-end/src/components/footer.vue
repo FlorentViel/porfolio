@@ -2,17 +2,17 @@
 
     <footer id="footerBar" :class="theme.isDarkMode ? 'nav-dark' : 'nav-Light'" class="footer d-flex flex-wrap justify-content-between text-center m-auto px-5 align-items-center navBarStyle mt-auto py-3 text-center">
     <div class="align-self-center" style="text-align: center;">
-      <small class="style-text" >
+      <span class="style-text" >
         <router-link :class="theme.isDarkMode ? 'footerTextDark' : 'footerTextLight'" to="/privacyPolicy">Politique de confidentialité</router-link>
-      </small> 
+      </span> 
     </div> 
     <div class="text-end align-self-center">
-      <small class="style-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">
+      <span class="style-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">
         &copy; Florent Vieville 
-      </small>
-      <small class="style-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">2023</small>
+      </span>
+      <span class="style-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">2023</span>
       <br>
-      <small class="style-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">Tous droits réservés</small>
+      <span class="style-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">Tous droits réservés</span>
     </div>
 
   </footer>

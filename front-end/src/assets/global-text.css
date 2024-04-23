@@ -6,28 +6,25 @@
 
 /* color white */
 
-:is(.h1-light, .navHomeLight.router-link-exact-active){
-  color: #6395ff !important;
+:is(.h1-light, .h2-light){
+  color: var(--bluelight);
   font-weight: bold!important;
   -webkit-text-stroke: 0px !important; 
 }
 
 :is(.h1-dark, .navHomeDark.router-link-exact-active){
-  color: var(--yellow) !important;
-  -webkit-text-stroke: 0.3px #FFA500!important;
-  text-shadow: -1px 0 #FFA500, 0 1px #FFA500, 1px 0 #FFA500, 0 -1px #FFA500;
+  color: var(--blue) !important;
   font-weight: bold!important;
 
 }
 
-
-:is(.h2-dark, .text-color-dark,){
-  color: var(--yellow);
+:is(.h2-dark){
+  color: var(--blue);
   font-weight: bold!important;
 }
 
-:is(.h2-light, .navHomeLight){
-  -webkit-text-stroke: 1px rgb(69, 144, 255); 
+:is(.text-color-dark){
+  color: var(--white);
 }
 
 :is(.text-color-light){
@@ -35,37 +32,24 @@
 }
 
 :is(.navTextDark) {
-  color: #34f8ff;
+  color: var(--white);
 }
 
-:is( .footerTextDark){
-  color: #e2e271;
-
-
-}
-
-
-:is( .footerTextDark:hover){
-  color: #eeeeca;
-
+:is( .btn-dark-mode ,.footerTextDark){
+  color: var(--linkdark);
+  text-decoration: none;
 
 }
 
-:is(.navTextDark:hover){
-  color: #e7e73b;
-  -webkit-text-stroke: 0.2px #1900ff!important; /* Largeur et couleur du contour */
-  cursor: pointer;
-
+:is( .btn-dark-mode:hover, .footerTextDark:hover){
+  color: var(--linkdarkhover);
+  text-decoration: underline;
 }
 
-:is(.navTextLight, .footerTextLight){
-  color:#f7f9fe;
-  -webkit-text-stroke: 0.1px #83830f !important; 
 
-}
+:is( .footerTextLight){
+  color:#295ee3;
 
-:is( .navTextLight:hover, .h2-light, .navHomeLight, .footerTextLight:hover, .navHomeLight){
-  color: var(--white)!important;
 }
 
 :is( .navItem button , p , label, h1, #navBar ){
@@ -75,8 +59,6 @@
 :is(h2, h3){
   font-family: Jura!important;
 }
-
-
 
 /* h1 */
   
@@ -108,7 +90,6 @@
   }
   
   .text-color-dark{
-    -webkit-text-stroke: 0.2px #003c82!important; /* Largeur et couleur du contour */
     font-weight: 400!important;
     transition: .5s ease;
   
@@ -116,7 +97,6 @@
 
     
   .text-color-light{
-    -webkit-text-stroke: 0.1px rgb(11, 10, 22)!important; /* Largeur et couleur du contour */
     font-weight: 400!important;
     transition: .5s ease;
   
@@ -184,25 +164,6 @@
   
 }
 
-.navHomeDark:hover {
-  color:#FFFF00 !important;
-  -webkit-text-stroke: 0.1px #FFA500 !important; /* Largeur et couleur du contour */
-  text-shadow: 0 0 5px var(--white),
-  0 0 10px var(--white),
-  0 0 15px var(--white);
-
-  cursor: pointer;
-  transition: .5s ease;
-}
-
-.navHomeLight:hover {
-  text-shadow: 0 0 5px #b8bbe0,
-  0 0 10px #b8bbe0,
-  0 0 15px #b8bbe0;
-  cursor: pointer;
-  transition: .5s ease;
-}
-
 
 /* nav-bar route active */
 
@@ -242,7 +203,7 @@
     .h2-light, .h2-dark {
       font-size: 2rem;
     }
-    .text-style, p, li, span {
+    .text-style, p, li, span, .text-color-light, .text-color-dark, .nav a {
       font-size: 1.25rem;
     }
 
@@ -263,7 +224,7 @@
     .h2-light, .h2-dark {
       font-size: 2.5rem;
     }
-    .text-style, p, span{
+    .text-style, p, span, .text-color-dark, .text-color-light, .nav a{
       font-size: calc(0.8rem + 0.5vw);
     }
 
@@ -274,9 +235,7 @@
     .nav-link{
       font-size: calc(1rem + 0.5vw);
     }
-    .navHomeDark , .navHomeLight {
-      font-size: 2rem;
-    }
+
   }
 
   

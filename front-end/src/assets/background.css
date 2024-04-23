@@ -1,12 +1,50 @@
 /* style background et style bloc - btn  */
 
 
+.backgroundImageLight {
+  background-image: url('/front-end/src/assets/images/pictures/dev_web_pc_light.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.backgroundImageDark {
+  background-image: url('/front-end/src/assets/images/pictures/dev_web_pc.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+
+  /*aboutme blocbackground */
+
+
+
+  .aboutme-light{
+    border: 1px solid var(--bluelight);
+    background: rgba( 230, 238, 239, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+    
+  }
+  
+  .aboutme-dark {
+    border: 1px solid var(--blue);
+    background: rgba( 40, 38, 38, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+  }
 
 /* footer + nav-bar background et css */
 
 .navBarStyle {
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    min-height: 98px;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+  min-height: 98px;
 
 }
 
@@ -21,18 +59,18 @@
 .nav-dark {
   background: rgb(34, 34, 91) 92%;
   background: rgba(0,36,41,255);
-  border: 1px solid #ffea00;
+  border: 1px solid var(--blue);
   transition: background-color 0.5s ease-in-out;
 }
 
-#navBar .navItem button    {
+/*#navBar .navItem button    {
   text-align: center!important;
   font-family: 'Montserrat', sans-serif!important;
   font-style: normal!important;
   font-weight: 400!important;
   line-height: normal!important;
   text-decoration: none; 
-}
+}*/
 
 
 
@@ -40,8 +78,8 @@
 /* btn css */
 
 .btn-dark-mode {
-  background-color: #4d6ae9;
-  border: 1px solid #000000;
+  background-color: #FFFFFF1B;
+  border: 1px solid var(--blue);
   transition: .5s ease;
   border-radius: 8px;
   padding: 10px 20px;
@@ -56,29 +94,21 @@
 } 
 
 .btn-dark-mode:hover {
-  background-color: #291fe2;
-  border: 1px solid #ffffff;
-  text-shadow: 0 0 5px #ffffff,
-               0 0 10px #ffffff,
-               0 0 15px #ffffff,
-               0 0 20px #ffffff;
-  box-shadow: 0 0 5px #172b59,
-              0 0 10px #172b59,
-              0 0 15px #172b59,
-              0 0 20px #172b59;
-  
+  background-color: #0F2BFF59;
+  border: 1px solid var(--blue);  
 } 
 .btn-dark-mode:focus {
-  background-color: #6058f1;
+  background-color: rgb(0,57,65);
+  color: #34f8ff!important;
   border: 1px solid #ffffff;
-  text-shadow: 0 0 5px #ffffff,
-               0 0 10px #ffffff,
-               0 0 15px #ffffff,
-               0 0 20px #ffffff;
-  box-shadow: 0 0 5px #172b59,
-              0 0 10px #172b59,
-              0 0 15px #172b59,
-              0 0 20px #172b59;
+  text-shadow: 0 0 5px #34f8ff,
+               0 0 10px #34f8ff,
+               0 0 15px #34f8ff,
+               0 0 20px #34f8ff;
+  box-shadow: 0 0 5px rgb(0,72,82),
+              0 0 10px rgb(0,72,82),
+              0 0 15px rgb(0,72,82),
+              0 0 20px rgb(0,72,82);
   
 } 
 
@@ -110,3 +140,21 @@
   
 } 
 
+
+
+/* privacy Background*/
+
+.privacyPolicyBackgroundLight {
+  background-image: none !important;
+  background-color: azure;
+  transition: background-color 0.5s ease-in-out;
+
+}
+
+.privacyPolicyBackgroundDark {
+  background-image: none;
+  background-color: rgb(32, 32, 32);
+  background: linear-gradient( rgb(13, 21, 49) 5%, rgba(32, 32, 32) 90%);
+  transition: background-color 0.5s ease-in-out;
+
+}

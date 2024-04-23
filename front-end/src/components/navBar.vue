@@ -1,44 +1,29 @@
 <template>
-  <nav id="navBar" :class="theme.isDarkMode ? 'nav-dark navbar-dark' : 'nav-Light navbar-light'" class="navbar  navBarStyle navbar-expand-md  pe-3 py-2">
-    <div class="container">
-      <router-link :to="{ name: 'home' }" :class="['navbar-brand pb-sm-3 mt-sm-3', theme.isDarkMode ? 'navHomeDark' : 'navHomeLight']" @click="changeTitle('Présentation')">
-        Portfolio Florent VIEVILLE
-      </router-link>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mx-auto column-gap-3">
-          <li class="nav-item text-center">
-            <router-link :to="{ name: 'aboutMe' }" :class="['nav-link', theme.isDarkMode ? 'navTextDark' : 'navTextLight']" @click="changeTitle('&Agrave; propos de moi')">&Agrave; propos de moi
-              <span :class="theme.isDarkMode ? 'menu-separator-dark' : 'menu-separator-light'"  class="menu-separator d-md-none d-sm-block mt-3"></span>
+  <nav id="navBar"  :class="theme.isDarkMode ? 'dark-mode' : 'light-mode'"  class="navBar position-relative flex-wrap d-flex align-items-end">
+            <div class="d-flex align-items-end flex-wrap flex-grow-1">
+              <router-link class="navBar-item text-center" 
+              v-for="(navItem, index) in navBar" 
+              :key="index" 
+              :to="{ name: navItem.route }"
+              :class="{ 'navItem-active': $route.name === navItem.route }">
+              {{ navItem.title }}
+              <span class="close-navItem">x</span>
             </router-link>
-          </li>
-          <li class="nav-item text-center">
-            <router-link :to="{ name: 'service' }" :class="['nav-link', theme.isDarkMode ? 'navTextDark' : 'navTextLight']" @click="changeTitle('Mes services')">Mes services
-              <span :class="theme.isDarkMode ? 'menu-separator-dark' : 'menu-separator-light'"  class="menu-separator d-md-none d-sm-block mt-3"></span>
-            </router-link>
-          </li>
-          <li class="nav-item text-center">
-            <router-link :to="{ name: 'projet' }" :class="['nav-link', theme.isDarkMode ? 'navTextDark' : 'navTextLight']" @click="changeTitle('Mes projets')">Mes projets
-              <span :class="theme.isDarkMode ? 'menu-separator-dark' : 'menu-separator-light'"  class="menu-separator d-md-none d-sm-block mt-3"></span>
-            </router-link>
-          </li>
-          <li class="nav-item text-center">
-            <router-link :to="{ name: 'contact' }" :class="['nav-link', theme.isDarkMode ? 'navTextDark' : 'navTextLight']" @click="changeTitle('Me contacter')">Me contacter</router-link>
-          </li>
-        </ul>
-      </div>
-      <div class="d-flex text-center justify-content-center flex-column align-items-center py-sm-4">
-        <span class="" :class="theme.isDarkMode ? 'text-white' : 'text-dark'">Mode sombre</span>
-        <input type="checkbox" class="checkbox" :class="theme.isDarkMode ? 'btn-dark' : 'btn-light'" id="checkbox" @click="toggleThemeAndEmit">
-        <label for="checkbox" class="checkbox-label" :class="theme.isDarkMode ? 'checkbox-label-dark' : 'checkbox-label-light'">
-          <i class="fas fa-moon"></i>
-          <i class="fas fa-sun"></i>
-          <span class="ball"></span>
-        </label>
-      </div>
-    </div>
+
+            </div>
+
+
+            <div class="d-flex text-center flex-column align-items-center m-auto">
+                <span class="" :class="theme.isDarkMode ? 'text-white' : 'text-dark'">Mode sombre</span>
+                <input type="checkbox" class="checkbox" :class="theme.isDarkMode ? '' : ''" id="checkbox" @click="toggleThemeAndEmit">
+                <label for="checkbox" class="checkbox-label" :class="theme.isDarkMode ? 'checkbox-label-dark' : 'checkbox-label-light'">
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
+                  <span class="ball"></span>
+                </label>
+              </div>
+
+
   </nav>
 </template>
 
@@ -47,16 +32,23 @@
 <script>
 
 export default {
+
   data() {
     return {
-      transitionName: 'slide-left',
-      transitionName: 'slide-right',
+      activenavItem: 0,
+      navBar: [
+        { title: 'Florent VIEVILLE', route: 'home', },
+        { title: '\u00C0 propos', route: 'aboutMe'},
+        { title: 'Mes service', route: 'service'},
+        { title: 'Mes projets', route: 'projet'},
+        { title: 'Contact', route: 'contact'},
+        // Ajoutez autant d'onglets que vous le souhaitez
+      ],
     };
   },
   
   props: ['theme'],
-  computed: {
-  },
+   
   methods: {
     toggleThemeAndEmit() {
       this.theme.toggleTheme(); // Appel de la fonction pour basculer le thème
@@ -87,6 +79,85 @@ function changeTitle(newSectionName) {
 </script>
 
 <style scoped>
+
+#navBar.dark-mode a {
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+}
+
+#navBar.light-mode a {
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+}
+
+/* navBar link */
+
+
+#navBar a{
+ width: auto;
+}
+
+
+
+#navBar a {
+  padding: 10px;
+  cursor: pointer; 
+  border-bottom: none;
+  text-decoration: none; /* Ajouté pour supprimer le soulignement des liens */
+}
+
+
+
+#navBar.dark-mode a {
+  padding: 10px;
+  color: #fff;
+  background-color: #001214;
+}
+
+#navBar.light-mode a {
+  background-color: rgba(230,238,239,255);
+  color: #000;
+  
+}
+
+:is(#navBar.dark-mode .navBar-item:hover, .btn-dark-mode) {
+  background-color: #11164a;
+}
+
+#navBar.dark-mode a{
+  border-bottom: 1px solid var(--blue);
+  transition: border-bottom 0.5s ease-in-out;
+  opacity: 1;
+}
+
+
+#navBar.dark-mode .navItem-active {
+  background: rgba(0,36,41);
+  border: 1px solid var(--blue);
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+  transition: border-bottom 0.5s ease-in-out;
+
+}
+
+#navBar.light-mode a{
+  border-bottom: 1px solid var(--bluelight);
+  transition: border-bottom 0.5s ease-in-out;
+}
+
+#navBar.light-mode .navBar-item:hover {
+  background-color: rgb(173,226,238);
+}
+
+#navBar.light-mode .navItem-active {
+  background-color: #fff;
+  border: 1px solid var(--bluelight);
+  border-radius: 5px 5px 0 0;
+  border-bottom: none;
+  
+}
 
 /* toggle bouton */ 
 
@@ -141,30 +212,12 @@ function changeTitle(newSectionName) {
   transform: translateX(24px);
 }
 
-/* séparator */
+@media(max-width: 984px) {
 
-.menu-separator {
-  height: 1px;
-  width: auto;
-  margin: 5px 0; /* Espacement vertical de la ligne de séparation */
-
-}
-
-.menu-separator-light {
-  background-color: rgba(0, 0, 0, 0.5); /* Couleur de la ligne de séparation */
-  transition: background-color 0.5s ease-in-out;
-
+  #navBar a{
+    width: 100%; 
+  }
 
 }
-
-.menu-separator-dark {
-  background-color: rgba(255, 255, 255, 0.5); /* Couleur de la ligne de séparation */
-  transition: background-color 0.5s ease-in-out;
-
-
-}
-
-
-
 
 </style>

@@ -5,23 +5,13 @@
 :root {
   --white: #ffffff;
   --black: #000000;
-  --Similiblack: #181818;
-  --black-soft: #222222;
+  --black-soft: #111111;
   --yellow: #ffea00;
+  --blue: #212BB2;
   --bluelight: rgb(74,204,236);
-
-  
-  --stroke-text-light : #6c6da2;
-
-  --stroke-text-dark : 0.3px var(--black-soft) !important; 
-  --stroke-text-dark : 0.3px var(--black-soft) !important; 
-
-  /* bg-nav-bar */
-
-  --bg-light: #0099ff10;
+  --linkdarkhover: #3242F3;
   --bg-dark : rgba(128, 120, 120, 0.10);
-
-  /* shadow */
+  --linkdark: #9BAAFF;
 
 
 }
@@ -60,7 +50,7 @@
 
 .backgroundLight {
 
-  background: rgb(255,255,255);
+  background: var(--white);
   /*background: linear-gradient(112deg, #0355F4 6.55%, #FFF 17.08%, #37A1EE 23.07%, #BCDAF7 37.29%, #6D95E8 53.04%, #8C8FDB 63.88%, #8083DB 71.02%, #9B9EE2 80.32%, #FEFEFE 84.24%, #1271FF 94.18%);
   background: radial-gradient(ellipse, rgba(255,255,255,1) 65%, rgba(98, 169, 180, 0.805) 79%  , rgba(0, 238, 255, 0.833) 80%);
   background-image: linear-gradient(to top, rgba(255,255,255,1) 91%, rgba(0, 238, 255, 0.833) 92%);*/
@@ -71,7 +61,7 @@
 
 
   .backgroundDark {
-    background: rgb(31, 31, 31);
+    background: var(--bg-dark);
     /*background: linear-gradient(112deg, #0E236F 6.55%, #060D23 17.08%, #4610B9 23.07%, #2F4254 37.29%, #194FBE 53.04%, #502DB4 63.88%, #6368CF 71.02%, #070DAC 80.32%, #000 84.24%, #161493 94.18%);
     background: radial-gradient(ellipse, rgba(3,18,102,0.8290966044620973) 65%, rgb(54, 54, 118) 79% ,rgba(27, 27, 32, 1) 80%);
     background-image: linear-gradient(to top, rgba(3,18,102,0.8290966044620973) 91% ,rgba(27, 27, 32, 1) 92%);
@@ -90,20 +80,29 @@
 
 /* animation fade */
 
+/*
+
 .slide-enter-active, .slide-leave-active, .slide-reverse-enter-active, .slide-reverse-leave-active {
   transition: all 1s ease;
+  transition: all 1s ease;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
 }
 .slide-enter, .slide-leave-to {
-  transform: translateX(100%);
+  transform: rotateY(90deg);
+
 }
 .slide-enter-to, .slide-leave {
   transform: translateX(0);
+  transform: rotateY(0);
+
 }
 .slide-reverse-enter, .slide-reverse-leave-to {
-  transform: translateX(-100%);
+  transform: rotateY(-90deg);
+
 }
 .slide-reverse-enter-to, .slide-reverse-leave {
-  transform: translateX(0);
+  transform: rotateY(0);
 }
 
-  
+  */

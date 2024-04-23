@@ -31,20 +31,21 @@
     <!-- Slide with transition group-->
 
         
-      <transition-group @before-enter="onBeforeEnter" @enter="onEnter" @leave="onLeave" name="slide" tag="div" 
+      <transition-group   @before-enter="onBeforeEnter" @enter="onEnter" @after-enter="afterEnter"
+      @before-leave="beforeLeave" @leave="onLeave"  @after-leave="afterLeave" name="slide" tag="div" 
       class="d-flex w-75 flex-row m-1 p-1 justify-content-center align-items-center container">
 
         <div class="slide col-md-12 col-lg-6 mx-1 p-3 mx-1 p-3 text-center d-flex flex-column justify-content-center my-auto" :key="0"  id="slide1" :class="{ 'd-none': currentIndex !== 0,
           'slide-dark': theme.isDarkMode, 
           'slide-light' : !theme.isDarkMode}">
         <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'">Site vitrine</h3>
-        <p :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Creation de site vitrine dynamique et interative permettant de mettre en avant vos produits, savoir faire ou votre entreprise.</p>
+        <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '">Creation de site vitrine dynamique et interative permettant de mettre en avant vos produits, savoir faire ou votre entreprise.</p>
         <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'">Maquettage web</h3>
-        <p :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Création de maquette interactive et dynamique pour votre site internet</p>
+        <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '">Création de maquette interactive et dynamique pour votre site internet</p>
         <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'">Base de données</h3>
-        <p :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Conception de base de données , utilisation d’outils SQL et gestion de données.</p>
+        <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '">Conception de base de données , utilisation d’outils SQL et gestion de données.</p>
         <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'">Fonctionnalité web</h3>
-        <p :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Ajout de fonctionnalité comme espace contact, espace connexion, espace administrateur. Création de fichier pdf.
+        <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '">Ajout de fonctionnalité comme espace contact, espace connexion, espace administrateur. Création de fichier pdf.
         </p>
       </div>
     
@@ -62,31 +63,31 @@
             <svg width="70" height="70">
               <image xlink:href="@/assets/images/logos/logo-langage/HTML-5-logo.svg" width="70" height="70" />
             </svg>
-              <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '" >HTML</p>
+              <p class="m-auto" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '" >HTML</p>
           </div>
           <div class="d-flex align-items-center">
             <svg width="70" height="70">
               <image xlink:href="@/assets/images/logos/logo-langage/css-logo.svg" width="70" height="70" />
             </svg>
-        <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">CSS</p>
+        <p class="m-auto" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '">CSS</p>
       </div>
       <div class="d-flex align-items-center">
         <svg width="70" height="70">
           <image xlink:href="@/assets/images/logos/logo-langage/wordpress-logo.svg" width="70" height="70" />
         </svg>
-        <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">WordPress</p>
+        <p class="m-auto" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '">WordPress</p>
       </div>
       <div class="d-flex align-items-center">
         <svg width="70" height="70">
           <image xlink:href="@/assets/images/logos/logo-langage/javascript-logo.svg" width="70" height="70" />
         </svg>
-        <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Javascript / Jquery</p>
+        <p class="m-auto" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '">Javascript / Jquery</p>
       </div>
       <div class="d-flex align-items-center">
         <svg width="70" height="70">
           <image xlink:href="@/assets/images/logos/logo-langage/logo.svg" width="70" height="70" />
         </svg>
-        <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Vue.js</p>
+        <p class="m-auto" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '">Vue.js</p>
       </div>
         </div>
 
@@ -107,25 +108,25 @@
       <svg width="70" height="70">
         <image xlink:href="@/assets/images/logos/logo-langage/php.svg" width="70" height="70" />
       </svg>
-      <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '" >PHP</p>
+      <p class="m-auto" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '" >PHP</p>
     </div>
     <div class="d-flex align-items-center">
       <svg width="70" height="70">
         <image xlink:href="@/assets/images/logos/logo-langage/symfony_black_03.svg" width="70" height="70" />
       </svg>
-      <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Symfony</p>
+      <p class="m-auto" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '">Symfony</p>
     </div>
     <div class="d-flex align-items-center">
       <svg width="70" height="70">
         <image xlink:href="@/assets/images/logos/logo-langage/mysqlworkbench_93532.svg" width="70" height="70" />
       </svg>
-      <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">MySql</p>
+      <p class="m-auto" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '">MySql</p>
     </div>
     <div class="d-flex align-items-center">
       <svg width="70" height="70">
         <image xlink:href="@/assets/images/logos/logo-langage/sql-database-generic.svg" width="70" height="70" />
       </svg>
-      <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">SQL serveur</p>
+      <p class="m-auto" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '">SQL serveur</p>
     </div>
       
     </div>
@@ -145,31 +146,31 @@
       <svg width="70" height="70">
         <image xlink:href="@/assets/images/logos/logo-langage/figma-logo.svg" width="70" height="70" />
       </svg>
-      <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '" >Figma</p>
+      <p class="m-auto" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '" >Figma</p>
       </div>
       <div class="d-flex align-items-center">
       <svg width="70" height="70">
         <image xlink:href="@/assets/images/logos/logo-langage/looping-logo.svg" width="70" height="70" />
       </svg>
-      <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Looping</p>
+      <p class="m-auto" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '">Looping</p>
       </div>
       <div class="d-flex align-items-center">
       <svg width="70" height="70">
         <image xlink:href="@/assets/images/logos/logo-langage/github-logox70.svg" width="70" height="70" />
       </svg>
-      <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Github</p>
+      <p class="m-auto" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '">Github</p>
       </div>
       <div class="d-flex align-items-center">
       <svg width="70" height="70">
         <image xlink:href="@/assets/images/logos/logo-langage/office-365-logo.svg" width="70" height="70" />
       </svg>
-      <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Bureautique : Traitement de texte , tableur</p>
+      <p class="m-auto" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '">Bureautique : Traitement de texte , tableur</p>
       </div>
       <div class="d-flex align-items-center">
       <svg width="70" height="70">
         <image xlink:href="@/assets/images/logos/logo-langage/bootstrap-logo.svg" width="70" height="70" />
       </svg>
-      <p class="m-auto" :class="theme.isDarkMode ? 'navTextDark' : 'navTextLight '">Bootstrap</p>
+      <p class="m-auto" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '">Bootstrap</p>
       </div>
     </div>
   

@@ -2,12 +2,12 @@
     <section id="about" class="container d-grid py-2">
      <div class="row align-self-center justify-content-center">
   
-      <div id="card" class="col-12 col-md-8 gy-4 mb-5" @mousemove="handleCardEffect" @mouseleave="resetCardEffect">
+      <div id="card" class="col-12 col-md-10 gy-4 mb-5" @mousemove="handleCardEffect" @mouseleave="resetCardEffect">
         <!-- main-bloc -->
         <div>
-          <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="card-title m-4 pb-5 title h1 text-center">A propos de moi</h1>
+          <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="card-title m-4 pb-5 title h1 text-center">&Agrave; propos de moi</h1>
         </div>
-        <div :class="theme.isDarkMode ? 'bloc-presentation-dark' : 'bloc-presentation-light'" class="blocPresentation col-12 text-center card-body p-5 text-style">
+        <div :class="theme.isDarkMode ? 'aboutme-dark' : 'aboutme-light'" class="blocPresentation col-12 text-center card-body p-5 text-style">
           <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class="lh-lg lh-sm textIndent text-justify" >
             Bonjour ! Je m'appelle Florent, développeur web et webmobile freelance qui commence son activité. 
             J'étais été formé auprès de différent centre de formation comme Webforce 3 et AFCI et 
@@ -166,20 +166,7 @@
     padding: 10px 20px;
   } 
   
-  .btn-dark:hover {
-    background-color: #291fe2;
-    color: #3609ff!important;
-    border: 1px solid #ffffff;
-    text-shadow: 0 0 5px #ffffff,
-                 0 0 10px #ffffff,
-                 0 0 15px #ffffff,
-                 0 0 20px #ffffff;
-    box-shadow: 0 0 5px #172b59,
-                0 0 10px #172b59,
-                0 0 15px #172b59,
-                0 0 20px #172b59;
-    
-  } 
+
   
   .btn-light:hover {
     background-color: #37A1EE ;
