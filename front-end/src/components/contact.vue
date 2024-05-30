@@ -10,7 +10,7 @@
 
       <!-- Bloc contact-->
 
-      <div id="formbg" :class="theme.isDarkMode ? 'formbgdark' : 'formbglight'" class="d-flex justify-content-lg-around my-5 flex-column flex-md-row">
+      <div id="formbg" :class="theme.isDarkMode ? 'main-bloc-dark' : 'main-bloc-light'" class="d-flex justify-content-lg-around my-5 flex-column flex-md-row">
 
         <!-- social bloc : Left bloc -->
         
@@ -112,15 +112,18 @@
   </div>
 
   <div class="form-check form-row col mx-auto">
-  <input class="form-check-input" type="checkbox" name="agree" value="yes" id="flexCheckDefault" required>
+  <label class="control control-checkbox" :class="theme.isDarkMode ? 'dark' : 'light'">
+            <input type="checkbox" name="agree" value="yes" id="flexCheckDefault" required/>
+        <div class="control_indicator" :class="theme.isDarkMode ? 'dark' : 'light'"></div>
+    </label>
   <p class="form-check-label text-contact">En soumettant ce formulaire, j'accepte que mes données personnelles soient utilisées pour me recontacter.
     Aucun autre traitement ne sera effectué avec mes informations. Pour connaître et exercer vos droits, veuillez consultez la
-    <router-link to="/privacyPolicy">Politique de confidentialité.</router-link>
+    <router-link :class="theme.isDarkMode ? 'footerTextDark' : 'footerTextLight'" to="/privacyPolicy">Politique de confidentialité.</router-link>
   </p>
   </div>
 
   <div class="form-row d-flex justify-content-center align-items-center">
-    <button class="btn btn-primary" type="submit">Envoyez</button>
+    <button :class="theme.isDarkMode ? 'btn-dark-mode' : 'btn-light-mode'" class="btn" type="submit">Envoyez</button>
   </div>
 
 </form>
@@ -265,6 +268,16 @@ export default {
     border-radius: 60px;
   }
 
+  #contact input:not([type='checkbox']), #validationTooltipUsernamePrepend , textarea {
+    background:var(--hoverLight);
+    border: 1px solid var(--StartLightGradient);
+    color: var(--white);
+  }
+
+  .form-control::placeholder, .input-group-text {
+    color: var(--StartDarkGradient);
+  }
+
   .formbglight{
     background: #0099ff65;
   }
@@ -280,6 +293,168 @@ export default {
   #contact {
     width: 60%;
   }  
+
+  /* input checkbox */
+
+/* checkbox */
+
+.control {
+    font-family: arial;
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 5px;
+    padding-top: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+    .control input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    }
+.control_indicator {
+    position: absolute;
+    top: 15px;
+    left: -35px;
+    height: 20px;
+    width: 20px;
+    border-radius: 0px;
+}
+.control:hover input ~ .control_indicator,
+.control input:focus ~ .control_indicator {
+    background: #cccccc;
+}
+
+.control input:checked ~ .control_indicator {
+    background: rgb(116, 108, 247);
+}
+.control:hover input:not([disabled]):checked ~ .control_indicator,
+.control input:checked:focus ~ .control_indicator {
+    background: var(--StartLightGradient);
+}
+.control input:disabled ~ .control_indicator {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+.control_indicator:after {
+    box-sizing: unset;
+    content: '';
+    position: absolute;
+    display: none;
+}
+.control input:checked ~ .control_indicator:after {
+    display: block;
+}
+.control-checkbox .control_indicator:after {
+    left: 8px;
+    top: 4px;
+    width: 3px;
+    height: 8px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.control-checkbox input:disabled ~ .control_indicator:after {
+    border-color: #7b7b7b;
+}
+.control-checkbox .control_indicator::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-left: -1.3rem;
+    margin-top: -1.3rem;
+    background: #2aa1c0;
+    border-radius: 3rem;
+    opacity: 0.6;
+    z-index: 99999;
+    transform: scale(0);
+}
+@keyframes s-ripple {
+    0% {
+        transform: scale(0);
+    }
+    20% {
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+@keyframes s-ripple-dup {
+   0% {
+       transform: scale(0);
+    }
+   30% {
+        transform: scale(1);
+    }
+    60% {
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+    }
+}
+.control-checkbox input + .control_indicator::before {
+    animation: s-ripple 250ms ease-out;
+}
+.control-checkbox input:checked + .control_indicator::before {
+    animation-name: s-ripple-dup;
+}
+
+/* checkbox light */
+
+.control_indicator.light {
+    background: #e6e6e6;
+    border: 0px solid #000000;
+}
+.control.light:hover input ~ .control_indicator.light,
+.control.light input:focus ~ .control_indicator.light {
+    background: #cccccc;
+}
+
+.control.light input:checked ~ .control_indicator.light {
+    background: rgb(116, 108, 247);
+}
+.control.light:hover input:not([disabled]):checked ~ .control_indicator.light,
+.control.light input:checked:focus ~ .control_indicator.light {
+    background: var(--StartLightGradient);
+}
+.control.light input:disabled ~ .control_indicator.light {
+    background: #e6e6e6;
+    opacity: 0.6;
+}
+
+/* checkbox dark */
+
+.control_indicator.dark {
+    background: #9BAAFF;
+    border: 0px solid #ffffff;
+}
+.control.dark:hover input ~ .control_indicator.dark,
+.control.dark input:focus ~ .control_indicator.dark {
+    background: var(--borderDark);
+}
+
+.control.dark input:checked ~ .control_indicator.dark {
+    background: rgb(116, 108, 247);
+}
+.control.dark:hover input:not([disabled]):checked ~ .control_indicator.dark,
+.control.dark input:checked:focus ~ .control_indicator.dark {
+    background: var(--StartLightGradient);
+}
+.control.light input:disabled ~ .control_indicator.light {
+    background: #e6e6e6;
+    opacity: 0.6;
+}
+
 
   /*error input message style */
 

@@ -119,7 +119,6 @@
 
 
   .card{
-    font-family: 'Montserrat', 'sans-serif'!important;
     position: relative; /* Position relative pour positionner correctement l'image agrandie */
 }
 

@@ -1,9 +1,9 @@
 <template>
   <div :class="[theme.isDarkMode ? 'backgroundImageDark' : 'backgroundImageLight', $route.name === 'privacyPolicy' ? (theme.isDarkMode ? 'privacyPolicyBackgroundDark' : 'privacyPolicyBackgroundLight') : 'backgroundDefault']" class="d-flex flex-column" @toggle-theme-request="toggleTheme">
         
-    <div id="#main-page" class="d-flex content justify-content-center mx-md-5 mx-0">
-      <div :class="theme.isDarkMode ? 'computer-dark' : 'computer-light'" class="computer">
-        <div :class="theme.isDarkMode ? 'screen-dark' : 'screen-light'" class="screen">
+    <div id="#main-page" class="d-flex justify-content-center mx-md-5 mx-0">
+      <div :class="theme.isDarkMode ? 'dark-mode' : 'light-mode'" class="computer">
+        <div :class="theme.isDarkMode ? 'dark-mode' : 'light-mode'" class="screen">
           <NavBar :theme="theme" :selectedSection="selectedSection" @toggle-theme-request="toggleTheme" />
 
           <router-view :theme="theme" :changeSection="changeSection" v-slot="{ Component }">
@@ -15,6 +15,7 @@
         </div>
       </div>
     </div>
+
 
   </div>
 </template>
@@ -35,15 +36,14 @@ const fade = 'fade';
 
 
 
-const isDarkMode = ref(false);
-
+const isDarkMode = ref(localStorage.getItem('theme') === 'dark' ? true : false);
 
 
 const theme = readonly({
   isDarkMode,
   toggleTheme() {
     isDarkMode.value = !isDarkMode.value;
-
+    localStorage.setItem('theme', isDarkMode.value ? 'dark' : 'light');
   },
 });
 
@@ -59,31 +59,50 @@ function changeSection(newSectionName) {
 <script>
 
 export default {
+
+  components: {
+    NavBar
+  },
+
   data() {
     return {
       activeTab: 0,
       tabs: [
-        { title: 'Florent VIEVILLE', route: 'home', },
-        { title: 'Section 2', route: 'aboutMe'},
+        { title: 'Accueil', route: 'home', },
+        { title: 'A propos de moi', route: 'aboutMe'},
         { title: 'Mes service', route: 'service'},
         { title: 'Mes projets', route: 'projet'},
         { title: 'Contact', route: 'contact'},
         // Ajoutez autant d'onglets que vous le souhaitez
       ],
       theme: {
-        isDarkMode: window.matchMedia('(prefers-color-scheme: dark)').matches, // Détecte le thème préféré
+        isDarkMode: JSON.parse(localStorage.getItem('isDarkMode')) || window.matchMedia('(prefers-color-scheme: dark)').matches,
       },
 
     };
   },
+  created() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      this.theme.isDarkMode = savedTheme === 'dark';
+    }
+  },
   watch: {
     activeTab(newActiveTab) {
-      this.changeSection(this.tabs[newActiveTab].title);
+      this.changeSection(this.tabs[newActiveTab].title)
     },
+    'theme.isDarkMode'(newVal) {
+      localStorage.setItem('theme', newVal ? 'dark' : 'light');
+    }
   },
   mounted() {
     // Ajoutez un écouteur pour détecter les changements de préférences de thème
     window.matchMedia('(prefers-color-scheme: dark)').addListener(this.handleThemeChange);
+  },
+  setup() {
+    return {
+      theme
+    };
   },
   methods: {
     changeTitle(title) {
@@ -91,10 +110,14 @@ export default {
 },
     toggleTheme() {
       this.theme.isDarkMode = !this.theme.isDarkMode;
+      localStorage.setItem('isDarkMode', JSON.stringify(this.theme.isDarkMode));
     },
     handleThemeChange(e) {
+    // Ne changez le thème que si l'utilisateur n'a pas choisi de thème
+    if (!localStorage.getItem('theme')) {
       this.theme.isDarkMode = e.matches;
-    },
+    }
+  }
 
   },
 };
@@ -129,14 +152,17 @@ export default {
   position: relative;
 }
 
-.computer-light {
+.computer.light-mode {
   background: var(--bluelight);
+  background: var(--borderLightGardient);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: background-color 0.5s ease-in-out;
 }
 
-.computer-dark {
-  background: var(--blue);
+.computer.dark-mode {
+  background: rgb(51,66,255); 
+  background: linear-gradient(180deg, var(--StartDarkGradient) 0%, var(--EndDarkGradient) 75%);
+
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transition: background-color 0.5s ease-in-out;
 }
@@ -153,12 +179,14 @@ export default {
   border-right: 20px solid transparent;
 }
 
-.computer-dark::before {
-  border-bottom: 30px solid #131829;
+.computer.dark-mode::before {
+  border-bottom: 30px solid var(--EndDarkGradient);
 
 }
 
-.computer-light::before {
+
+
+.computer.light-mode::before {
   border-bottom: 30px solid #fff;
 
 }
@@ -167,19 +195,19 @@ export default {
   min-height: 500px; /* change 'height' to 'min-height' */
   border-radius: 10px;
   padding: 20px;
+  background: var(--bg-light-1);
+  transition: background-color 0.5s ease-in-out;
   /* autres styles de l'écran */
 }
 
-.screen-light {
-  background: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.screen.light-mode {
+  background: var(--bg-light-1);
   transition: background-color 0.5s ease-in-out;
 
 }
 
-.screen-dark {
-  background: rgba(0,36,41);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+.screen.dark-mode {
+  background: var(--bg-dark-1);
   transition: background-color 0.5s ease-in-out;
 }
 
@@ -188,11 +216,6 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-
-.content {
-  flex: 1 0 auto;
-}
-
 
 footer {
   flex-shrink: 0;
@@ -226,7 +249,7 @@ footer {
 
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 985px) {
   #main-page {
     margin-left: 0 !important;
     margin-right: 0 !important;

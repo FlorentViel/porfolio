@@ -3,7 +3,7 @@
    <div class="d-flex row align-content-center position-relative justify-content-between flex-wrap my-auto position-relative">
     <div class="col-6 col-md-3 mr-md-5 align-self-center">
       <!-- Profil-picture -->
-      <img id="profil_picture" :class="theme.isDarkMode ? 'photo-dark' : 'photo-light'" class="img-fluid" src="/front-end/src/assets/images/pictures/photo_profil.png" alt="Photo de profil" />
+      <img id="profil_picture" :class="theme.isDarkMode ? 'photo-dark' : 'photo-light'" class="img-fluid" :src="theme.isDarkMode ? '/front-end/src/assets/images/logos/logo-site/logo-dragonslair-night.png' : '/front-end/src/assets/images/logos/logo-site/logo-dragonslair.png'" alt="Photo de profil" />
     </div>
 
 
@@ -11,9 +11,9 @@
 
       <!-- main-bloc -->
 
-    <div id="card" class="my-3 col-12 col-md-5 text-center card-body p-4" :class="theme.isDarkMode ? 'aboutme-dark' : 'aboutme-light'" @mousemove="handleCardEffect" @mouseleave="resetCardEffect">
-      <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="card-title py-3 animate-text title h1" :style="{ '--delay': '0.5s' }">Florent Vieville</h1>
-      <h1 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="card-title py-3 animate-text " :style="{ '--delay': '0.7s' }">Développeur web et web mobile</h1>
+    <div id="card" class="my-3 col-12 col-md-5 text-center card-body p-4" :class="theme.isDarkMode ? 'main-bloc-dark' : 'main-bloc-light'" @mousemove="handleCardEffect" @mouseleave="resetCardEffect">
+      <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="card-title py-3 animate-text title h1 font-weight-bold" :style="{ '--delay': '0.5s' }">Dragon's lair</h1>
+      <h1 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="card-title py-3 animate-text  font-weight-bold" :style="{ '--delay': '0.7s' }">Développeur web et web</h1>
       
       <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class=" animate-text text-warpcard-text text-style py-3 " :style="{ '--delay': '0.9s' }" >
         Passionné par le web avec une expértise en <strong class="text-style ">front-end</strong> et <strong class="text-style">back-end</strong>. 
@@ -21,12 +21,12 @@
       <div class="d-flex justify-content-evenly py-4">
   <div class="animate-text" :style="{ '--delay': '0.13s' }">
     <router-link :to="{ name: 'aboutMe' }" :class="theme.isDarkMode ? '' : ''">
-      <button type="button" :class="theme.isDarkMode ? 'btn-dark-mode' : 'btn-light-mode navTextLight'" class="btn" >À propos de moi</button>
+      <button type="button" :class="theme.isDarkMode ? 'btn-dark-mode' : 'btn-light-mode'" class="btn" >À propos de moi</button>
     </router-link>
   </div>
   <div class="animate-text" :style="{ '--delay': '0.13s' }">
     <router-link :to="{ name: 'service' }" :class="theme.isDarkMode ? '' : ''">
-      <button type="button" :class="theme.isDarkMode ? 'btn-dark-mode' : 'btn-light-mode navTextLight'" class="btn" >Mes services</button>
+      <button type="button" :class="theme.isDarkMode ? 'btn-dark-mode' : 'btn-light-mode'" class="btn" >Mes services</button>
     </router-link>
   </div>
 </div>
@@ -148,8 +148,8 @@ export default {
 /* profil picture */
 
 #profil_picture {
-    border-radius: 233.847px;
     position: relative;
+    transition: all 0.5s ease;
 
 
 }

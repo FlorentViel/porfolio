@@ -4,81 +4,84 @@
   text-align: justify!important;
 }
 
-/* color white */
-
-:is(.h1-light, .h2-light){
-  color: var(--bluelight);
-  font-weight: bold!important;
-  -webkit-text-stroke: 0px !important; 
-}
-
-:is(.h1-dark, .navHomeDark.router-link-exact-active){
-  color: var(--blue) !important;
-  font-weight: bold!important;
-
-}
-
-:is(.h2-dark){
-  color: var(--blue);
-  font-weight: bold!important;
-}
-
-:is(.text-color-dark){
-  color: var(--white);
-}
-
-:is(.text-color-light){
-  color: var(--black-soft);
-}
-
-:is(.navTextDark) {
-  color: var(--white);
-}
-
-:is( .btn-dark-mode ,.footerTextDark){
-  color: var(--linkdark);
-  text-decoration: none;
-
-}
-
-:is( .btn-dark-mode:hover, .footerTextDark:hover){
-  color: var(--linkdarkhover);
-  text-decoration: underline;
-}
-
-
-:is( .footerTextLight){
-  color:#295ee3;
-
-}
-
-:is( .navItem button , p , label, h1, #navBar ){
+:is( .navItem button , p , label, h1, #navBar, span, a, body ){
   font-family: 'Montserrat', sans-serif!important;
 }
 
-:is(h2, h3){
-  font-family: Jura!important;
+/* color white */
+
+:is(.h1-light){
+  color: var(--StartLightGradient);
+  -webkit-text-stroke: 0px !important; 
+
 }
 
-/* h1 */
+:is(.h2-light, h2){
+  color: var(--EndLightGradient);
   
-  .h1-light{
-    font-weight: bold!important;
+}
+
+
+:is(.h1-dark){
+  color: var(--textPrimaryDark);
+}
+
+:is(.h2-dark){
+  color: var(--EndDarkGradient);
+}
+
+:is(.text-color-dark){
+  color: var(--textSecondaryDark);
+}
+
+:is(.text-color-light){
+  color: var(--textSecondaryLight);
+}
+
+:is(.footerTextDark, .nav-link-dark){
+  color: var(--StartDarkGradient);
+
+}
+:is(.footerTextDark:hover, .nav-link-dark:hover){
+  color: var(--linkdarkhover);
+  text-decoration: underline 1px ;
+  text-decoration-color: var(--linkdarkhover);
+
+
+}
+
+:is(.footerTextDark:hover){
+  background: #4827FE55;
+  border-radius: 5%;
+  transition: all 0.5s;
+}
+
+:is(.footerTextLight:hover){
+  background:var(--hoverLight);
+  border-radius: 5%;
+  transition: all 0.5s;
+}
+
+:is(.footerTextLight, .nav-link-light){
+  color: var(--StartLightGradient);
+}
+
+:is( .footerTextLight:hover, .nav-link-light:hover){
+  color: var(--EndLightGradient);
+  text-decoration: underline;
+  text-decoration-color: var(--EndLightGradient);
+}
+
+
+
+/* h1, h2 */
+  
+  h1, h2{
     transition: .5s ease;
-  
-  }
-  
-  .h1-dark {
-
-    font-weight: bold!important;
-    transition: .5s ease;
-  
-  
+    font-weight: bold!important;  
   }
 
-  /* h2 style */
 
-   /* h2-style */
   
 
 
@@ -181,61 +184,54 @@
 
 
   /* media query text reponsive */
+/* mobile format */
+@media (max-width: 576px) {
+  .h1-light, .h1-dark {
+    font-size: 2.2rem;
+  }
+  .h2-light, .h2-dark {
+    font-size: 1.5rem;
+  }
+  .text-style, p, li, .nav-link, span {
+    font-size: 1.2rem;
+  }
+}
 
-  /* mobile format */
-  @media (max-width: 576px) {
-    .h1-light, .h1-dark {
-      font-size: calc(2.2rem + 0.5vw);
-    }
-    .h2-light, .h2-dark {
-      font-size: 1.5rem;
-    }
-    .text-style, p, li {
-      font-size: calc(1rem + 0.1vw);
-    }
+/* tablet format*/
+@media (min-width: 577px) and (max-width: 991px) {
+  .h1-light, .h1-dark {
+    font-size: 2.2rem;
+  }
+  .h2-light, .h2-dark {
+    font-size: 1.5rem;
+  }
+  .text-style, p, li, span, .text-color-light, .text-color-dark, .nav a {
+    font-size: 1.20rem;
   }
 
-  /* tablet format*/
-  @media (min-width: 577px) and (max-width: 991px) {
-    .h1-light, .h1-dark {
-      font-size: calc(2.2rem + 0.5vw);
-    }
-    .h2-light, .h2-dark {
-      font-size: 2rem;
-    }
-    .text-style, p, li, span, .text-color-light, .text-color-dark, .nav a {
-      font-size: 1.25rem;
-    }
+  .nav-link{
+    font-size: 1.20rem;
+  }
+}
 
-    .nav-link{
-      font-size: calc(1rem + 0.1vw);
-    }
-
-    .navHomeDark , .navHomeLight {
-      font-size: 1.25rem;
-    }
+/* desktop format */
+@media (min-width: 992px) {
+  .h1-light, .h1-dark {
+    font-size: 3rem;
+  }
+  .h2-light, .h2-dark {
+    font-size: 2rem;
+  }
+  .text-style, p, span, .text-color-dark, .text-color-light, .nav a{
+    font-size: 1.4rem;
   }
 
-  /* format desktop */
-  @media (min-width: 992px) {
-    .h1-light, .h1-dark {
-      font-size: 3rem;
-    }
-    .h2-light, .h2-dark {
-      font-size: 2.5rem;
-    }
-    .text-style, p, span, .text-color-dark, .text-color-light, .nav a{
-      font-size: calc(0.8rem + 0.5vw);
-    }
-
-    .text-contact {
-      font-size: calc(0.7rem + 0.5vw);
-    }
-
-    .nav-link{
-      font-size: calc(1rem + 0.5vw);
-    }
-
+  .text-contact {
+    font-size: 1.4rem;
   }
 
+  .nav-link{
+    font-size: 1.3rem;
+  }
+}
   
