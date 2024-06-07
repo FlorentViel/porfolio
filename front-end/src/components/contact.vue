@@ -33,7 +33,7 @@
           <div class="d-flex justify-content-center gap-1 gap-lg-4 gap-sm-4 flex-wrap">
             <div class="d-flex flex-column justify-content-around align-items-center">
             <div class="mx-4 mx-md-2 mx-lg-4 position-relative">
-              <div class="test position-absolute top-0 z-0"></div>          
+              <div class="contact-block position-absolute top-0 z-0"></div>          
               <svg class="z-1 position-relative" width="60" height="60">
                 <a href="https://github.com/FlorentViel" target="_blank">
                   <image xlink:href="@/assets/images/logos/logo-reseau/github-logox32.svg" width="60" height="60" />
@@ -56,7 +56,7 @@
           </div>
           <div class="d-flex flex-column justify-content-around align-items-center gap-2">
             <div class="">
-              <div class="test"></div>
+              <div class="contact-block"></div>
             </div>
             <div class="">
               <p class="h6">Nom</p>
@@ -68,7 +68,7 @@
         </div>
 
         <!-- Form bloc : Right bloc -->
-        <form  @submit="validateAndSubmit" id="contact" class="py-5 mx-auto col-10 row gy-3">
+        <form  @submit="validateAndSubmit" id="contact" :class="theme.isDarkMode ? 'dark' : 'light'" class="py-5 mx-auto col-10 row gy-3">
   <div class="form-row d-flex justify-content-lg-around flex-wrap position-relative">
     <div class="col-lg-5 col-12">
       <label for="lastName">Nom*</label>
@@ -249,7 +249,7 @@ export default {
   
   <style scoped>
 
-  .test {
+  .contact-block {
     display: flex;
     border: rgb(2, 25, 57) solid 3px;
     justify-content: center;
@@ -268,24 +268,27 @@ export default {
     border-radius: 60px;
   }
 
-  #contact input:not([type='checkbox']), #validationTooltipUsernamePrepend , textarea {
-    background:var(--hoverLight);
-    border: 1px solid var(--StartLightGradient);
+  /* Contact input block :notcheckbox */
+
+  #contact.dark input:not([type='checkbox']), #contact.dark textarea, #contact.dark .input-group-text {
+    background:var(--bg-dark-1);
+    border: 1px solid var(--StartDarkGradient);
     color: var(--white);
   }
 
-  .form-control::placeholder, .input-group-text {
+  #contact.light input:not([type='checkbox']),  #contact.light textarea, #contact.light .input-group-text {
+    background:var(--bgtlight3);
+    border: 1px solid var(--StartLightGradient);
+    color: var(--black);
+  }
+
+  #contact.dark .form-control::placeholder, .input-group-text {
     color: var(--StartDarkGradient);
   }
-
-  .formbglight{
-    background: #0099ff65;
+  #contact.light .form-control::placeholder, .input-group-text {
+    color: var(--StartLightGradient);
   }
-
-  .formbgdark {
-    background: rgba(0, 0, 0, 0.65); 
-  }
-
+  
   #social {
     width: auto;
   }

@@ -37,7 +37,7 @@
           <div class="card-body">
             <h5 class="card-title">{{ card.title }}</h5>
             <p class="card-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">{{ card.text }}</p>
-            <a href="#" class="btn"  :class="theme.isDarkMode ? 'btn-dark-mode navTextDark' : 'btn-light-mode navTextLight'">Go somewhere</a>
+            <a target="_blank" :href="card.title" class="btn"  :class="theme.isDarkMode ? 'btn-dark-mode navTextDark' : 'btn-light-mode navTextLight'">Go somewhere</a>
           </div>
         </div>
       </div>
@@ -57,23 +57,24 @@
         currentIndex: 0,
         cards: [
           {
-            image: 'front-end/src/assets/images/pictures/image-Page-Accueil.webp',
+            image: 'front-end/src/assets/images/pictures/projets/placeholder-2.png',
             title: 'Page d\'accueil personnalisé?',
-            text: 'Projet personnel de création d\'une page d\'accueil personnalisé avec heure intégré.'
+            text: 'Projet personnel de création d\'une page d\'accueil personnalisé avec heure intégré.',
+            link: 'link-lien',
           },
           {
-          image: 'front-end/src/assets/images/pictures/image-Page-Accueil.webp',
+          image: 'front-end/src/assets/images/pictures/projets/placeholder-2.png',
           title: 'Wesh alors',
           text: 'Projet personnel de création d\'une page d\'accueil personnalisé avec heure intégré.'
         },
         // Ajoutez d'autres cartes ici...
         {
-          image: 'front-end/src/assets/images/pictures/image-Page-Accueil.webp',
+          image: 'front-end/src/assets/images/pictures/projets/placeholder-2.png',
           title: 'Titre de la nouvelle carte3',
           text: 'Texte de la nouvelle carte.'
         },
         {
-          image: 'front-end/src/assets/images/pictures/image-Page-Accueil.webp',
+          image: 'front-end/src/assets/images/pictures/projets/placeholder-2.png',
           title: 'Titre d\'une autre nouvelle carte4',
           text: 'Texte d\'une autre nouvelle carte.'
         },       
@@ -123,6 +124,16 @@
     width: 100%;
     gap: 10px;
 
+  }
+
+  .card-carousel {
+    width: 100%;
+    transition: transform 0.5s;
+  }
+
+  .card-img-top {
+    max-width: auto;
+    max-height: 244px;
   }
 
 

@@ -148,8 +148,7 @@ export default {
 /* profil picture */
 
 #profil_picture {
-    position: relative;
-    transition: all 0.5s ease;
+  width: 100%;
 
 
 }

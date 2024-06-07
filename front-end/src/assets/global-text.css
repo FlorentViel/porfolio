@@ -38,11 +38,11 @@
   color: var(--textSecondaryLight);
 }
 
-:is(.footerTextDark, .nav-link-dark){
+:is(.footerTextDark, .link-section-dark){
   color: var(--StartDarkGradient);
-
 }
-:is(.footerTextDark:hover, .nav-link-dark:hover){
+
+:is(.footerTextDark:hover){
   color: var(--linkdarkhover);
   text-decoration: underline 1px ;
   text-decoration-color: var(--linkdarkhover);
@@ -62,11 +62,11 @@
   transition: all 0.5s;
 }
 
-:is(.footerTextLight, .nav-link-light){
+:is(.footerTextLight, .link-section-light){
   color: var(--StartLightGradient);
 }
 
-:is( .footerTextLight:hover, .nav-link-light:hover){
+:is( .footerTextLight:hover, .link-section-light:hover .link-section-light:focus){
   color: var(--EndLightGradient);
   text-decoration: underline;
   text-decoration-color: var(--EndLightGradient);
@@ -187,47 +187,55 @@
 /* mobile format */
 @media (max-width: 576px) {
   .h1-light, .h1-dark {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   .h2-light, .h2-dark {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
+
+  .text-contact {
+    font-size: 0.85rem;
+  }
+
   .text-style, p, li, .nav-link, span {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 
 /* tablet format*/
 @media (min-width: 577px) and (max-width: 991px) {
   .h1-light, .h1-dark {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
   .h2-light, .h2-dark {
-    font-size: 1.5rem;
+    font-size: 1.55rem;
   }
   .text-style, p, li, span, .text-color-light, .text-color-dark, .nav a {
-    font-size: 1.20rem;
+    font-size: 1.10rem;
+  }
+
+  .text-contact {
+    font-size: 0.90rem;
   }
 
   .nav-link{
-    font-size: 1.20rem;
+    font-size: 1.10rem;
   }
 }
 
 /* desktop format */
 @media (min-width: 992px) {
   .h1-light, .h1-dark {
-    font-size: 3rem;
+    font-size: 2.85rem;
   }
   .h2-light, .h2-dark {
-    font-size: 2rem;
-  }
+    font-size: 1.85rem;  }
   .text-style, p, span, .text-color-dark, .text-color-light, .nav a{
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 
   .text-contact {
-    font-size: 1.4rem;
+    font-size: 1rem;
   }
 
   .nav-link{

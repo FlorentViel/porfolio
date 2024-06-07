@@ -211,10 +211,12 @@ export default {
   transition: background-color 0.5s ease-in-out;
 }
 
-body {
+#app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-height: 100svh;
+
 }
 
 footer {

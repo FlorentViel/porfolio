@@ -6,7 +6,7 @@
                 v-for="(navItem, index) in navBar" 
                 :key="index" 
                 :to="{ name: navItem.route }"
-                :class="[theme.isDarkMode ? 'nav-link-dark' : 'nav-link-light', { 'navItem-active': $route.name === navItem.route }]">
+                :class="[theme.isDarkMode ? 'link-section-dark' : 'link-section-light', { 'navItem-active': $route.name === navItem.route }]">
                 {{ navItem.title }}
                 <span :class="theme.isDarkMode?'dark-mode' :'light-mode'" class="close-navItem">x</span>
               </router-link>
@@ -132,6 +132,11 @@ transition: all 0.3s ease-in-out;
 :is(#navBar.dark-mode .navBar-item:hover, .btn-dark-mode) {
   background-color: #11164a;
   transition: color 0.3s ease-in-out;
+  color: var(--white);
+}
+
+:is(#navBar.dark-mode .navBar-item:focus){
+  color: var(--white);
 }
 
 #navBar.dark-mode a{
@@ -158,6 +163,11 @@ transition: all 0.3s ease-in-out;
 #navBar.light-mode .navBar-item:hover {
   background:var(--hoverLight);
   transition: background-color 0.3s ease-in-out;
+  color: var(--black);
+}
+
+:is(#navBar.light-mode .navBar-item:focus){
+  color: var(--StartLightGradient);
 }
 
 #navBar.light-mode .navItem-active {
