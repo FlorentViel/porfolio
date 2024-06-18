@@ -1,5 +1,5 @@
 <template>
-  <section id="service" key="service" class="container py-5">
+  <section id="service" key="service" class="container-md py-5">
 
     <!-- Title-->
 
@@ -16,14 +16,14 @@
 
       <!-- Card container -->
 
-      <div class="container">
+      <div class="container-md">
 
         <!-- card-group -->
 
         <div class="card-group">
 
           <!-- Card -->
-          <div class="card" 
+          <div class="card card-style" 
             :class="theme.isDarkMode ? 'card-style-dark' : 'card-style-light'">
             <!--<TwicImg class="card-img-top" 
               src="avocado.jpg"
@@ -33,14 +33,14 @@
               alt="Avocado"
             />
             -->
-            <img src="./../assets/images/pictures/site_vitrine_icon.jpg" class="card-img-top img-size" alt="Site internet">
+            <img :class="theme.isDarkMode? 'img-size-dark' : 'img-size-light'" src="./../assets/images/pictures/site_vitrine.png" class="card-img-top img-size" alt="Site internet">
               <div class="card-body">
-                <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="card-title">Création de site internet</h3>
+                <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="card-title py-4">Création de site internet</h3>
                 <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '" class="card-text">Conception complète de site vitrine, boutique en ligne.</p>
               </div>                
           </div>
 
-          <div class="card" 
+          <div class="card card-style" 
             :class="theme.isDarkMode ? 'card-style-dark' : 'card-style-light'">
             <!--<TwicImg class="card-img-top" 
               src="avocado.jpg"
@@ -50,14 +50,14 @@
               alt="Avocado"
             />
             -->
-            <img src="./../assets/images/logos/logo-site/technologie.png" class="card-img-top img-size" alt="...">
+            <img :class="theme.isDarkMode? 'img-size-dark' : 'img-size-light'" src="./../assets/images/logos/logo-site/technologie.png" class="card-img-top img-size" alt="...">
               <div class="card-body">
-                <h3 class="card-title">Site E-commerce</h3>
+                <h3 class="card-title py-4">Site E-commerce</h3>
                 <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '" class="card-text">Lorem ipsumue interdum dui acam metus diam,</p>
               </div>                
           </div>
 
-          <div class="card" 
+          <div class="card card-style" 
             :class="theme.isDarkMode ? 'card-style-dark' : 'card-style-light'">
             <!--<TwicImg class="card-img-top" 
               src="avocado.jpg"
@@ -67,9 +67,9 @@
               alt="Avocado"
             />
             -->
-            <img src="./../assets/images/logos/logo-site/technologie.png" class="card-img-top img-size" alt="...">
+            <img :class="theme.isDarkMode? 'img-size-dark' : 'img-size-light'" src="./../assets/images/logos/logo-site/technologie.png" class="card-img-top img-size" alt="...">
               <div class="card-body">
-                <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="card-title">Site vitrine</h3>
+                <h3 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="card-title card-title py-4">Site vitrine</h3>
                 <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light '" class="card-text">Lorem ipsumue interdum dui acam metus diam,</p>
               </div>                
           </div>
@@ -135,37 +135,46 @@ mounted() {
 /* card group */
 
 .card-group {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center
 }
+
+
 
 .card {
   border-radius: 0;
   transition: all 0.5s;
   cursor: pointer;
   min-height: 100%;
-  margin: 1rem;
-  max-width: 588px;
+  margin: 0;
+  padding: 8px;
 
 }
 
 .card-title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
 }
 
 .card-text {
-  font-size: 1.5rem;
+  font-size: 1rem;
 } 
 
-.img-size {
-  width: 100%;
-  height: 100%;
-  max-width: 288px;
-  max-height: 224px;
-  margin: auto;
+.card-style img {
 
+  width: 100%;
+  height: 250px;
+  
+
+}
+
+.card-style-light img{
+  background-color: white;
+  border: 1px solid var(--EndLightGradient);
+}
+
+.card-style-dark img{
+  background-color: var(--bg-dark-2);
+  border: 1px solid var(--EndDarkGradient);
 }
 
 .card-body {
@@ -177,111 +186,80 @@ mounted() {
   transform: scale(1.1);
 }
 
-.card-style-dark {
-  background: var(--StartDarkGradient);
-  color: #c8eef3;
+.card-style::before {
+  animation: rotBGimg 3s linear infinite;
+  transition: all 0.2s linear ;
+  left: 22%;
+  top: -17%;
+  width: 50%;
+  height: 130%;
+  z-index: 0;
+  content: '';
+  position: absolute;
+} 
+
+
+.card-style-dark::before {
+
+  background-image: linear-gradient(180deg, var(--StartDarkGradient), var(--EndDarkGradient));
+
 
 }
 
-.card-style-light {
-  background: var(--EndLightGradient  );
-  color: var(--bg-light-2);
-}
- 
-.card-style-light .card-title {
-  color: var(--bg-light-2);
-}
 
-/* slide css */
+.card-style-light::before {
 
-.slide {
-    padding: 5px;
-    min-height: max-content;
-    transition: transform 0.5s ease-in, background-color 0.5s;
-    cursor: default!important;
-    height: 100%;
+background-image: linear-gradient(180deg, var(--StartLightGradient), var(--EndLightGradient));
 
 }
 
-.slide p {
-  cursor: default;
+.card-style, .card-style p, .card-style h3, .card-style h2, .card-style h1 , .card-style img{
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  overflow: hidden;
+}
+
+.card-style-light , .card-style-light p, .card-style-light h3, .card-style-light h2, .card-style-light h1{
+background-color: var(--bg-light-1);
+color: #15151A;
 
 }
 
-.slide-enter-active, .slide-leave-active {
-  transition: all 0.5s;
-  transform: translate(-100%);
-  opacity: 0;
-}
 
-.slide-enter, .slide-leave-to {
-  opacity: 1;
-  transform: translate(0);
-}
+.card-style-dark , .card-style-dark p, .card-style-dark h3, .card-style-dark h2, .card-style-dark h1{
+  background: var(--bg-dark-1);
+  color: #fbffff;
 
-.slide-enter-active, .slide-leave-active {
-  transition: opacity 0.5s, transform 0.5s;
-}
-
-.slide-enter-from, .slide-leave-to {
-  opacity: 0;
-  transform: translateX(100%);
-}
-
-.slide div {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    position: relative;
-}
-
-/* slide dark mode */
-
-.slide-dark {
-  background: #80787834;
 }
 
 
-.slide-dark:hover {
-    background: #1e1b1b83;
-   
+.card-style::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
 }
 
-/* slide light mode */
+.card-style-light::after {
+  background: var(--bg-light-1);
 
-.slide-light {
-  background: #0099ff34;
 }
 
-.slide-light:hover {
-  background: #0099ff83;
+.card-style-dark::after {
+  background: var(--bg-dark-1);
 }
+/* animation keyframe */
 
-/* animation slide */
+@keyframes rotBGimg {
+            from {
+                transform: rotate(0deg);
+            }
 
-/* Transition */
-
-.hide-slide {
-  display: none;
-}
-
-
-
-
-/* circle active  */
-.circle-light {
-  fill : #c8eef330; ;
-}
-
-.active-circle-dark {
-  fill: #15151A; 
-  
-}
-
-
-.active-circle-light {
-  fill: #c8eef3; 
-}
-
+            to {
+                transform: rotate(360deg);
+            }
+            
+        }
 
 /* arrow css */
 
@@ -304,42 +282,45 @@ mounted() {
 }
 
 
-/* tablet format*/
-@media (min-width: 577px) and (max-width: 991px) {
-  .card-group {
-    display: flex!important;
-    align-items: center;
-    flex-direction: column;
-    margin: 2rem;
-    gap: 2rem;
+
+@media (min-width: 576px) {
+  .card {
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
   }
 
   .card-title {
     font-size: 1.5rem;
   }
 
-  .card {
-    width: 100%;
-    max-width: 100%!important;
-    margin: auto;
+  .card-text {
+    font-size: 1rem;
+  }
 
-
+  .card-style img {
+    height: 200px;
   }
 }
 
-/* Media screen */
-
-@media screen and (max-width: 600px) {
-
-  .card-group {
-    display: block;
+@media (max-width: 575px) {
+  
+  .card {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 
-  .card {
-    width: 100%;
-    max-width: 100%!important;
+  .card-title {
+    font-size: 1.2rem;
+  }
 
+  .card-text {
+    font-size: 0.9rem;
+  }
 
+  .card-style img {
+    height: auto;
   }
 }
 

@@ -19,11 +19,11 @@
   --borderLightGardient: linear-gradient(0deg, rgb(74,204,234) 0%, rgb(116, 108, 247) 75%);
   --hoverLight: #8F04FF1A;
 
-  /* background */
+  /* background */    
 
   --bg-light-1: #E7F9FF;
   --bg-light-2: #FAFAFF;
-  --bgtlight3: #DFF9FF;
+  --bglight-3: #DFF9FF;
 
 
   /* Theme dark */
@@ -32,6 +32,7 @@
   --linkdarkhover: #E5EDFF;
   --StartDarkGradient: rgb(51,66,255);
   --EndDarkGradient: rgb(115 0 255);
+
   --borderDark: #393FFEB0;
 
 
@@ -46,10 +47,6 @@
 
 
 }
-
-
-
-
 
 
 *,

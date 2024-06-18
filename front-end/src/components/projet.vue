@@ -37,7 +37,7 @@
           <div class="card-body">
             <h5 class="card-title">{{ card.title }}</h5>
             <p class="card-text" :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'">{{ card.text }}</p>
-            <a target="_blank" :href="card.title" class="btn"  :class="theme.isDarkMode ? 'btn-dark-mode navTextDark' : 'btn-light-mode navTextLight'">Go somewhere</a>
+            <a target="_blank" :href="card.title" class="btn"  :class="theme.isDarkMode ? 'btn-dark-mode' : 'btn-light-mode navTextLight'">Go somewhere</a>
           </div>
         </div>
       </div>
@@ -134,6 +134,10 @@
   .card-img-top {
     max-width: auto;
     max-height: 244px;
+  }
+
+  .cardDark {
+    background-color: var(--bg-dark-2)
   }
 
 

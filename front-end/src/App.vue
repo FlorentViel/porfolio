@@ -145,11 +145,12 @@ export default {
 /* computer css */
 
 .computer {
-  width: 80%;
+  width: 85%;
   margin: 5% auto;
   border-radius: 15px;
   padding: 20px;
   position: relative;
+  height: max-content;
 }
 
 .computer.light-mode {

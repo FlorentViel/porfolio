@@ -225,21 +225,21 @@
 
 /* desktop format */
 @media (min-width: 992px) {
-  .h1-light, .h1-dark {
-    font-size: 2.85rem;
+  h1 {
+    font-size: 2.55rem;
   }
-  .h2-light, .h2-dark {
-    font-size: 1.85rem;  }
+  h2 {
+    font-size: 1.55rem;  }
   .text-style, p, span, .text-color-dark, .text-color-light, .nav a{
-    font-size: 1.3rem;
+    font-size: 1.0rem;
   }
 
   .text-contact {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   .nav-link{
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 }
   

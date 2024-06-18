@@ -1,15 +1,24 @@
 <template>
   <nav id="navBar"  :class="theme.isDarkMode ? 'dark-mode' : 'light-mode'"  class="navBar position-relative flex-wrap d-flex align-items-end">
-            <div class="d-flex align-items-end flex-wrap flex-grow-1">
-              <router-link 
-                class="navBar-item nav-link text-center" 
-                v-for="(navItem, index) in navBar" 
-                :key="index" 
-                :to="{ name: navItem.route }"
-                :class="[theme.isDarkMode ? 'link-section-dark' : 'link-section-light', { 'navItem-active': $route.name === navItem.route }]">
-                {{ navItem.title }}
-                <span :class="theme.isDarkMode?'dark-mode' :'light-mode'" class="close-navItem">x</span>
-              </router-link>
+            <div class="d-flex align-items-center flex-grow-1">
+              <!-- Profil-picture -->
+              <img id="profil_picture" :class="theme.isDarkMode ? 'photo-dark' : 'photo-light'"
+               class="img-fluid logo"
+               :src="theme.isDarkMode ? '/front-end/src/assets/images/logos/logo-site/logo-dragonslair-night.png' :
+                 '/front-end/src/assets/images/logos/logo-site/logo-dragonslair.png'"
+                  alt="Photo de profil"/>
+              <div class="d-flex align-items-end flex-wrap flex-grow-1 w-80">
+
+                <router-link 
+                  class="navBar-item nav-link text-center" 
+                  v-for="(navItem, index) in navBar" 
+                  :key="index" 
+                  :to="{ name: navItem.route }"
+                  :class="[theme.isDarkMode ? 'link-section-dark' : 'link-section-light', { 'navItem-active': $route.name === navItem.route }]">
+                  {{ navItem.title }}
+                  <span :class="theme.isDarkMode?'dark-mode' :'light-mode'" class="close-navItem">x</span>
+                </router-link>
+              </div>  
 
             </div>
 
@@ -82,6 +91,19 @@ function changeTitle(newSectionName) {
 </script>
 
 <style scoped>
+
+/* logo */
+
+.logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 10px;
+  transition: all 0.3s ease-in-out;
+
+}
+
+/* navBar css */
 
 #navBar.dark-mode a {
   box-shadow: 0 8px 32px 0 var(--shadow);

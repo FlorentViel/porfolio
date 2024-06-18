@@ -1,5 +1,5 @@
 <template>
-  <section id="welcome" class="section container py-5">
+  <section id="welcome" class="section container py-3">
    <div class="d-flex row align-content-center position-relative justify-content-between flex-wrap my-auto position-relative">
     <div class="col-6 col-md-3 mr-md-5 align-self-center">
       <!-- Profil-picture -->
@@ -11,9 +11,9 @@
 
       <!-- main-bloc -->
 
-    <div id="card" class="my-3 col-12 col-md-5 text-center card-body p-4" :class="theme.isDarkMode ? 'main-bloc-dark' : 'main-bloc-light'" @mousemove="handleCardEffect" @mouseleave="resetCardEffect">
-      <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="card-title py-3 animate-text title h1 font-weight-bold" :style="{ '--delay': '0.5s' }">Dragon's lair</h1>
-      <h1 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="card-title py-3 animate-text  font-weight-bold" :style="{ '--delay': '0.7s' }">Développeur web et web</h1>
+    <div id="card" class="col-12 col-md-5 text-center card-body p-5" :class="theme.isDarkMode ? 'main-bloc-dark' : 'main-bloc-light'" @mousemove="handleCardEffect" @mouseleave="resetCardEffect">
+      <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="card-title py-2 animate-text title h1 font-weight-bold" :style="{ '--delay': '0.5s' }">Dragon's lair</h1>
+      <h1 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="card-title py-2 animate-text  font-weight-bold" :style="{ '--delay': '0.7s' }">Développeur web et web</h1>
       
       <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class=" animate-text text-warpcard-text text-style py-3 " :style="{ '--delay': '0.9s' }" >
         Passionné par le web avec une expértise en <strong class="text-style ">front-end</strong> et <strong class="text-style">back-end</strong>. 

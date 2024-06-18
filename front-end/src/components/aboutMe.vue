@@ -1,21 +1,19 @@
 <template>
     <section id="about" class="container d-grid py-2">
-     <div class="row align-self-center justify-content-center">
+     <div class="">
   
-      <div id="card" class="col-12 col-md-10 gy-4 mb-5" @mousemove="handleCardEffect" @mouseleave="resetCardEffect">
+      <div id="card" class="gy-2 mb-3 col-12" @mousemove="handleCardEffect" @mouseleave="resetCardEffect">
         <!-- main-bloc -->
         <div>
-          <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="m-4 pb-5 h1 text-center">&Agrave; propos de moi</h1>
+          <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="m-3 py-4 h1 m-auto text-center">&Agrave; propos de moi</h1>
         </div>
-        <div :class="theme.isDarkMode ? 'main-bloc-dark' : 'main-bloc-light'" class="blocPresentation d-flex flex-column flex-md-row justify-content-evenly flex-wrap gap-5 col-12 text-center card-body py-5 text-style">
-          <div class="col-lg-5 col-12 ">
-            <h1 :class="theme.isDarkMode ? 'h1-dark' : 'h1-light'" class="card-title py-5 animate-text title h1 font-weight-bold" >Florent Vieville</h1>
-            <div class="d-flex justify-content-center align-items-center">
-              <img src="./../assets/images/pictures/photo-profil-removebg.png" class="img-fluid" alt="Photo de profil"/>
+        <div :class="theme.isDarkMode ? 'main-bloc-dark' : 'main-bloc-light'" class="blocPresentation text-style">
+          <div class="">
+            <h1 :class="theme.isDarkMode ? 'h2-dark' : 'h2-light'" class="py-5 animate-text title h1 font-weight-bold text-center" >Florent Vieville</h1>
+            <div class="w-sm-25 float-sm-start">
+              <img src="./../assets/images/pictures/photo-profil-removebg.png" class="img-fluid photo-profil" alt="Photo de profil"/>
             </div>
-          </div>
-
-          <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class="d-block d-lg-none px-5 lh-lg lh-sm  textIndent text-justify ">
+            <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class="paragraphe text-justify pb-4" >
             Bonjour ! Je m'appelle Florent, développeur web et webmobile freelance qui commence son activité. 
             J'étais été formé auprès de différent centre de formation comme Webforce 3 et AFCI 
             j'ai développé les outils nécessaires pour évoluer à mon compte et de continuer à développer mes compétences. 
@@ -23,14 +21,8 @@
             entrepreneurs ou indépendants qui aurait besoins de mettre en avant ses activités , produits et/ou services.
           </p>
 
-          <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class="col-5 	d-none d-lg-block  lh-lg lh-sm  textIndent text-justify " >
-            Bonjour ! Je m'appelle Florent, développeur web et webmobile freelance qui commence son activité. 
-            J'étais été formé auprès de différent centre de formation comme Webforce 3 et AFCI 
-            j'ai développé les outils nécessaires pour évoluer à mon compte et de continuer à développer mes compétences. 
-          </p>
-          <p :class="theme.isDarkMode ? 'text-color-dark' : 'text-color-light'" class="lh-lg	d-none d-lg-block lh-lg  lh-sm px-5 textIndent text-justify ">Je suis d'un naturel calme, à l'écoute et curieux et je m'oriente vers le développement de site pour les entreprises , 
-            entrepreneurs ou indépendants qui aurait besoins de mettre en avant ses activités , produits et/ou services.
-          </p>
+          </div>
+
         </div>
       </div>
   
@@ -120,11 +112,14 @@
       margin-bottom: auto;
       position: relative;
   
-  
   }
 
-  .textIndent {
-    text-indent: 20px;
+  .paragraphe {
+    text-indent: 50px;
+    line-height: 2.5; /* Ajustez cette valeur selon vos besoins */
+    min-height: 250px;
+    width: 92%;
+    margin: auto;
   }
 
   
@@ -165,6 +160,59 @@
                 0 0 20px #e7edff ;
     
   } 
+
+  @media (max-width: 577px) {
+
+    div > .photo-profil{
+      width: 50%!important;
+      float: none!important;
+      display: block!important;
+      margin: auto!important;
+    }
+
+    .paragraphe {
+      text-indent: 25px;
+      line-height: 2.5; /* Ajustez cette valeur selon vos besoins */
+      min-height: 250px;
+      width: 60vw;
+      font-size: 0.78rem;
+      padding-top: 25px;
+      margin: auto;
+    }
+
+
+  }
+
+
+
+
+  @media (min-width: 450px) and (max-width: 577px) {
+
+.photo-profil {
+  width: 100%;
+  min-width: 100px;
+}
+
+.paragraphe {
+  text-indent: 50px;
+  line-height: 2.5; /* Ajustez cette valeur selon vos besoins */
+  min-height: 250px;
+  width: 60vw;
+  margin: auto;
+  font-size: 0.9rem;
+}
+
+}
+
+  @media (min-width: 577px) and (max-width: 991px) {
+
+    .photo-profil {
+      width: 100%;
+      min-width: 150px;
+    }
+
+  }
+
   </style>
   
   

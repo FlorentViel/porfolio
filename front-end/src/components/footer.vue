@@ -1,9 +1,9 @@
 <template class=" ">
 
-    <footer id="footerBar" :class="theme.isDarkMode ? 'nav-dark' : 'nav-Light'" class="footer d-flex flex-wrap justify-content-between text-center m-auto px-5 align-items-center navBarStyle mt-auto py-3 text-center">
+    <footer id="footerBar" :class="theme.isDarkMode ? 'nav-dark' : 'nav-Light'" class="footer d-flex flex-wrap justify-content-between text-center px-5 align-items-center navBarStyle  text-center">
     <div class="align-self-center" style="text-align: center;">
       <span class="style-text" >
-        <router-link :class="theme.isDarkMode ? 'footerTextDark' : 'footerTextLight'" to="/privacyPolicy" class="p-2">Politique de confidentialité</router-link>
+        <router-link :class="theme.isDarkMode ? 'footerTextDark' : 'footerTextLight'" to="/privacyPolicy">Politique de confidentialité</router-link>
       </span> 
     </div> 
     <div class="text-end align-self-center">
@@ -50,19 +50,5 @@
     position: relative;
 
 }
-
-
-
-
-#navBar .navItem    {
-  text-align: center!important;
-  font-size: 24px!important;
-  font-style: normal!important;
-  font-weight: 400!important;
-  line-height: normal!important;
-  text-decoration: none;
- 
-}
-
   </style>
   
