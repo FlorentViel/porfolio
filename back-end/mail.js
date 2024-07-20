@@ -22,7 +22,7 @@ app.use(cors(corsOptions));
 // Configurations pour nodemailer (vous devrez remplacer ces valeurs par les vôtres)
 
 const userMail = 'florent.vieville03@gmail.com'
-const mdpMail = 'kjwg spwl elqy oyqu'
+const mdpMail = 'qrut czqk numc ysgy'
 
 const transporter = nodemailer.createTransport({
   service: 'Gmail',
